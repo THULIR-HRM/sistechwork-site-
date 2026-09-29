@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp?v=4">
+    <link rel="shortcut icon" href="./assets/images/favicon.webp?v=4">
+    <link rel="apple-touch-icon" href="./assets/images/favicon.webp?v=4">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products | Sistechwork — Intelligent Solutions for the Modern Enterprise</title>
-    <meta name="description" content="Explore VHomifi, TestOrbit, TrainHub, and Reply IQ — Sistechwork's product ecosystem built for growth, security, and AI-powered efficiency.">
+    <meta name="description" content="Explore Thulirhrm, TestOrbit, TrainHub, and Reply IQ — Sistechwork's product ecosystem built for growth, security, and AI-powered efficiency.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,38 +15,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css?v=3">
-    <link rel="stylesheet" href="products.css?v=2">
+    <link rel="stylesheet" href="style.css?v=5.0">
+    <link rel="stylesheet" href="products.css?v=7">
 </head>
 <body>
     <!-- Page Loader -->
     <div class="pp-loader" id="ppLoader">
         <div class="pp-loader-inner">
             <div class="pp-loader-ring"></div>
-            <img src="./assets/images/logo.png" alt="Loading" class="pp-loader-logo">
+            <img src="./assets/images/logo.webp" alt="Loading" class="pp-loader-logo">
         </div>
     </div>
-    <header class="site-header">
-        <div class="container">
-            <nav class="nav-container">
-                <a href="index.html" class="logo-link">
-                    <img src="./assets/images/logo.png" alt="Sistechwork">
-                </a>
+    <header class="site-header" id="site-header">
+    <nav class="nav-container" id="nav-container" aria-label="Main Navigation">
+        <a href="index.html" class="logo-link" aria-label="Sistechwork Home">
+            <img src="./assets/images/logo.webp" alt="Sistechwork">
+        </a>
 
-                <div class="primary-menu">
-                    <ul class="nav-list" style="list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0;">
-                        <li><a href="products.html" style="text-decoration: none; color: var(--color-primary); font-weight: 600;">Products</a></li>
-                        <li><a href="index.html#services" style="text-decoration: none; color: inherit; font-weight: 500;">Services</a></li>
-                        <li><a href="index.html#techstack" style="text-decoration: none; color: inherit; font-weight: 500;">Tech Stack</a></li>
-                        <li><a href="index.html#careers" style="text-decoration: none; color: inherit; font-weight: 500;">Careers</a></li>
-                        <li><a href="index.html#contact" style="text-decoration: none; color: inherit; font-weight: 500;">Contact</a></li>
-                    </ul>
-                </div>
-
-                <a href="index.html#contact" class="btn btn-primary">Get Started</a>
-            </nav>
+        <div class="primary-menu" role="navigation">
+            <ul class="nav-list">
+                <li><a href="index.html#products" class="nav-link">Platforms</a></li>
+                <li><a href="products.html" class="nav-link active">Products</a></li>
+                <li><a href="index.html#services" class="nav-link">Engineering</a></li>
+                <li><a href="index.html#techstack" class="nav-link">Tech Stack</a></li>
+                <li><a href="index.html#workflow" class="nav-link">Workflow</a></li>
+                <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
         </div>
-    </header>
+
+        <div class="header-actions">
+            <a href="index.html#contact" class="btn btn-primary btn-sm">Get Started</a>
+        </div>
+    </nav>
+</header>
 
     <!-- ============================================
          HERO: PRODUCT ECOSYSTEM
@@ -58,51 +63,59 @@
             <h1 class="pp-hero-title reveal reveal-up delay-1">Intelligent Solutions for the<br> Modern Enterprise</h1>
             <p class="pp-hero-subtitle reveal reveal-up delay-2">Four powerful platforms. One unified intelligence layer. Built for growth, security, and scale.</p>
             <div class="pp-hero-nav reveal reveal-up delay-3">
-                <a href="#vhomifi" class="pp-nav-pill">
-                    <img src="./assets/images/icon_vhomifi.png" alt="VHomifi" class="pp-nav-icon"> VHomifi
+                <a href="#thulirhrm" class="pp-nav-pill">
+                    <img src="./assets/images/icon_vhomifi.webp" alt="Thulirhrm" class="pp-nav-icon"> Thulirhrm
                 </a>
                 <a href="#testorbit" class="pp-nav-pill">
-                    <img src="./assets/images/icon_testorbit.png" alt="TestOrbit" class="pp-nav-icon"> TestOrbit
+                    <img src="./assets/images/icon_testorbit.webp" alt="TestOrbit" class="pp-nav-icon"> TestOrbit
                 </a>
                 <a href="#trainhub" class="pp-nav-pill">
-                    <img src="./assets/images/icon_trainhub.png" alt="TrainHub" class="pp-nav-icon"> TrainHub
+                    <img src="./assets/images/icon_trainhub.webp" alt="TrainHub" class="pp-nav-icon"> TrainHub
                 </a>
                 <a href="#replyiq" class="pp-nav-pill">
-                    <img src="./assets/images/icon_replyiq.png" alt="Reply IQ" class="pp-nav-icon"> Reply IQ
+                    <img src="./assets/images/icon_replyiq.webp" alt="Reply IQ" class="pp-nav-icon"> Reply IQ
                 </a>
             </div>
+
+            <a href="#thulirhrm" class="pp-scroll-down reveal reveal-up delay-4">
+                <span>Explore Products</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            </a>
         </div>
     </section>
 
     <!-- ============================================
-         SECTION 1: VHOMIFI SUITE
+         SECTION 1: THULIRHRM SUITE
          ============================================ -->
-    <section id="vhomifi" class="pp-product section-padding">
+    <section id="thulirhrm" class="pp-product section-padding">
         <div class="liquid-blob-container">
             <div class="liquid-blob blob-2" style="top: 20%; left: -200px; opacity: 0.08;"></div>
             <div class="liquid-blob blob-3" style="bottom: 10%; right: -100px; opacity: 0.08;"></div>
         </div>
         <div class="container">
-            <div class="pp-product-header reveal reveal-left">
-                <img src="./assets/images/icon_vhomifi.png" alt="VHomifi" class="pp-product-icon">
+            <div class="pp-product-header reveal reveal-up">
+                <img src="./assets/images/icon_vhomifi.webp" alt="Thulirhrm" class="pp-product-icon">
                 <div>
                     <div class="pp-product-badge">CRM + HRM</div>
-                    <h2>The VHomifi Suite</h2>
+                    <h2>The Thulirhrm Suite</h2>
                     <p class="pp-product-headline">Where CRM Meets HRM in a Unified Intelligence Portal.</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="thulir.html" class="btn btn-primary" style="padding: 9px 20px; font-size: 0.88rem; border-radius: 20px;">Launch Full Thulir HRM Demo →</a>
+                    </div>
                 </div>
             </div>
 
             <div class="pp-vision-card reveal reveal-up">
                 <h3>The Vision</h3>
-                <p>In the traditional business model, Sales (CRM) and Operations (HRM) exist in separate universes. This disconnection leads to data leakage and missed opportunities. VHomifi was engineered to solve this <strong>"Intelligence Gap."</strong> It is a centralized nervous system that manages your most valuable assets: <strong>your people and your customers.</strong></p>
+                <p>In the traditional business model, Sales (CRM) and Operations (HRM) exist in separate universes. This disconnection leads to data leakage and missed opportunities. Thulirhrm was engineered to solve this <strong>"Intelligence Gap."</strong> It is a centralized nervous system that manages your most valuable assets: <strong>your people and your customers.</strong></p>
             </div>
 
             <div class="pp-modules-grid">
                 <!-- HRM Module -->
-                <div class="pp-module-card reveal reveal-left delay-1">
+                <div class="pp-module-card reveal reveal-up delay-1">
                     <div class="pp-module-label">Module 1</div>
                     <h3>Advanced Human Resource Management (HRM)</h3>
-                    <p class="pp-module-desc">VHomifi's HRM module is not just a digital filing cabinet; it is a <strong>proactive management tool.</strong></p>
+                    <p class="pp-module-desc">Thulirhrm's HRM module is not just a digital filing cabinet; it is a <strong>proactive management tool.</strong></p>
                     <ul class="pp-feature-list">
                         <li>
                             <span class="feat-icon clay-icon" style="background:#E3F0FF;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z" fill="#3B82F6"/></svg></span>
@@ -124,10 +137,10 @@
                 </div>
 
                 <!-- CRM Module -->
-                <div class="pp-module-card reveal reveal-right delay-2">
+                <div class="pp-module-card reveal reveal-up delay-2">
                     <div class="pp-module-label">Module 2</div>
                     <h3>High-Velocity Customer Relationship Management (CRM)</h3>
-                    <p class="pp-module-desc">The CRM component of VHomifi is built for teams that <strong>refuse to slow down.</strong></p>
+                    <p class="pp-module-desc">The CRM component of Thulirhrm is built for teams that <strong>refuse to slow down.</strong></p>
                     <ul class="pp-feature-list">
                         <li>
                             <span class="feat-icon clay-icon" style="background:#FFECE3;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#F97316" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="#F97316" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="#F97316"/></svg></span>
@@ -152,8 +165,8 @@
          ============================================ -->
     <section id="testorbit" class="pp-product pp-product-alt section-padding">
         <div class="container">
-            <div class="pp-product-header reveal reveal-left">
-                <img src="./assets/images/icon_testorbit.png" alt="TestOrbit" class="pp-product-icon">
+            <div class="pp-product-header reveal reveal-up">
+                <img src="./assets/images/icon_testorbit.webp" alt="TestOrbit" class="pp-product-icon">
                 <div>
                     <div class="pp-product-badge">Examination</div>
                     <h2>TestOrbit</h2>
@@ -199,8 +212,8 @@
          ============================================ -->
     <section id="trainhub" class="pp-product section-padding">
         <div class="container">
-            <div class="pp-product-header reveal reveal-left">
-                <img src="./assets/images/icon_trainhub.png" alt="TrainHub" class="pp-product-icon">
+            <div class="pp-product-header reveal reveal-up">
+                <img src="./assets/images/icon_trainhub.webp" alt="TrainHub" class="pp-product-icon">
                 <div>
                     <div class="pp-product-badge">Academic</div>
                     <h2>TrainHub</h2>
@@ -246,8 +259,8 @@
          ============================================ -->
     <section id="replyiq" class="pp-product pp-product-alt section-padding">
         <div class="container">
-            <div class="pp-product-header reveal reveal-left">
-                <img src="./assets/images/icon_replyiq.png" alt="Reply IQ" class="pp-product-icon">
+            <div class="pp-product-header reveal reveal-up">
+                <img src="./assets/images/icon_replyiq.webp" alt="Reply IQ" class="pp-product-icon">
                 <div>
                     <div class="pp-product-badge">AI Mail</div>
                     <h2>Reply IQ</h2>
@@ -293,7 +306,7 @@
          ============================================ -->
     <section class="pp-comparison section-padding">
         <div class="container">
-            <img src="./assets/images/icon_techstack.png" alt="Tech Stack" class="pp-section-icon">
+            <img src="./assets/images/icon_techstack.webp" alt="Tech Stack" class="pp-section-icon">
             <h2 class="section-title" style="color:#fff;">The Sistech "Tech-Stack" Advantage</h2>
             <p class="section-subtitle" style="color:rgba(255,255,255,0.7);">Why our products outperform the competition.</p>
 
@@ -350,9 +363,9 @@
                 <div class="pp-roadmap-card">
                     <div class="pp-roadmap-tag">IN DEVELOPMENT</div>
                     <h3>Scorpio Analytica Integration</h3>
-                    <p>Currently integrating into all four platforms. This adds a layer of <strong>"Deep Data Visualization"</strong> to VHomifi and TrainHub, allowing users to interact with data using <strong>voice commands and 3D holographic charts.</strong></p>
+                    <p>Currently integrating into all four platforms. This adds a layer of <strong>"Deep Data Visualization"</strong> to Thulirhrm and TrainHub, allowing users to interact with data using <strong>voice commands and 3D holographic charts.</strong></p>
                     <div class="pp-roadmap-products">
-                        <span>VHomifi</span>
+                        <span>Thulirhrm</span>
                         <span>TrainHub</span>
                         <span>TestOrbit</span>
                         <span>Reply IQ</span>
@@ -395,7 +408,7 @@
                     <span class="feat-icon clay-icon pp-license-icon" style="background:#F3E8FF;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" fill="#8B5CF6"/><path d="M2 17l10 5 10-5" stroke="#8B5CF6" stroke-width="2" fill="none"/><path d="M2 12l10 5 10-5" stroke="#8B5CF6" stroke-width="2" fill="none"/></svg></span>
                     <h3>White-Label</h3>
                     <p class="pp-license-label">Your Brand, Our Tech</p>
-                    <p>Want our tech under your brand? We offer <strong>full white-labeling</strong> services for VHomifi and TestOrbit.</p>
+                    <p>Want our tech under your brand? We offer <strong>full white-labeling</strong> services for Thulirhrm and TestOrbit.</p>
                 </div>
             </div>
         </div>
@@ -430,11 +443,11 @@
                 </details>
                 <details class="pp-faq-item">
                     <summary>
-                        <span class="pp-faq-q">Is VHomifi suitable for a 10-person startup?</span>
+                        <span class="pp-faq-q">Is Thulirhrm suitable for a 10-person startup?</span>
                         <span class="pp-faq-toggle">+</span>
                     </summary>
                     <div class="pp-faq-answer">
-                        <p>Absolutely. <strong>VHomifi is modular.</strong> You only pay for the features you use, and it scales as your team grows. It's designed to work for teams of 10 or 10,000.</p>
+                        <p>Absolutely. <strong>Thulirhrm is modular.</strong> You only pay for the features you use, and it scales as your team grows. It's designed to work for teams of 10 or 10,000.</p>
                     </div>
                 </details>
             </div>
@@ -456,54 +469,57 @@
 
     <!-- Footer -->
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img src="./assets/images/logo.png" alt="Sistechwork" class="footer-logo">
-                    <p>Precision engineering for the next generation of digital infrastructure.</p>
-                </div>
-                <div class="footer-col">
-                    <h5>Products</h5>
-                    <ul>
-                        <li><a href="#vhomifi">VHomifi (CRM/HRM)</a></li>
-                        <li><a href="#testorbit">TestOrbit (Exam)</a></li>
-                        <li><a href="#trainhub">TrainHub (Student)</a></li>
-                        <li><a href="#replyiq">Reply IQ (AI Mail)</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Services</h5>
-                    <ul>
-                        <li><a href="index.html#services">Custom Web</a></li>
-                        <li><a href="index.html#services">Mobile Dev</a></li>
-                        <li><a href="index.html#services">AI Chatbots</a></li>
-                        <li><a href="index.html#services">Cloud Deployment</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Company</h5>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="index.html#careers">Careers</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Connect</h5>
-                    <ul>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                    </ul>
-                </div>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="./assets/images/logo_white.webp" alt="Sistechwork" class="footer-logo">
+                <p class="footer-brand-desc">Precision software engineering and enterprise platforms built for the modern digital economy.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Sistechwork. All rights reserved. Built with precision.</p>
+            <div class="footer-col">
+                <div class="footer-col-title">Platforms</div>
+                <ul>
+                    <li><a href="thulir.html">Thulir HRM</a></li>
+                    <li><a href="testorbit.html">TestOrbit</a></li>
+                    <li><a href="trainhub.html">TrainHub</a></li>
+                    <li><a href="replyiq.html">Reply IQ</a></li>
+                    <li><a href="products.html">Products Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Engineering</div>
+                <ul>
+                    <li><a href="index.html#services">Custom Web Systems</a></li>
+                    <li><a href="index.html#services">Mobile Applications</a></li>
+                    <li><a href="index.html#services">Cloud &amp; DevOps</a></li>
+                    <li><a href="index.html#services">AI Chatbots &amp; RAG</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Company</div>
+                <ul>
+                    <li><a href="index.html#problem-solution">Why Sistechwork</a></li>
+                    <li><a href="index.html#workflow">Our Workflow</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Connect</div>
+                <ul>
+                    <li><a href="index.html#contact">LinkedIn</a></li>
+                    <li><a href="index.html#contact">GitHub</a></li>
+                    <li><a href="index.html#contact">Twitter</a></li>
+                    <li><a href="index.html#contact">Status: Operational</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sistechwork Private Limited. All Rights Reserved.</p>
+            <p>Engineered with Precision &amp; Passion.</p>
+        </div>
+    </div>
+</footer>
 
     <!-- Scroll Reveal & Loader Script -->
     <script>

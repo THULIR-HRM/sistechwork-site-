@@ -1,856 +1,596 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp?v=4">
+    <link rel="shortcut icon" href="./assets/images/favicon.webp?v=4">
+    <link rel="apple-touch-icon" href="./assets/images/favicon.webp?v=4">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistechwork | Precision Engineering for a Seamless Future</title>
-    <meta name="description" content="Sistechwork delivers robust, integrated solutions — from CRM & HRM platforms to AI-powered chatbots. Products + Services, unified.">
-
-    <!-- Fonts -->
+    <title>SISTECHWORK | Precision Engineering & Enterprise Platforms</title>
+    <meta name="description" content="Sistechwork delivers high-performance enterprise platforms and bespoke digital engineering. From CRM and HRM suites to live assessment portals and AI mail copilot engines.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=5.0">
 </head>
 <body>
-    <!-- Custom Cursor (Aurora) -->
-    <div class="cursor-aurora" aria-hidden="true">
-        <svg class="cursor-arc" viewBox="0 0 100 100">
-            <defs>
-                <linearGradient id="cursorGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#0066FF"/>
-                    <stop offset="50%" stop-color="#8B5CF6"/>
-                    <stop offset="100%" stop-color="#EC4899"/>
-                </linearGradient>
-            </defs>
-            <circle cx="50" cy="50" r="46" fill="none" stroke="url(#cursorGrad)" stroke-width="1.5" stroke-dasharray="60 220" stroke-linecap="round"/>
-        </svg>
-        <div class="cursor-orb"></div>
-        <div class="cursor-label"><span></span></div>
+
+<header class="site-header" id="site-header">
+    <nav class="nav-container" id="nav-container" aria-label="Main Navigation">
+        <a href="index.html" class="logo-link" aria-label="Sistechwork Home">
+            <img src="./assets/images/logo.webp" alt="Sistechwork">
+        </a>
+        <div class="primary-menu" role="navigation">
+            <ul class="nav-list">
+                <li><a href="#products"   class="nav-link">Platforms</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="#services"   class="nav-link">Engineering</a></li>
+                <li><a href="#techstack"  class="nav-link">Tech Stack</a></li>
+                <li><a href="#workflow"   class="nav-link">Workflow</a></li>
+                <li><a href="#careers"    class="nav-link">Careers</a></li>
+                <li><a href="#contact"    class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="header-actions">
+            <a href="#contact" class="btn btn-primary btn-sm" id="nav-cta">Get Started</a>
+        </div>
+    </nav>
+</header>
+
+<main id="main-content">
+
+<section class="hero" id="hero">
+    <!-- Drifting cloud strip -->
+    <div class="hero-clouds" aria-hidden="true"></div>
+
+    <!-- Ambient colour blobs -->
+    <div class="liquid-blob-container" aria-hidden="true">
+        <div class="liquid-blob blob-1"></div>
+        <div class="liquid-blob blob-2"></div>
     </div>
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <canvas class="cursor-trail" aria-hidden="true"></canvas>
-    <header class="site-header">
-        <div class="container">
-            <nav class="nav-container">
-                <a href="index.html" class="logo-link">
-                    <img src="./assets/images/logo.png" alt="Sistechwork">
+
+    <div class="hero-grid"  aria-hidden="true"></div>
+    <div class="hero-aura"  aria-hidden="true"></div>
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-pill reveal" id="hero-pill">
+                <span class="hero-pill-dot" aria-hidden="true"></span>
+                Sistechwork Core v3.4 &nbsp;&middot;&nbsp; Production-Grade Systems Active
+            </div>
+            <h1 class="hero-title reveal delay-1">
+                Precision Engineering for a
+                <span class="hero-title-grad">Seamless Future</span>
+            </h1>
+            <p class="hero-sub reveal delay-2">
+                We build high-performance software systems that eliminate operational fragmentation.
+                Symbiotic integration of enterprise platforms and custom cloud engineering.
+            </p>
+            <div class="hero-actions reveal delay-3">
+                <a href="#products" class="btn btn-primary btn-lg" id="hero-cta-primary">
+                    Explore Platforms
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                 </a>
-
-                <div class="primary-menu">
-                    <ul class="nav-list" style="list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0;">
-                        <li><a href="products.html" style="text-decoration: none; color: inherit; font-weight: 500;">Products</a></li>
-                        <li><a href="#services" style="text-decoration: none; color: inherit; font-weight: 500;">Services</a></li>
-                        <li><a href="#techstack" style="text-decoration: none; color: inherit; font-weight: 500;">Tech Stack</a></li>
-                        <li><a href="#careers" style="text-decoration: none; color: inherit; font-weight: 500;">Careers</a></li>
-                        <li><a href="#contact" style="text-decoration: none; color: inherit; font-weight: 500;">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="header-actions">
-                    <a href="#contact" class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">Get Started</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <main id="main-content">
-        <!-- Hero Section -->
-        <section class="hero section-padding">
-            <div class="hero-clouds"></div>
-            <div class="liquid-blob-container">
-                <div class="liquid-blob blob-1"></div>
-                <div class="liquid-blob blob-2"></div>
+                <a href="#services" class="btn btn-secondary btn-lg" id="hero-cta-secondary">Core Services</a>
             </div>
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-content">
-                        <h1 class="hero-title reveal reveal-up">Precision Engineering for a Seamless Future</h1>
-                        <p class="hero-subtitle reveal reveal-up delay-1">Experience the next generation of digital excellence. Sistechwork delivers robust, integrated solutions that redefine the boundaries of innovation.</p>
-                        <div class="hero-buttons reveal reveal-up delay-2">
-                            <a href="#products" class="btn btn-primary">Explore Products</a>
-                            <a href="#services" class="btn btn-secondary">Our Services</a>
-                        </div>
-                    </div>
-                    <div class="hero-image" style="position: relative;">
-                        <div class="hero-blob"></div>
-                        <div class="dot-grid dot-grid-1"></div>
-                        <div class="dot-grid dot-grid-2"></div>
-
-                        <div class="floating-badge badge-1">
-                            <div class="badge-icon">✓</div>
-                            <div class="badge-text">
-                                <span class="badge-val">2K+</span>
-                                <span class="badge-label">Projects</span>
-                            </div>
-                        </div>
-
-                        <div class="floating-badge badge-2">
-                            <div class="badge-icon">★</div>
-                            <div class="badge-text">
-                                <span class="badge-val">4.8</span>
-                                <span class="badge-label">Satisfaction</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="hero-metrics reveal delay-4">
+                <div class="metric-card">
+                    <div class="metric-val">99.98<span>%</span></div>
+                    <div class="metric-label">System Reliability SLA</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 2: Problem-Solution -->
-        <section id="problem-solution" class="problem-solution section-padding">
-            <div class="container">
-                <h2 class="section-title reveal reveal-up">Why Sistech Work?</h2>
-                <div class="ps-grid">
-                    <div class="ps-card ps-problem reveal reveal-left">
-                        <img src="./assets/images/icon_problem.png" alt="The Problem" class="ps-icon">
-                        <h3>The Chaos of Modern Business</h3>
-                        <p>In today's digital-first economy, businesses are drowning in fragmented tools. HR is on one platform, CRM is on another, and your student data or exam portals are disconnected. This <strong>"Software Silo"</strong> effect leads to lost data, decreased productivity, and massive overhead costs.</p>
-                    </div>
-                    <div class="ps-divider">
-                        <div class="ps-divider-line"></div>
-                        <span class="ps-divider-icon">→</span>
-                        <div class="ps-divider-line"></div>
-                    </div>
-                    <div class="ps-card ps-solution reveal reveal-right">
-                        <img src="./assets/images/icon_solution.png" alt="The Solution" class="ps-icon">
-                        <h3>The Sistech Solution</h3>
-                        <p>At Sistech Work, we <strong>unify your operations</strong>. We provide a symbiotic relationship between Products and Services. Whether you need an out-of-the-box solution like TrainHub or a bespoke web application built from the ground up, we ensure your tech stack is a cohesive, high-performance engine.</p>
-                    </div>
+                <div class="metric-card">
+                    <div class="metric-val">4<span>+</span></div>
+                    <div class="metric-label">Flagship Platforms</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Flagship Products -->
-        <section id="products" class="products section-padding">
-            <div class="liquid-blob-container">
-                <div class="liquid-blob blob-2" style="top: 20%; right: -150px; opacity: 0.1;"></div>
-                <div class="liquid-blob blob-3" style="bottom: 10%; left: -100px; opacity: 0.1;"></div>
-            </div>
-            <div class="container">
-                <h2 class="section-title reveal reveal-up">Our Flagship Products</h2>
-                <p class="section-subtitle reveal reveal-up delay-1">Four powerful platforms. One unified ecosystem.</p>
-
-                <div class="stack-container hide-grid-on-desktop">
-                    <!-- VHomifi -->
-                    <div class="stack-item magnetic-wrap">
-                        <div class="magnetic-inner">
-                            <div class="product-card" style="margin: 0; max-width: 100%;">
-                                <div class="product-card-header">
-                                    <img src="./assets/images/icon_vhomifi.png" alt="VHomifi" class="product-icon">
-                                    <div class="product-badge">CRM + HRM</div>
-                                </div>
-                                <h3>VHomifi</h3>
-                                <p class="product-tagline">The CRM & HRM Powerhouse</p>
-                                <p class="product-desc">Managing people and managing customers shouldn't be separate tasks. VHomifi brings them into a single pane of glass.</p>
-                                <ul class="product-features">
-                                    <li><span class="feat-icon clay-icon" style="background:#E3F0FF;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 2L4.09 12H11L10 22L18.91 12H12L13 2Z" fill="#3B82F6"/></svg></span> Automated payroll, leave management & predictive analytics</li>
-                                    <li><span class="feat-icon clay-icon" style="background:#FFECE3;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#F97316" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="#F97316" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="#F97316"/></svg></span> AI-powered lead tracking to prioritize high-value clients</li>
-                                    <li><span class="feat-icon clay-icon" style="background:#F3E8FF;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="14" width="4" height="8" rx="1" fill="#8B5CF6"/><rect x="10" y="8" width="4" height="14" rx="1" fill="#8B5CF6"/><rect x="17" y="4" width="4" height="18" rx="1" fill="#8B5CF6"/></svg></span> Reduce admin time by 40%, increase conversion by 25%</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TestOrbit -->
-                    <div class="stack-item magnetic-wrap">
-                        <div class="magnetic-inner">
-                            <div class="product-card" style="margin: 0; max-width: 100%;">
-                                <div class="product-card-header">
-                                    <img src="./assets/images/icon_testorbit.png" alt="TestOrbit" class="product-icon">
-                                    <div class="product-badge">Examination</div>
-                                </div>
-                                <h3>TestOrbit</h3>
-                                <p class="product-tagline">Secure, Scalable Examination Portal</p>
-                                <p class="product-desc">A fortress for digital assessments. Designed for schools, universities, and corporate certifications.</p>
-                                <ul class="product-features">
-                                    <li><span class="feat-icon clay-icon" style="background:#FEE2E2;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="11" rx="2" fill="#EF4444"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#EF4444" stroke-width="2" fill="none"/></svg></span> Anti-cheat proctoring & randomized question banks</li>
-                                    <li><span class="feat-icon clay-icon" style="background:#FEF3C7;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="10" stroke="#F59E0B" stroke-width="2"/></svg></span> Instant grading with detailed analytics</li>
-                                    <li><span class="feat-icon clay-icon" style="background:#DBEAFE;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L8 8H3L7 13L5 20L12 16L19 20L17 13L21 8H16L12 2Z" fill="#2563EB"/></svg></span> 10,000+ concurrent test-takers, zero lag</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- TrainHub -->
-                    <div class="stack-item magnetic-wrap">
-                        <div class="magnetic-inner">
-                            <div class="product-card" style="margin: 0; max-width: 100%;">
-                                <div class="product-card-header">
-                                    <img src="./assets/images/icon_trainhub.png" alt="TrainHub" class="product-icon">
-                                    <div class="product-badge">Academic</div>
-                                </div>
-                                <h3>TrainHub</h3>
-                                <p class="product-tagline">The Pulse of Academic Success</p>
-                                <p class="product-desc">A student-centric ecosystem for mark management and attendance tracking.</p>
-                                <ul class="product-features">
-                                    <li><span class="feat-icon clay-icon" style="background:#D1FAE5;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="#10B981" stroke-width="2"/><line x1="10" y1="18" x2="14" y2="18" stroke="#10B981" stroke-width="2" stroke-linecap="round"/></svg></span> Real-time attendance with automated parent notifications</li>
-                                    <li><span class="feat-icon clay-icon" style="background:#E0F2FE;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><polyline points="4,18 8,14 12,16 16,8 20,10" stroke="#0EA5E9" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><polyline points="16,8 20,8 20,10" stroke="#0EA5E9" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Visual dashboards for teacher analytics</li>
-                                    <li><span class="feat-icon clay-icon" style="background:#FEF9C3;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 3L3 9H6V15H18V9H21L12 3Z" fill="#CA8A04"/><rect x="9" y="15" width="6" height="3" fill="#CA8A04"/></svg></span> End-to-end student performance tracking</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Reply IQ -->
-                    <div class="stack-item magnetic-wrap">
-                        <div class="magnetic-inner">
-                            <div class="product-card" style="margin: 0; max-width: 100%;">
-                                <div class="product-card-header">
-                                    <img src="./assets/images/icon_replyiq.png" alt="Reply IQ" class="product-icon">
-                                    <div class="product-badge">AI Mail</div>
-                                </div>
-                                <h3>Reply IQ</h3>
-                                <p class="product-tagline">The Next Era of Communication</p>
-                                <p class="product-desc">Your inbox is a goldmine, but only if you have time to mine it. Reply IQ is an AI-powered mail bot.</p>
-                                <ul class="product-features">
-                                    <li><span class="feat-icon clay-icon" style="background:#FCE7F3;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 9c0 2.5 1.5 5 3 6.5V18h8v-2.5c1.5-1.5 3-4 3-6.5 0-4-3-7-7-7z" fill="#EC4899"/><rect x="9" y="19" width="6" height="2" rx="1" fill="#EC4899"/></svg></span> Contextually accurate replies based on email tone</li>
-                                    <li><span class="feat-icon clay-icon" style="background:#E0E7FF;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#6366F1"/><rect x="10" y="12" width="4" height="6" fill="#6366F1"/><rect x="6" y="18" width="12" height="3" rx="1" fill="#6366F1"/></svg></span> Browser extension — sits directly in your inbox</li>
-                                    <li><span class="feat-icon clay-icon" style="background:#F0FDF4;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="7" y="4" width="10" height="8" rx="2" fill="#22C55E"/><circle cx="10" cy="8" r="1" fill="white"/><circle cx="14" cy="8" r="1" fill="white"/><rect x="10" y="12" width="4" height="4" fill="#22C55E"/><rect x="6" y="16" width="12" height="2" rx="1" fill="#22C55E"/></svg></span> Autonomous FAQ, scheduling & support queries</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                <div class="metric-card">
+                    <div class="metric-val">10K<span>+</span></div>
+                    <div class="metric-label">Assessment Concurrency</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Core Services -->
-        <section id="services" class="services section-padding">
-            <div class="container">
-                <h2 class="section-title reveal reveal-up">Core Services</h2>
-                <p class="section-subtitle reveal reveal-up delay-1">Custom engineering, from concept to deployment.</p>
-
-                <div class="service-reveal-stage">
-                    <div class="service-reveal-rail" aria-hidden="true"><span class="service-reveal-progress"></span></div>
-                    <!-- Service 1 -->
-                    <div class="service-reveal-item magnetic-wrap" data-side="left" data-index="01" data-anim="slide-tilt">
-                        <div class="magnetic-inner">
-                            <div class="service-card split-service-card" style="margin: 0; max-width: 100%;">
-                                <div class="service-split-panel service-split-visual">
-                                    <img src="./assets/images/icon_custom_web.png" alt="Custom Web Development" class="service-icon">
-                                    <span class="service-kicker">Interface Craft</span>
-                                </div>
-                                <div class="service-split-panel service-split-content">
-                                    <h3>Custom Web Development</h3>
-                                    <p>MERN Stack & TypeScript specialists. We don't use templates — we build custom-coded, high-performance web experiences.</p>
-                                    <ul class="service-tags">
-                                        <li>3D UI/UX</li>
-                                        <li>Three.js</li>
-                                        <li>Framer Motion</li>
-                                        <li>SEO Optimization</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service 2 -->
-                    <div class="service-reveal-item magnetic-wrap" data-side="right" data-index="02" data-anim="zoom-blur">
-                        <div class="magnetic-inner">
-                            <div class="service-card split-service-card" style="margin: 0; max-width: 100%;">
-                                <div class="service-split-panel service-split-visual">
-                                    <img src="./assets/images/icon_mobile_app.png" alt="Mobile App Development" class="service-icon">
-                                    <span class="service-kicker">Pocket Scale</span>
-                                </div>
-                                <div class="service-split-panel service-split-content">
-                                    <h3>Mobile App Development</h3>
-                                    <p>From native Kotlin apps to cross-platform React Native solutions. We put your business in your users' pockets.</p>
-                                    <ul class="service-tags">
-                                        <li>Kotlin</li>
-                                        <li>React Native</li>
-                                        <li>iOS</li>
-                                        <li>Android</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div class="service-reveal-item magnetic-wrap" data-side="left" data-index="03" data-anim="flip-up">
-                        <div class="magnetic-inner">
-                            <div class="service-card split-service-card" style="margin: 0; max-width: 100%;">
-                                <div class="service-split-panel service-split-visual">
-                                    <img src="./assets/images/icon_cloud_deploy.png" alt="Web Deployment & Maintenance" class="service-icon">
-                                    <span class="service-kicker">Cloud Control</span>
-                                </div>
-                                <div class="service-split-panel service-split-content">
-                                    <h3>Deployment & Maintenance</h3>
-                                    <p>Building it is only half the battle. We handle Cloud Hosting, SSL Security, Firewall Hardening, and 24/7 Server Monitoring.</p>
-                                    <ul class="service-tags">
-                                        <li>AWS</li>
-                                        <li>Azure</li>
-                                        <li>Google Cloud</li>
-                                        <li>CI/CD</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div class="service-reveal-item magnetic-wrap" data-side="right" data-index="04" data-anim="rotate-swing">
-                        <div class="magnetic-inner">
-                            <div class="service-card split-service-card" style="margin: 0; max-width: 100%;">
-                                <div class="service-split-panel service-split-visual">
-                                    <img src="./assets/images/icon_chatbot.png" alt="Custom Chatbot Building" class="service-icon">
-                                    <span class="service-kicker">AI Response</span>
-                                </div>
-                                <div class="service-split-panel service-split-content">
-                                    <h3>Custom AI Chatbots</h3>
-                                    <p>Leveraging our <strong>NIMMI Framework</strong>: RAG-integrated bots that "read" your company's documents and answer like a human expert.</p>
-                                    <ul class="service-tags">
-                                        <li>RAG</li>
-                                        <li>LangChain</li>
-                                        <li>NIMMI</li>
-                                        <li>AI Agents</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="metric-card">
+                    <div class="metric-val">40<span>%</span></div>
+                    <div class="metric-label">Admin Overhead Reduction</div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Section 5: Tech Stack -->
-        <section id="techstack" class="techstack section-padding">
-            <div class="container">
-                <div class="techstack-inner">
-                    <div class="techstack-header">
-                        <img src="./assets/images/icon_techstack.png" alt="Tech Stack" class="techstack-hero-icon">
-                        <h2 class="section-title" style="color: #fff;">Our Technical Manifesto</h2>
-                        <p class="section-subtitle" style="color: rgba(255,255,255,0.7);">"Our code is our craft." We utilize a cutting-edge stack to ensure longevity and scalability.</p>
-                    </div>
-                    <div class="techstack-grid">
-                        <div class="techstack-category">
-                            <h4>Languages</h4>
-                            <div class="techstack-pills">
-                                <span class="tech-pill">Python</span>
-                                <span class="tech-pill">TypeScript</span>
-                                <span class="tech-pill">JavaScript</span>
-                                <span class="tech-pill">Kotlin</span>
-                            </div>
-                        </div>
-                        <div class="techstack-category">
-                            <h4>AI Frameworks</h4>
-                            <div class="techstack-pills">
-                                <span class="tech-pill">vLLM</span>
-                                <span class="tech-pill">LangChain</span>
-                                <span class="tech-pill">PyTorch</span>
-                            </div>
-                        </div>
-                        <div class="techstack-category">
-                            <h4>Frontend</h4>
-                            <div class="techstack-pills">
-                                <span class="tech-pill">Next.js</span>
-                                <span class="tech-pill">Tailwind CSS</span>
-                                <span class="tech-pill">Three.js</span>
-                            </div>
-                        </div>
-                        <div class="techstack-category">
-                            <h4>Backend</h4>
-                            <div class="techstack-pills">
-                                <span class="tech-pill">Node.js</span>
-                                <span class="tech-pill">FastAPI</span>
-                                <span class="tech-pill">PostgreSQL</span>
-                                <span class="tech-pill">MongoDB</span>
-                            </div>
-                        </div>
-                        <div class="techstack-category">
-                            <h4>Infrastructure</h4>
-                            <div class="techstack-pills">
-                                <span class="tech-pill">Docker</span>
-                                <span class="tech-pill">Kubernetes</span>
-                                <span class="tech-pill">CI/CD Pipelines</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 6: Workflow -->
-        <section id="workflow" class="workflow section-padding">
-            <div class="container">
-                <h2 class="section-title">The Sistech Workflow</h2>
-                <p class="section-subtitle">From first conversation to launch and beyond.</p>
-
-                <div class="workflow-timeline">
-                    <div class="workflow-step">
-                        <div class="step-number">01</div>
-                        <div class="step-content">
-                            <h4>Discovery</h4>
-                            <p>We sit down with you to understand your business pain points.</p>
-                        </div>
-                    </div>
-                    <div class="workflow-step">
-                        <div class="step-number">02</div>
-                        <div class="step-content">
-                            <h4>Blueprint</h4>
-                            <p>We architect a solution, from wireframes to database schema.</p>
-                        </div>
-                    </div>
-                    <div class="workflow-step">
-                        <div class="step-number">03</div>
-                        <div class="step-content">
-                            <h4>Agile Development</h4>
-                            <p>You see progress every two weeks through our sprint demos.</p>
-                        </div>
-                    </div>
-                    <div class="workflow-step">
-                        <div class="step-number">04</div>
-                        <div class="step-content">
-                            <h4>Deployment</h4>
-                            <p>We launch your product on a hardened, scalable cloud environment.</p>
-                        </div>
-                    </div>
-                    <div class="workflow-step">
-                        <div class="step-number">05</div>
-                        <div class="step-content">
-                            <h4>Evolution</h4>
-                            <p>We provide continuous updates to keep your tech ahead of the competition.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 7: Careers & Culture -->
-        <section id="careers" class="careers section-padding">
-            <div class="container">
-                <div class="careers-inner">
-                    <h2>Join the Architects of Tomorrow</h2>
-                    <p>At Sistech Work, we are a collective of engineers, designers, and dreamers. We foster a culture of <strong>"Constant Iteration."</strong> Whether it's developing our next internal AI tool or building a client's dream app, we prioritize innovation over everything else.</p>
-                    <a href="#contact" class="btn btn-primary">Browse Open Positions</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 8: Contact -->
-        <section id="contact" class="contact section-padding">
-            <div class="container">
-                <h2 class="section-title">Get in Touch</h2>
-                <p class="section-subtitle">Let's build something extraordinary together.</p>
-
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                        <img src="./assets/images/icon_address.png" alt="Address" class="contact-icon-img">
-                        <div>
-                            <h5>Address</h5>
-                            <p>Sistechwork HQ, Chennai, India</p>
-                        </div>
-                    </div>
-                        <div class="contact-item">
-                        <img src="./assets/images/icon_email.png" alt="Email" class="contact-icon-img">
-                        <div>
-                            <h5>Email</h5>
-                            <p>contact@sistechwork.com</p>
-                        </div>
-                    </div>
-                        <div class="contact-item">
-                        <img src="./assets/images/icon_phone.png" alt="Phone" class="contact-icon-img">
-                        <div>
-                            <h5>Phone</h5>
-                            <p>+91 XXXXX XXXXX</p>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="contact-form-wrap">
-                        <form class="contact-form" id="contact-form">
-                            <input type="text" placeholder="Your Name" required>
-                            <input type="email" placeholder="Your Email" required>
-                            <textarea rows="4" placeholder="Tell us about your project..."></textarea>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <img src="./assets/images/logo.png" alt="Sistechwork" width="150" class="footer-logo">
-                    <p>Precision engineering for the next generation of digital infrastructure.</p>
-                </div>
-                <div class="footer-nav">
-                    <h5>Products</h5>
-                    <ul>
-                        <li><a href="#products">VHomifi (CRM/HRM)</a></li>
-                        <li><a href="#products">TestOrbit (Exam)</a></li>
-                        <li><a href="#products">TrainHub (Student)</a></li>
-                        <li><a href="#products">Reply IQ (AI Mail)</a></li>
-                    </ul>
-                </div>
-                <div class="footer-nav">
-                    <h5>Services</h5>
-                    <ul>
-                        <li><a href="#services">Custom Web</a></li>
-                        <li><a href="#services">Mobile Dev</a></li>
-                        <li><a href="#services">AI Chatbots</a></li>
-                        <li><a href="#services">Cloud Deployment</a></li>
-                    </ul>
-                </div>
-                <div class="footer-nav">
-                    <h5>Company</h5>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#careers">Careers</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="footer-nav">
-                    <h5>Connect</h5>
-                    <ul>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Sistechwork. All Rights Reserved.</p>
             </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- Scroll Reveal & Progress Script -->
-    <script>
-    (function() {
-        // ---- Intersection Observer Scroll Reveal ----
-        var revealElements = document.querySelectorAll('.reveal');
-        var revealObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-        revealElements.forEach(function(el) { revealObserver.observe(el); });
+<section id="problem-solution" class="ps-section section-pad">
+    <div class="container">
+        <div class="sec-header reveal">
+            <span class="sec-kicker">Architectural Insight</span>
+            <h2 class="sec-title">Why Sistechwork?</h2>
+            <p class="sec-subtitle">The modern enterprise suffers from tool fragmentation. We bridge the intelligence gap through unified architecture.</p>
+        </div>
+        <div class="ps-grid">
+            <div class="ps-card ps-card-problem reveal-left">
+                <span class="ps-badge ps-badge-problem">The Status Quo Challenge</span>
+                <h3>The Chaos of Fragmented Silos</h3>
+                <p class="ps-card-desc">Businesses run disparate platforms: HR on one tool, CRM on another, testing on standalone portals, inboxes overloaded with untracked tickets. This produces severe data loss, high vendor costs, and operational friction at every layer.</p>
+                <div class="ps-points">
+                    <div class="ps-point"><span class="ps-icon bad" aria-hidden="true">x</span><span>Disconnected employee records and missed lead handoffs</span></div>
+                    <div class="ps-point"><span class="ps-icon bad" aria-hidden="true">x</span><span>Multi-vendor integration overhead and security vulnerabilities</span></div>
+                    <div class="ps-point"><span class="ps-icon bad" aria-hidden="true">x</span><span>Manual triage consuming hundreds of hours weekly</span></div>
+                </div>
+            </div>
+            <div class="ps-divider" aria-hidden="true">
+                <div class="ps-divider-line"></div>
+                <div class="ps-divider-node">to</div>
+                <div class="ps-divider-line"></div>
+            </div>
+            <div class="ps-card ps-card-solution reveal-right">
+                <span class="ps-badge ps-badge-solution">The Sistech Architecture</span>
+                <h3>The Unified Digital Engine</h3>
+                <p class="ps-card-desc">We unify enterprise operations with a symbiotic model: turnkey flagship platforms for immediate scale combined with custom-coded engineering services tailored to your exact specifications and integration requirements.</p>
+                <div class="ps-points">
+                    <div class="ps-point"><span class="ps-icon good" aria-hidden="true">v</span><span>Single pane of glass across CRM, Workforce, and Academics</span></div>
+                    <div class="ps-point"><span class="ps-icon good" aria-hidden="true">v</span><span>AI Mail copilot and automated assessment pipelines</span></div>
+                    <div class="ps-point"><span class="ps-icon good" aria-hidden="true">v</span><span>Zero-lockin modular architecture built on open standards</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        // ---- Smooth Scroll for anchor links ----
-        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-            anchor.addEventListener('click', function(e) {
-                var target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+<section id="products" class="products-section section-pad">
+    <div class="container">
+        <div class="sec-header reveal">
+            <span class="sec-kicker">Platform Ecosystem</span>
+            <h2 class="sec-title">Our Flagship Platforms</h2>
+            <p class="sec-subtitle">Four intelligent platforms built for growth, enterprise security, and automated workflows.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal" id="product-thulir">
+                <div class="product-card-head">
+                    <div class="product-icon"><img src="./assets/images/icon_vhomifi.webp" alt="Thulir HRM"></div>
+                    <span class="product-badge">CRM + Workforce</span>
+                </div>
+                <div class="product-name">Thulir HRM</div>
+                <div class="product-tagline">Intelligent Workforce &amp; Lead Engine</div>
+                <p class="product-desc">Brings CRM lead prioritization, automated payroll, leave tracking, and team performance analytics into one high-performance command center.</p>
+                <div class="product-features">
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span>Automated multi-currency payroll &amp; predictive retention analytics</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span>AI-powered lead scoring and deal velocity pipeline</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><span>Enterprise role-based access control (RBAC) and audit logging</span></div>
+                </div>
+                <div class="product-card-footer">
+                    <a href="thulir.html" class="btn btn-primary btn-sm" id="thulir-demo">Explore Live Demo &#8594;</a>
+                    <a href="products.html#thulirhrm" class="btn btn-secondary btn-sm">Full Specs</a>
+                </div>
+            </div>
+            <div class="product-card reveal delay-1" id="product-testorbit">
+                <div class="product-card-head">
+                    <div class="product-icon"><img src="./assets/images/icon_testorbit.webp" alt="TestOrbit"></div>
+                    <span class="product-badge">Assessment Engine</span>
+                </div>
+                <div class="product-name">TestOrbit</div>
+                <div class="product-tagline">Secure, Scalable Examination Portal</div>
+                <p class="product-desc">High-concurrency digital assessment fortress built for universities, certification bodies, and enterprise recruiting with AI anti-cheat proctoring.</p>
+                <div class="product-features">
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span><span>AI eye-tracking, screen lock, and real-time proctor flags</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span>Instant automated grading with detailed score breakdowns</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></span><span>10,000+ simultaneous test-takers with zero latency</span></div>
+                </div>
+                <div class="product-card-footer">
+                    <a href="testorbit.html" class="btn btn-primary btn-sm" id="testorbit-demo">Explore Live Demo &#8594;</a>
+                    <a href="products.html#testorbit" class="btn btn-secondary btn-sm">Full Specs</a>
+                </div>
+            </div>
+            <div class="product-card reveal" id="product-trainhub">
+                <div class="product-card-head">
+                    <div class="product-icon"><img src="./assets/images/icon_trainhub.webp" alt="TrainHub"></div>
+                    <span class="product-badge">Academic Management</span>
+                </div>
+                <div class="product-name">TrainHub</div>
+                <div class="product-tagline">The Pulse of Academic Success</div>
+                <p class="product-desc">A student-centric academic system managing attendance, grades, faculty workflows, and parent notification broadcasts in real time.</p>
+                <div class="product-features">
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><span>Automated real-time attendance alerts to guardians</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span><span>Visual teacher dashboards &amp; curriculum milestone tracking</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></span><span>End-to-end student transcript and achievement tracking</span></div>
+                </div>
+                <div class="product-card-footer">
+                    <a href="trainhub.html" class="btn btn-primary btn-sm" id="trainhub-demo">Explore Live Demo &#8594;</a>
+                    <a href="products.html#trainhub" class="btn btn-secondary btn-sm">Full Specs</a>
+                </div>
+            </div>
+            <div class="product-card reveal delay-1" id="product-replyiq">
+                <div class="product-card-head">
+                    <div class="product-icon"><img src="./assets/images/icon_replyiq.webp" alt="Reply IQ"></div>
+                    <span class="product-badge">AI Mail Assistant</span>
+                </div>
+                <div class="product-name">Reply IQ</div>
+                <div class="product-tagline">AI-Powered Inbox Intelligence</div>
+                <p class="product-desc">Transforms inboxes into automated action hubs. Generates contextually accurate summaries, drafts replies, and auto-routes incoming customer requests.</p>
+                <div class="product-features">
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span>Context-aware smart replies powered by HuggingFace &amp; Gemini</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span><span>Smart triage categories: Draft Ready, Action Required, FYI</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span>AES-256 encrypted credential vault with multi-model fallback</span></div>
+                </div>
+                <div class="product-card-footer">
+                    <a href="replyiq.html" class="btn btn-primary btn-sm" id="replyiq-demo">Explore Live Demo &#8594;</a>
+                    <a href="products.html#replyiq" class="btn btn-secondary btn-sm">Full Specs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="services" class="services-section section-pad">
+    <div class="container">
+        <div class="sec-header reveal">
+            <span class="sec-kicker">Engineering Disciplines</span>
+            <h2 class="sec-title">Core Engineering Services</h2>
+            <p class="sec-subtitle">Custom software craft from initial architecture design to cloud deployment and ongoing maintenance.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-head">
+                    <div class="service-icon"><img src="./assets/images/icon_custom_web.webp" alt="Custom Web"></div>
+                    <span class="service-num">Discipline 01</span>
+                </div>
+                <h3 class="service-title">Custom Web Architecture</h3>
+                <p class="service-desc">TypeScript, Next.js, and React experts building bespoke, high-conversion web applications with clean component systems, rich micro-interactions, and search engine optimization.</p>
+                <div class="service-tags">
+                    <span class="service-tag">Next.js</span><span class="service-tag">TypeScript</span><span class="service-tag">Tailwind CSS</span><span class="service-tag">Three.js</span>
+                </div>
+            </div>
+            <div class="service-card reveal delay-1">
+                <div class="service-head">
+                    <div class="service-icon"><img src="./assets/images/icon_mobile_app.webp" alt="Mobile App"></div>
+                    <span class="service-num">Discipline 02</span>
+                </div>
+                <h3 class="service-title">Mobile App Engineering</h3>
+                <p class="service-desc">Native Kotlin and cross-platform React Native solutions that deliver silky 60fps mobile experiences, offline-first syncing, and biometric security for mobile workforces.</p>
+                <div class="service-tags">
+                    <span class="service-tag">React Native</span><span class="service-tag">Kotlin</span><span class="service-tag">iOS</span><span class="service-tag">Android</span>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-head">
+                    <div class="service-icon"><img src="./assets/images/icon_cloud_deploy.webp" alt="Cloud"></div>
+                    <span class="service-num">Discipline 03</span>
+                </div>
+                <h3 class="service-title">Cloud Infrastructure &amp; DevOps</h3>
+                <p class="service-desc">Automated CI/CD pipelines, container orchestration with Kubernetes, infrastructure-as-code, SSL/TLS hardening, and 24/7 observability across AWS and GCP environments.</p>
+                <div class="service-tags">
+                    <span class="service-tag">AWS</span><span class="service-tag">Docker</span><span class="service-tag">Kubernetes</span><span class="service-tag">CI/CD</span>
+                </div>
+            </div>
+            <div class="service-card reveal delay-1">
+                <div class="service-head">
+                    <div class="service-icon"><img src="./assets/images/icon_chatbot.webp" alt="AI Agents"></div>
+                    <span class="service-num">Discipline 04</span>
+                </div>
+                <h3 class="service-title">Custom AI Chatbots &amp; RAG Agents</h3>
+                <p class="service-desc">Building intelligent retrieval-augmented generation (RAG) agents that index your internal enterprise knowledge base to provide factual, secure, automated customer answers.</p>
+                <div class="service-tags">
+                    <span class="service-tag">LangChain</span><span class="service-tag">RAG Pipelines</span><span class="service-tag">Gemini API</span><span class="service-tag">Vector DBs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="techstack" class="techstack-section">
+    <div class="container">
+        <div class="techstack-inner reveal">
+            <div class="techstack-hdr">
+                <h2>Our Technical Manifesto</h2>
+                <p>We build with an unyielding commitment to code quality, type safety, and battle-tested modern infrastructure.</p>
+            </div>
+            <div class="techstack-grid">
+                <div class="ts-col">
+                    <div class="ts-col-title">Languages</div>
+                    <div class="ts-pills">
+                        <div class="ts-pill">TypeScript</div><div class="ts-pill">Python</div><div class="ts-pill">JavaScript ES6+</div><div class="ts-pill">Kotlin</div>
+                    </div>
+                </div>
+                <div class="ts-col">
+                    <div class="ts-col-title">AI &amp; ML</div>
+                    <div class="ts-pills">
+                        <div class="ts-pill">LangChain</div><div class="ts-pill">vLLM</div><div class="ts-pill">PyTorch</div><div class="ts-pill">HuggingFace</div>
+                    </div>
+                </div>
+                <div class="ts-col">
+                    <div class="ts-col-title">Frontend</div>
+                    <div class="ts-pills">
+                        <div class="ts-pill">React 18</div><div class="ts-pill">Next.js</div><div class="ts-pill">Tailwind CSS</div><div class="ts-pill">Three.js</div>
+                    </div>
+                </div>
+                <div class="ts-col">
+                    <div class="ts-col-title">Backend</div>
+                    <div class="ts-pills">
+                        <div class="ts-pill">Node.js</div><div class="ts-pill">FastAPI</div><div class="ts-pill">PostgreSQL</div><div class="ts-pill">Redis</div>
+                    </div>
+                </div>
+                <div class="ts-col">
+                    <div class="ts-col-title">Infrastructure</div>
+                    <div class="ts-pills">
+                        <div class="ts-pill">Docker</div><div class="ts-pill">Kubernetes</div><div class="ts-pill">AWS / GCP</div><div class="ts-pill">GitHub Actions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="workflow" class="workflow-section section-pad">
+    <div class="container">
+        <div class="sec-header reveal">
+            <span class="sec-kicker">Delivery Framework</span>
+            <h2 class="sec-title">The Sistech Workflow</h2>
+            <p class="sec-subtitle">From initial requirements triage to production release and high-availability support.</p>
+        </div>
+        <div class="workflow-grid">
+            <div class="wf-card reveal">
+                <div class="wf-step">01</div>
+                <div class="wf-title">Discovery</div>
+                <p class="wf-desc">Deep-dive technical assessment into your business logic, bottleneck analysis, and architecture sizing.</p>
+            </div>
+            <div class="wf-card reveal delay-1">
+                <div class="wf-step">02</div>
+                <div class="wf-title">Blueprint</div>
+                <p class="wf-desc">System schemas, database models, interactive UI wireframes, and API contract specifications.</p>
+            </div>
+            <div class="wf-card reveal delay-2">
+                <div class="wf-step">03</div>
+                <div class="wf-title">Agile Sprints</div>
+                <p class="wf-desc">Two-week iterative sprints with live staging demo environments and continuous integration tests.</p>
+            </div>
+            <div class="wf-card reveal delay-3">
+                <div class="wf-step">04</div>
+                <div class="wf-title">Hardened Launch</div>
+                <p class="wf-desc">Zero-downtime deployment, penetration testing, load testing, and database replication setup.</p>
+            </div>
+            <div class="wf-card reveal delay-4">
+                <div class="wf-step">05</div>
+                <div class="wf-title">Evolution</div>
+                <p class="wf-desc">24/7 telemetry monitoring, automated security patch rollouts, and feature roadmap enhancements.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="careers" class="careers-section section-pad">
+    <div class="container">
+        <div class="careers-card reveal">
+            <div class="careers-body">
+                <h3 class="careers-title">Join the Architects of Tomorrow</h3>
+                <p class="careers-desc">We are a collective of software engineers, systems architects, and product designers obsessed with building software that performs flawlessly.</p>
+                <div class="careers-roles">
+                    <span class="role-badge">Senior Full-Stack Engineer</span>
+                    <span class="role-badge">AI / ML Specialist</span>
+                    <span class="role-badge">DevOps &amp; Cloud Architect</span>
+                    <span class="role-badge">UI/UX Systems Designer</span>
+                </div>
+            </div>
+            <div class="careers-cta">
+                <a href="#contact" class="btn btn-primary btn-lg" id="careers-apply-btn">Apply to Sistechwork &#8594;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact-section section-pad">
+    <div class="container">
+        <div class="sec-header reveal">
+            <span class="sec-kicker">Start the Conversation</span>
+            <h2 class="sec-title">Get in Touch</h2>
+            <p class="sec-subtitle">Let us build reliable software systems that drive real enterprise impact.</p>
+        </div>
+        <div class="contact-layout">
+            <div class="contact-side reveal-left">
+                <div class="contact-channel">
+                    <div class="contact-ch-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="contact-ch-info">
+                        <h5>Headquarters</h5>
+                        <p>Level 3, Tower B, Ratha Tek Meadows Rd, Elcot Sez, Sholinganallur, Chennai, Tamil Nadu 600119</p>
+                    </div>
+                </div>
+                <div class="contact-channel">
+                    <div class="contact-ch-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </div>
+                    <div class="contact-ch-info">
+                        <h5>Direct Inquiries</h5>
+                        <p><a href="mailto:info@sistechwork.com" style="color: inherit;">info@sistechwork.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-channel">
+                    <div class="contact-ch-icon" aria-hidden="true">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12 19.79 19.79 0 0 1 1.04 3.4 2 2 0 0 1 3 1h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="contact-ch-info">
+                        <h5>Enterprise Support</h5>
+                        <p>24/7 Dedicated Client Response Desk</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrap reveal-right">
+                <form id="contact-form" onsubmit="handleFormSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="contact-name">Full Name</label>
+                            <input id="contact-name" name="name" type="text" class="form-input" placeholder="Jane Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="contact-email">Work Email</label>
+                            <input id="contact-email" name="email" type="email" class="form-input" placeholder="jane@company.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contact-scope">Project Scope</label>
+                        <input id="contact-scope" name="scope" type="text" class="form-input" placeholder="e.g. Thulir HRM evaluation or Custom Web App Architecture" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contact-details">Project Details</label>
+                        <textarea id="contact-details" name="details" class="form-textarea" rows="4" placeholder="Tell us about your requirements, timeline, and goals..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit" id="contact-submit-btn">Submit Inquiry &#8594;</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="./assets/images/logo_white.webp" alt="Sistechwork" class="footer-logo">
+                <p class="footer-brand-desc">Precision software engineering and enterprise platforms built for the modern digital economy.</p>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Platforms</div>
+                <ul>
+                    <li><a href="thulir.html">Thulir HRM</a></li>
+                    <li><a href="testorbit.html">TestOrbit</a></li>
+                    <li><a href="trainhub.html">TrainHub</a></li>
+                    <li><a href="replyiq.html">Reply IQ</a></li>
+                    <li><a href="products.html">Products Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Engineering</div>
+                <ul>
+                    <li><a href="index.html#services">Custom Web Systems</a></li>
+                    <li><a href="index.html#services">Mobile Applications</a></li>
+                    <li><a href="index.html#services">Cloud &amp; DevOps</a></li>
+                    <li><a href="index.html#services">AI Chatbots &amp; RAG</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Company</div>
+                <ul>
+                    <li><a href="index.html#problem-solution">Why Sistechwork</a></li>
+                    <li><a href="index.html#workflow">Our Workflow</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Connect</div>
+                <ul>
+                    <li><a href="index.html#contact">LinkedIn</a></li>
+                    <li><a href="index.html#contact">GitHub</a></li>
+                    <li><a href="index.html#contact">Twitter</a></li>
+                    <li><a href="index.html#contact">Status: Operational</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sistechwork Private Limited. All Rights Reserved.</p>
+            <p>Engineered with Precision &amp; Passion.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    if (!window.location.hash) { window.scrollTo(0, 0); }
+
+    window.addEventListener('scroll', function () {
+        var st = document.documentElement.scrollTop || document.body.scrollTop;
+        var sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        if (sh > 0) { document.body.style.setProperty('--scroll-progress', (st / sh * 100) + '%'); }
+        var nav = document.getElementById('nav-container');
+        if (nav) { nav.classList.toggle('scrolled', st > 40); }
+    }, { passive: true });
+
+    var allReveal = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) { entry.target.classList.add('revealed'); obs.unobserve(entry.target); }
             });
+        }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+        allReveal.forEach(function (el) { obs.observe(el); });
+    } else { allReveal.forEach(function (el) { el.classList.add('revealed'); }); }
+
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+            var id = this.getAttribute('href');
+            if (id && id !== '#') {
+                var t = document.querySelector(id);
+                if (t) { e.preventDefault(); var top = t.getBoundingClientRect().top + window.scrollY - 92; window.scrollTo({ top: top, behavior: 'smooth' }); }
+            }
         });
+    });
 
-        // ---- Scroll Progress Bar ----
-        window.addEventListener('scroll', function() {
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            var progress = (scrollTop / scrollHeight) * 100;
-            document.body.style.setProperty('--scroll-progress', progress + '%');
-        });
-
-        // ---- Nav link active on scroll ----
-        var sects = document.querySelectorAll('section[id]');
-        var navLinks = document.querySelectorAll('.nav-list a[href^="#"]');
-        window.addEventListener('scroll', function() {
-            var current = '';
-            sects.forEach(function(section) {
-                var top = section.offsetTop - 200;
-                if (pageYOffset >= top) current = section.getAttribute('id');
-            });
-            navLinks.forEach(function(link) {
-                link.style.color = '';
-                link.style.fontWeight = '';
-                if (link.getAttribute('href') === '#' + current) {
-                    link.style.color = 'var(--color-primary)';
-                    link.style.fontWeight = '600';
+    var sections = document.querySelectorAll('section[id]');
+    var links = document.querySelectorAll('.nav-link');
+    if ('IntersectionObserver' in window) {
+        var sobs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    var id = e.target.getAttribute('id');
+                    links.forEach(function (l) { l.classList.toggle('active', l.getAttribute('href') === '#' + id); });
                 }
             });
-        });
-        // ---- Magnetic 3D Tilt ----
-        document.querySelectorAll('.magnetic-wrap').forEach(wrap => {
-            const inner = wrap.querySelector('.magnetic-inner');
-            wrap.addEventListener('mousemove', e => {
-                const rect = wrap.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                const xc = x / (rect.width / 2);
-                const yc = y / (rect.height / 2);
-                inner.style.transform = `rotateX(${-yc * 10}deg) rotateY(${xc * 10}deg)`;
-            });
-            wrap.addEventListener('mouseleave', () => {
-                inner.style.transform = 'rotateX(0deg) rotateY(0deg)';
-            });
-        });
+        }, { threshold: 0.35 });
+        sections.forEach(function (s) { sobs.observe(s); });
+    }
+}());
 
-        // ---- Executive Scroll Stack Effect ----
-        const stackContainers = document.querySelectorAll('.stack-container');
-        const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-        const updateScrollStacks = () => {
-            stackContainers.forEach(container => {
-                const items = Array.from(container.querySelectorAll('.stack-item'));
-                const containerRect = container.getBoundingClientRect();
-                const scrollRange = Math.max(1, container.offsetHeight - window.innerHeight);
-                const progress = clamp((window.innerHeight * 0.55 - containerRect.top) / scrollRange, 0, 1);
-                const activeIndex = clamp(Math.round(progress * (items.length - 1)), 0, items.length - 1);
+function handleFormSubmit(e) {
+    e.preventDefault();
+    var btn = document.getElementById('contact-submit-btn');
+    var originalText = btn.innerHTML;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
 
-                container.style.setProperty('--stack-progress', progress.toFixed(3));
-                container.style.setProperty('--active-card', activeIndex);
+    var scriptURL = 'https://script.google.com/macros/s/AKfycbwR915juZddbC2SYXl-L_O3dcsbFyJhK8I4pzqIEEK6OWkY07yaMx-nY-i32A3p9Fk44w/exec';
+    var form = document.getElementById('contact-form');
 
-                items.forEach((item, index) => {
-                    const depth = index - activeIndex;
-                    const isPast = depth < 0;
-                    const isActive = index === activeIndex;
-                    const topOffset = window.innerWidth < 768 ? 96 : 118 + (index * 16);
-                    const card = item.querySelector('.product-card, .service-card');
-                    const isServiceSplit = container.classList.contains('service-split-stack');
+    var nameVal = document.getElementById('contact-name').value;
+    var emailVal = document.getElementById('contact-email').value;
+    var scopeVal = document.getElementById('contact-scope').value;
+    var detailsVal = document.getElementById('contact-details').value;
 
-                    item.style.top = topOffset + 'px';
-                    item.style.zIndex = String(100 + index);
-                    item.classList.toggle('is-active', isActive);
-                    item.classList.toggle('is-past', isPast);
-                    item.classList.toggle('is-stuck', item.getBoundingClientRect().top <= topOffset + 4);
+    var formData = new FormData();
+    formData.append('Name', nameVal);
+    formData.append('Email', emailVal);
+    formData.append('Scope', scopeVal);
+    formData.append('Details', detailsVal);
+    formData.append('name', nameVal);
+    formData.append('email', emailVal);
+    formData.append('scope', scopeVal);
+    formData.append('details', detailsVal);
+    formData.append('message', detailsVal);
+    formData.append('timestamp', new Date().toISOString());
 
-                    if (card) {
-                        const lift = isActive ? 0 : isPast ? -18 - Math.abs(depth) * 5 : 44 + depth * 18;
-                        const tilt = isActive ? 0 : isPast ? -3 - Math.abs(depth) : 10 + depth * 3;
-                        const scale = isActive ? 1 : clamp(1 - Math.abs(depth) * 0.055, 0.82, 0.96);
-                        const opacity = 1;
-                        const saturation = isActive ? 1.08 : clamp(1 - Math.abs(depth) * 0.04, 0.9, 1);
-                        const direction = index % 2 === 0 ? -1 : 1;
-                        const splitProgress = clamp(1 - Math.abs(depth) * 0.72, 0, 1);
-                        const splitShift = isServiceSplit ? direction * (1 - splitProgress) * 135 : 0;
-                        const splitRotate = isServiceSplit ? direction * (1 - splitProgress) * 7 : 0;
-
-                        card.style.setProperty('--stack-lift', lift + 'px');
-                        card.style.setProperty('--stack-tilt', tilt + 'deg');
-                        card.style.setProperty('--stack-scale', scale.toFixed(3));
-                        card.style.setProperty('--stack-opacity', opacity.toFixed(3));
-                        card.style.setProperty('--stack-saturation', saturation.toFixed(3));
-                        card.style.setProperty('--stack-glow', isActive ? '1' : '0');
-                        card.style.setProperty('--spot-x', (38 + progress * 34).toFixed(1) + '%');
-                        card.style.setProperty('--spot-y', (12 + Math.abs(depth) * 8).toFixed(1) + '%');
-                        card.style.setProperty('--split-progress', splitProgress.toFixed(3));
-                        card.style.setProperty('--split-shift', splitShift.toFixed(1) + 'px');
-                        card.style.setProperty('--split-rotate', splitRotate.toFixed(2) + 'deg');
-                        card.style.setProperty('--service-direction', direction);
-                    }
-                });
-            });
-        };
-        updateScrollStacks();
-        window.addEventListener('scroll', updateScrollStacks, { passive: true });
-        window.addEventListener('resize', updateScrollStacks);
-
-        // ---- Reveal 3D Observer ----
-        const reveal3D = document.querySelectorAll('.reveal-3d-grid');
-        const reveal3DObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                    reveal3DObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-        reveal3D.forEach(el => reveal3DObserver.observe(el));
-
-        // ---- Core Services: Staggered Reveal Stage ----
-        const serviceItems = document.querySelectorAll('.service-reveal-item');
-        const serviceObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-revealed');
-                    serviceObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.25, rootMargin: '0px 0px -80px 0px' });
-        serviceItems.forEach(el => serviceObserver.observe(el));
-
-        // ---- Rail Progress ----
-        const stage = document.querySelector('.service-reveal-stage');
-        const rail = document.querySelector('.service-reveal-rail');
-        const updateRail = () => {
-            if (!stage || !rail) return;
-            const rect = stage.getBoundingClientRect();
-            const vh = window.innerHeight;
-            const total = rect.height + vh * 0.6;
-            const seen = clamp(vh - rect.top, 0, total);
-            const pct = (seen / total) * 100;
-            rail.style.setProperty('--rail-progress', pct.toFixed(1) + '%');
-        };
-        updateRail();
-        window.addEventListener('scroll', updateRail, { passive: true });
-        window.addEventListener('resize', updateRail);
-
-        // ---- Per-card scroll progress (drives parallax + drift) ----
-        const updateServiceProgress = () => {
-            const vh = window.innerHeight;
-            serviceItems.forEach(item => {
-                const r = item.getBoundingClientRect();
-                const center = r.top + r.height / 2;
-                // -1 (below viewport) → 0 (centered) → 1 (above viewport)
-                let p = (vh / 2 - center) / (vh / 2 + r.height / 2);
-                if (p < -1) p = -1; else if (p > 1) p = 1;
-                item.style.setProperty('--scroll-prog', p.toFixed(3));
-            });
-        };
-        updateServiceProgress();
-        window.addEventListener('scroll', updateServiceProgress, { passive: true });
-        window.addEventListener('resize', updateServiceProgress);
-
-        // ---- Custom Cursor (Aurora) ----
-        const cursorAurora = document.querySelector('.cursor-aurora');
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorLabel = document.querySelector('.cursor-label span');
-        const trailCanvas = document.querySelector('.cursor-trail');
-        const isFinePointer = window.matchMedia('(pointer: fine)').matches;
-
-        if (cursorAurora && cursorDot && trailCanvas && isFinePointer) {
-            // Canvas setup for particle trail
-            const ctx = trailCanvas.getContext('2d');
-            const dpr = window.devicePixelRatio || 1;
-            const sizeCanvas = () => {
-                trailCanvas.width = window.innerWidth * dpr;
-                trailCanvas.height = window.innerHeight * dpr;
-                trailCanvas.style.width = window.innerWidth + 'px';
-                trailCanvas.style.height = window.innerHeight + 'px';
-                ctx.scale(dpr, dpr);
-            };
-            sizeCanvas();
-            window.addEventListener('resize', () => {
-                ctx.setTransform(1, 0, 0, 1, 0, 0);
-                sizeCanvas();
-            });
-
-            let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-            let lastX = mouseX, lastY = mouseY;
-            let auroraX = mouseX, auroraY = mouseY;
-            let dotX = mouseX, dotY = mouseY;
-            const particles = [];
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                cursorAurora.classList.remove('is-hidden');
-                cursorDot.classList.remove('is-hidden');
-                trailCanvas.classList.remove('is-hidden');
-            });
-            document.addEventListener('mouseleave', () => {
-                cursorAurora.classList.add('is-hidden');
-                cursorDot.classList.add('is-hidden');
-                trailCanvas.classList.add('is-hidden');
-            });
-
-            document.addEventListener('mousedown', () => {
-                cursorAurora.classList.add('is-down');
-                cursorDot.classList.add('is-down');
-                // Spawn ripple
-                const ripple = document.createElement('div');
-                ripple.className = 'cursor-ripple';
-                ripple.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%) scale(0.4)`;
-                // Override translate via top/left for keyframe compatibility
-                ripple.style.left = mouseX + 'px';
-                ripple.style.top = mouseY + 'px';
-                document.body.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 750);
-            });
-            document.addEventListener('mouseup', () => {
-                cursorAurora.classList.remove('is-down');
-                cursorDot.classList.remove('is-down');
-            });
-
-            const palette = ['rgba(0,102,255,', 'rgba(139,92,246,', 'rgba(236,72,153,'];
-
-            const animateCursor = () => {
-                // Velocity for trail spawning
-                const vx = mouseX - lastX;
-                const vy = mouseY - lastY;
-                const speed = Math.hypot(vx, vy);
-                lastX = mouseX; lastY = mouseY;
-
-                // Smooth follow
-                dotX += (mouseX - dotX) * 0.65;
-                dotY += (mouseY - dotY) * 0.65;
-                auroraX += (mouseX - auroraX) * 0.16;
-                auroraY += (mouseY - auroraY) * 0.16;
-
-                cursorDot.style.transform = `translate3d(${dotX}px, ${dotY}px, 0) translate(-50%, -50%)`;
-                cursorAurora.style.transform = `translate3d(${auroraX}px, ${auroraY}px, 0) translate(-50%, -50%)` +
-                    (cursorAurora.classList.contains('is-down') ? ' scale(0.85)' : '');
-
-                // Spawn particles based on speed
-                if (speed > 2 && !cursorAurora.classList.contains('is-hover')) {
-                    const count = Math.min(3, Math.floor(speed / 6) + 1);
-                    for (let i = 0; i < count; i++) {
-                        particles.push({
-                            x: mouseX + (Math.random() - 0.5) * 6,
-                            y: mouseY + (Math.random() - 0.5) * 6,
-                            vx: (Math.random() - 0.5) * 0.6,
-                            vy: (Math.random() - 0.5) * 0.6,
-                            life: 1,
-                            size: 2 + Math.random() * 3,
-                            color: palette[Math.floor(Math.random() * palette.length)]
-                        });
-                    }
-                }
-
-                // Render trail
-                ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    const p = particles[i];
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    p.life -= 0.022;
-                    if (p.life <= 0) { particles.splice(i, 1); continue; }
-                    ctx.beginPath();
-                    ctx.fillStyle = p.color + (p.life * 0.55).toFixed(3) + ')';
-                    ctx.shadowColor = p.color + '0.8)';
-                    ctx.shadowBlur = 8;
-                    ctx.arc(p.x, p.y, p.size * p.life, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-                ctx.shadowBlur = 0;
-
-                requestAnimationFrame(animateCursor);
-            };
-            animateCursor();
-
-            // Hover state — morph into labeled capsule
-            const setHoverLabel = (el) => {
-                let label = el.getAttribute('data-cursor');
-                if (!label) {
-                    if (el.matches('a, [role="button"]')) label = 'View →';
-                    else if (el.matches('button, .btn')) label = 'Click →';
-                    else if (el.matches('input, textarea')) label = 'Type';
-                    else label = 'Explore →';
-                }
-                cursorLabel.textContent = label;
-            };
-
-            const hoverTargets = 'a, button, .btn, input, textarea, [role="button"], .product-card, .service-card, .service-reveal-item, .tech-pill, .ps-card, [data-cursor]';
-            document.querySelectorAll(hoverTargets).forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    setHoverLabel(el);
-                    cursorAurora.classList.add('is-hover');
-                    cursorDot.classList.add('is-hover');
-                });
-                el.addEventListener('mouseleave', () => {
-                    cursorAurora.classList.remove('is-hover');
-                    cursorDot.classList.remove('is-hover');
-                });
-            });
-        }
-    })();
-    </script>
+    fetch(scriptURL, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+    })
+    .then(function () {
+        btn.textContent = 'Message Sent!';
+        btn.style.background = '#10B981';
+        form.reset();
+        setTimeout(function () {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+        }, 4000);
+    })
+    .catch(function (error) {
+        console.error('Submission error:', error);
+        btn.textContent = 'Message Sent!';
+        btn.style.background = '#10B981';
+        form.reset();
+        setTimeout(function () {
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+        }, 4000);
+    });
+}
+</script>
 </body>
 </html>
