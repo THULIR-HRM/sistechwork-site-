@@ -1,10 +1,13 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const url = require('url');
+import { createServer } from 'http';
+import { readFile, stat } from 'fs/promises';
+import { existsSync } from 'fs';
+import { join, extname, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { parse } from 'url';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
-const DIST_DIR = path.join(__dirname, 'dist');
+const DIST_DIR = join(__dirname, 'dist');
 
 const mimeTypes = {
   '.html': 'text/html; charset=utf-8',
@@ -21,58 +24,51 @@ const mimeTypes = {
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
   '.ttf': 'font/ttf',
-  '.otf': 'font/otf',
-  '.mp4': 'video/mp4',
-  '.webm': 'video/webm',
   '.txt': 'text/plain',
-  '.pdf': 'application/pdf',
 };
 
-const server = http.createServer((req, res) => {
-  let parsedUrl = url.parse(req.url);
-  let pathname = parsedUrl.pathname;
+const server = createServer(async (req, res) => {
+  try {
+    const parsedUrl = parse(req.url);
+    let pathname = decodeURIComponent(parsedUrl.pathname);
 
-  // Redirect root to main site
-  if (pathname === '/' || pathname === '/index.html') {
-    res.writeHead(302, { Location: '/sistechwork/index.html' });
-    res.end();
-    return;
-  }
+    // Redirect root to main site
+    if (pathname === '/' || pathname === '/index.html') {
+      res.writeHead(302, { Location: '/sistechwork/index.html' });
+      res.end();
+      return;
+    }
 
-  let filePath = path.join(DIST_DIR, pathname);
+    let filePath = join(DIST_DIR, pathname);
 
-  // If it's a directory, try serving index.html inside it
-  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
-    filePath = path.join(filePath, 'index.html');
-  }
-
-  // Check if file exists
-  if (!fs.existsSync(filePath)) {
-    // Try adding .html extension
-    if (fs.existsSync(filePath + '.html')) {
+    // If directory, serve index.html inside it
+    if (existsSync(filePath)) {
+      const stats = await stat(filePath);
+      if (stats.isDirectory()) {
+        filePath = join(filePath, 'index.html');
+      }
+    } else if (existsSync(filePath + '.html')) {
       filePath = filePath + '.html';
     } else {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('404 Not Found: ' + pathname);
       return;
     }
-  }
 
-  const ext = path.extname(filePath).toLowerCase();
-  const contentType = mimeTypes[ext] || 'application/octet-stream';
+    const ext = extname(filePath).toLowerCase();
+    const contentType = mimeTypes[ext] || 'application/octet-stream';
+    const data = await readFile(filePath);
 
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      res.writeHead(500, { 'Content-Type': 'text/plain' });
-      res.end('500 Internal Server Error');
-      return;
-    }
     res.writeHead(200, {
       'Content-Type': contentType,
       'Cache-Control': 'public, max-age=3600',
     });
     res.end(data);
-  });
+  } catch (err) {
+    console.error('Server error:', err);
+    res.writeHead(500, { 'Content-Type': 'text/plain' });
+    res.end('500 Internal Server Error');
+  }
 });
 
 server.listen(PORT, '0.0.0.0', () => {
