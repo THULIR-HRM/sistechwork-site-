@@ -490,6 +490,36 @@ body::before {
             </div>
         </nav>
     </header>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <ul>
+        <li><a href="./index.html" onclick="closeMobileMenu()">Home</a></li>
+        <li><a href="./products.html" onclick="closeMobileMenu()">Products</a></li>
+        <li><a href="./thulir.html" onclick="closeMobileMenu()">Thulir HRM</a></li>
+        <li><a href="./testorbit.html" onclick="closeMobileMenu()">TestOrbit</a></li>
+        <li><a href="./replyiq.html" onclick="closeMobileMenu()">ReplyIQ</a></li>
+        <li><a href="./trainhub.html" onclick="closeMobileMenu()">TrainHub</a></li>
+        <li><a href="./index.html#contact" class="mobile-cta" onclick="closeMobileMenu()">Get Started</a></li>
+    </ul>
+</div>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
 
 
     <!-- HERO SECTION: CLEAN SKY BLUE SHADE THEME -->

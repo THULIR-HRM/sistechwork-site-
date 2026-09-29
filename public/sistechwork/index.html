@@ -17,7 +17,7 @@
 
 <header class="site-header" id="site-header">
     <nav class="nav-container" id="nav-container" aria-label="Main Navigation">
-        <a href="index.html" class="logo-link" aria-label="Sistechwork Home">
+        <a href="./index.html" class="logo-link" aria-label="Sistechwork Home">
             <img src="./assets/images/logo.webp" alt="Sistechwork">
         </a>
         <div class="primary-menu" role="navigation">
@@ -33,9 +33,45 @@
         </div>
         <div class="header-actions">
             <a href="#contact" class="btn btn-primary btn-sm" id="nav-cta">Get Started</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 </header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <ul>
+        <li><a href="#products"    onclick="closeMobileMenu()">Platforms</a></li>
+        <li><a href="products.html" onclick="closeMobileMenu()">Products</a></li>
+        <li><a href="#services"    onclick="closeMobileMenu()">Engineering</a></li>
+        <li><a href="#techstack"   onclick="closeMobileMenu()">Tech Stack</a></li>
+        <li><a href="#workflow"    onclick="closeMobileMenu()">Workflow</a></li>
+        <li><a href="#careers"     onclick="closeMobileMenu()">Careers</a></li>
+        <li><a href="#contact"     onclick="closeMobileMenu()">Contact</a></li>
+        <li><a href="#contact" class="mobile-cta" onclick="closeMobileMenu()">Get Started</a></li>
+    </ul>
+</div>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+
 
 <main id="main-content">
 
