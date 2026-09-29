@@ -34,17 +34,23 @@ const server = createServer(async (req, res) => {
 
     // Redirect root to main site
     if (pathname === '/' || pathname === '/index.html') {
-      res.writeHead(302, { Location: '/sistechwork/index.html' });
+      res.writeHead(302, { Location: '/sistechwork/' });
       res.end();
       return;
     }
 
     let filePath = join(DIST_DIR, pathname);
 
-    // If directory, serve index.html inside it
+    // If directory without trailing slash → redirect to add trailing slash
+    // so relative CSS/JS paths resolve correctly
     if (existsSync(filePath)) {
       const stats = await stat(filePath);
       if (stats.isDirectory()) {
+        if (!pathname.endsWith('/')) {
+          res.writeHead(301, { Location: pathname + '/' });
+          res.end();
+          return;
+        }
         filePath = join(filePath, 'index.html');
       }
     } else if (existsSync(filePath + '.html')) {
