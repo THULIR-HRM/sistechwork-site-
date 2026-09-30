@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp?v=4">
+    <link rel="shortcut icon" href="./assets/images/favicon.webp?v=4">
+    <link rel="apple-touch-icon" href="./assets/images/favicon.webp?v=4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Sistechwork — Intelligent Solutions for the Modern Enterprise</title>
+    <meta name="description" content="Explore Thulirhrm, TestOrbit, TrainHub, and Reply IQ — Sistechwork's product ecosystem built for growth, security, and AI-powered efficiency.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css?v=5.0">
+    <link rel="stylesheet" href="products.css?v=7">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="pp-loader" id="ppLoader">
+        <div class="pp-loader-inner">
+            <div class="pp-loader-ring"></div>
+            <img src="./assets/images/logo.webp" alt="Loading" class="pp-loader-logo">
+        </div>
+    </div>
+    <header class="site-header" id="site-header">
+    <nav class="nav-container" id="nav-container" aria-label="Main Navigation">
+        <a href="./index.html" class="logo-link" aria-label="Sistechwork Home">
+            <img src="./assets/images/logo.webp" alt="Sistechwork">
+        </a>
+
+        <div class="primary-menu" role="navigation">
+            <ul class="nav-list">
+                <li><a href="index.html#products" class="nav-link">Platforms</a></li>
+                <li><a href="products.html" class="nav-link active">Products</a></li>
+                <li><a href="index.html#services" class="nav-link">Engineering</a></li>
+                <li><a href="index.html#techstack" class="nav-link">Tech Stack</a></li>
+                <li><a href="index.html#workflow" class="nav-link">Workflow</a></li>
+                <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="header-actions">
+            <a href="index.html#contact" class="btn btn-primary btn-sm">Get Started</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+</header>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" style="display:none;" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <ul>
+        <li><a href="./index.html" onclick="closeMobileMenu()">Home</a></li>
+        <li><a href="./products.html" onclick="closeMobileMenu()">Products</a></li>
+        <li><a href="./thulir.html" onclick="closeMobileMenu()">Thulir HRM</a></li>
+        <li><a href="./testorbit.html" onclick="closeMobileMenu()">TestOrbit</a></li>
+        <li><a href="./replyiq.html" onclick="closeMobileMenu()">ReplyIQ</a></li>
+        <li><a href="./trainhub.html" onclick="closeMobileMenu()">TrainHub</a></li>
+        <li><a href="./index.html#contact" class="mobile-cta" onclick="closeMobileMenu()">Get Started</a></li>
+    </ul>
+</div>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.style.display = 'none';
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.style.display = isOpen ? 'flex' : 'none';
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+
+    <!-- ============================================
+         HERO: PRODUCT ECOSYSTEM
+         ============================================ -->
+    <section class="pp-hero section-padding">
+        <div class="liquid-blob-container">
+            <div class="liquid-blob blob-1" style="opacity: 0.12;"></div>
+            <div class="liquid-blob blob-2" style="top: 30%; right: -150px; opacity: 0.1;"></div>
+        </div>
+        <div class="container">
+            <div class="pp-hero-badge reveal reveal-up">THE SISTECH WORK ECOSYSTEM</div>
+            <h1 class="pp-hero-title reveal reveal-up delay-1">Intelligent Solutions for the<br> Modern Enterprise</h1>
+            <p class="pp-hero-subtitle reveal reveal-up delay-2">Four powerful platforms. One unified intelligence layer. Built for growth, security, and scale.</p>
+            <div class="pp-hero-nav reveal reveal-up delay-3">
+                <a href="#thulirhrm" class="pp-nav-pill">
+                    <img src="./assets/images/icon_vhomifi.webp" alt="Thulirhrm" class="pp-nav-icon"> Thulirhrm
+                </a>
+                <a href="#testorbit" class="pp-nav-pill">
+                    <img src="./assets/images/icon_testorbit.webp" alt="TestOrbit" class="pp-nav-icon"> TestOrbit
+                </a>
+                <a href="#trainhub" class="pp-nav-pill">
+                    <img src="./assets/images/icon_trainhub.webp" alt="TrainHub" class="pp-nav-icon"> TrainHub
+                </a>
+                <a href="#replyiq" class="pp-nav-pill">
+                    <img src="./assets/images/icon_replyiq.webp" alt="Reply IQ" class="pp-nav-icon"> Reply IQ
+                </a>
+            </div>
+
+            <a href="#thulirhrm" class="pp-scroll-down reveal reveal-up delay-4">
+                <span>Explore Products</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 1: THULIRHRM SUITE
+         ============================================ -->
+    <section id="thulirhrm" class="pp-product section-padding">
+        <div class="liquid-blob-container">
+            <div class="liquid-blob blob-2" style="top: 20%; left: -200px; opacity: 0.08;"></div>
+            <div class="liquid-blob blob-3" style="bottom: 10%; right: -100px; opacity: 0.08;"></div>
+        </div>
+        <div class="container">
+            <div class="pp-product-header reveal reveal-up">
+                <img src="./assets/images/icon_vhomifi.webp" alt="Thulirhrm" class="pp-product-icon">
+                <div>
+                    <div class="pp-product-badge">CRM + HRM</div>
+                    <h2>The Thulirhrm Suite</h2>
+                    <p class="pp-product-headline">Where CRM Meets HRM in a Unified Intelligence Portal.</p>
+                    <div style="margin-top: 1rem;">
+                        <a href="thulir.html" class="btn btn-primary" style="padding: 9px 20px; font-size: 0.88rem; border-radius: 20px;">Launch Full Thulir HRM Demo →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pp-vision-card reveal reveal-up">
+                <h3>The Vision</h3>
+                <p>In the traditional business model, Sales (CRM) and Operations (HRM) exist in separate universes. This disconnection leads to data leakage and missed opportunities. Thulirhrm was engineered to solve this <strong>"Intelligence Gap."</strong> It is a centralized nervous system that manages your most valuable assets: <strong>your people and your customers.</strong></p>
+            </div>
+
+            <div class="pp-modules-grid">
+                <!-- HRM Module -->
+                <div class="pp-module-card reveal reveal-up delay-1">
+                    <div class="pp-module-label">Module 1</div>
+                    <h3>Advanced Human Resource Management (HRM)</h3>
+                    <p class="pp-module-desc">Thulirhrm's HRM module is not just a digital filing cabinet; it is a <strong>proactive management tool.</strong></p>
+                    <ul class="pp-feature-list">
+                        <li>
+                            <span class="feat-icon clay-icon" style="background:#E3F0FF;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15l-4-4 1.41-1.41L11 14.17l6.59-6.59L19 9l-8 8z" fill="#3B82F6"/></svg></span>
+                            <div><strong>Automated Payroll Engine:</strong> Handle complex tax structures, variable bonuses, and multi-currency payouts with a single click.</div>
+                        </li>
+                        <li>
+                            <span class="feat-icon clay-icon" style="background:#F3E8FF;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5 5 9c0 2.5 1.5 5 3 6.5V18h8v-2.5c1.5-1.5 3-4 3-6.5 0-4-3-7-7-7z" fill="#8B5CF6"/><rect x="9" y="19" width="6" height="2" rx="1" fill="#8B5CF6"/></svg></span>
+                            <div><strong>Predictive Retention Analytics:</strong> Using ML algorithms to identify patterns in employee behavior and predict turnover risks before they happen.</div>
+                        </li>
+                        <li>
+                            <span class="feat-icon clay-icon" style="background:#D1FAE5;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#10B981" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="#10B981" stroke-width="2" stroke-linecap="round"/></svg></span>
+                            <div><strong>Lifecycle Management:</strong> From the first "Hello" in the interview to the final "Goodbye" in the exit interview, every touchpoint is recorded.</div>
+                        </li>
+                        <li>
+                            <span class="feat-icon clay-icon" style="background:#FEF3C7;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="14" width="4" height="8" rx="1" fill="#F59E0B"/><rect x="10" y="8" width="4" height="14" rx="1" fill="#F59E0B"/><rect x="17" y="4" width="4" height="18" rx="1" fill="#F59E0B"/></svg></span>
+                            <div><strong>Performance Benchmarking:</strong> Shift from subjective reviews to data-driven performance metrics with real-time KPIs.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CRM Module -->
+                <div class="pp-module-card reveal reveal-up delay-2">
+                    <div class="pp-module-label">Module 2</div>
+                    <h3>High-Velocity Customer Relationship Management (CRM)</h3>
+                    <p class="pp-module-desc">The CRM component of Thulirhrm is built for teams that <strong>refuse to slow down.</strong></p>
+                    <ul class="pp-feature-list">
+                        <li>
+                            <span class="feat-icon clay-icon" style="background:#FFECE3;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#F97316" stroke-width="2"/><circle cx="12" cy="12" r="6" stroke="#F97316" stroke-width="2"/><circle cx="12" cy="12" r="2" fill="#F97316"/></svg></span>
+                            <div><strong>Lead Scoring AI:</strong> Automatically rank leads based on engagement history and conversion probability.</div>
+                        </li>
+                        <li>
+                            <span class="feat-icon clay-icon" style="background:#DBEAFE;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="#2563EB"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="#2563EB" opacity="0.6"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="#2563EB" opacity="0.4"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="#2563EB" opacity="0.8"/></svg></span>
+                            <div><strong>Pipeline Visualization:</strong> A 3D-inspired Kanban board that allows you to see the health of your sales funnel at a glance.</div>
+                        </li>
+                        <li>
+                            <span class="feat-icon clay-icon" style="background:#E0E7FF;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 4h16v12H5.17L4 17.17V4z" stroke="#6366F1" stroke-width="2" fill="none" stroke-linejoin="round"/><circle cx="9" cy="10" r="1" fill="#6366F1"/><circle cx="12" cy="10" r="1" fill="#6366F1"/><circle cx="15" cy="10" r="1" fill="#6366F1"/></svg></span>
+                            <div><strong>Integrated Communication:</strong> Sync emails, calls, and meetings directly into the client profile so no context is ever lost.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: TESTORBIT
+         ============================================ -->
+    <section id="testorbit" class="pp-product pp-product-alt section-padding">
+        <div class="container">
+            <div class="pp-product-header reveal reveal-up">
+                <img src="./assets/images/icon_testorbit.webp" alt="TestOrbit" class="pp-product-icon">
+                <div>
+                    <div class="pp-product-badge">Examination</div>
+                    <h2>TestOrbit</h2>
+                    <p class="pp-product-headline">Uncompromising Integrity. Unlimited Scalability.</p>
+                </div>
+            </div>
+
+            <div class="pp-vision-card reveal reveal-up">
+                <h3>The Mission</h3>
+                <p>Education and certification industries are facing a <strong>crisis of trust.</strong> As testing moves online, the risk of malpractice increases. TestOrbit is our response — a secure, proctored environment that ensures the person taking the test is who they say they are, and the results they achieve are <strong>100% legitimate.</strong></p>
+            </div>
+
+            <div class="pp-features-showcase">
+                <h3 class="pp-features-title">Core Technical Features</h3>
+                <div class="pp-features-grid-4">
+                    <div class="pp-feat-card reveal reveal-up delay-1">
+                        <span class="feat-icon clay-icon" style="background:#FEE2E2;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#EF4444" stroke-width="2"/><path d="M5 20c0-3.87 3.13-7 7-7s7 3.13 7 7" stroke="#EF4444" stroke-width="2" fill="none"/><path d="M15 3l3 3-3 3" stroke="#EF4444" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span>
+                        <h4>AI-Enhanced Proctoring</h4>
+                        <p>Using computer vision to detect unauthorized aids, multiple faces, or suspicious behavior during the exam.</p>
+                    </div>
+                    <div class="pp-feat-card reveal reveal-up delay-2">
+                        <span class="feat-icon clay-icon" style="background:#F3E8FF;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4l4 4M20 4l-4 4M4 20l4-4M20 20l-4-4" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="4" fill="#8B5CF6"/></svg></span>
+                        <h4>Dynamic Question Shuffling</h4>
+                        <p>Our "Orbit Engine" ensures no two students ever receive the exact same test in the same order.</p>
+                    </div>
+                    <div class="pp-feat-card reveal reveal-up delay-3">
+                        <span class="feat-icon clay-icon" style="background:#DBEAFE;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#2563EB" stroke-width="2"/><path d="M4 9h16" stroke="#2563EB" stroke-width="2"/><rect x="7" y="12" width="4" height="4" rx="1" fill="#2563EB"/></svg></span>
+                        <h4>Browser Lockdown</h4>
+                        <p>The candidate's device is locked into the portal, preventing navigation to search engines or other applications.</p>
+                    </div>
+                    <div class="pp-feat-card reveal reveal-up delay-4">
+                        <span class="feat-icon clay-icon" style="background:#D1FAE5;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M13 2L4.09 12H11L10 22L18.91 12H12L13 2Z" fill="#10B981"/></svg></span>
+                        <h4>Real-Time Latency Optimization</h4>
+                        <p>Built with high-concurrency architecture to support 20,000+ simultaneous users without a microsecond of lag.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: TRAINHUB
+         ============================================ -->
+    <section id="trainhub" class="pp-product section-padding">
+        <div class="container">
+            <div class="pp-product-header reveal reveal-up">
+                <img src="./assets/images/icon_trainhub.webp" alt="TrainHub" class="pp-product-icon">
+                <div>
+                    <div class="pp-product-badge">Academic</div>
+                    <h2>TrainHub</h2>
+                    <p class="pp-product-headline">Empowering Educators. Inspiring Students.</p>
+                </div>
+            </div>
+
+            <div class="pp-vision-card reveal reveal-up">
+                <h3>The Evolution of Academic Management</h3>
+                <p>TrainHub is designed for the modern classroom — where data should <strong>empower teachers, not overwhelm them.</strong> It serves as the ultimate bridge between students, parents, and faculty.</p>
+            </div>
+
+            <div class="pp-features-showcase">
+                <h3 class="pp-features-title">Key Functional Areas</h3>
+                <div class="pp-features-grid-4">
+                    <div class="pp-feat-card">
+                        <span class="feat-icon clay-icon" style="background:#E0F2FE;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#0EA5E9" stroke-width="2"/><path d="M8 12h8M8 8h8M8 16h4" stroke="#0EA5E9" stroke-width="2" stroke-linecap="round"/></svg></span>
+                        <h4>The Attendance Matrix</h4>
+                        <p>Move beyond paper rolls. TrainHub uses biometric or QR-based attendance that instantly updates the cloud.</p>
+                    </div>
+                    <div class="pp-feat-card">
+                        <span class="feat-icon clay-icon" style="background:#FEF3C7;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#F59E0B" stroke-width="2" fill="none"/><path d="M13.73 21a2 2 0 01-3.46 0" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/></svg></span>
+                        <h4>Automated Parent Alerts</h4>
+                        <p>If a student is absent or marks drop below threshold, the system automatically triggers SMS or Email notification.</p>
+                    </div>
+                    <div class="pp-feat-card">
+                        <span class="feat-icon clay-icon" style="background:#FFECE3;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="#F97316"/></svg></span>
+                        <h4>The Gradebook 2.0</h4>
+                        <p>A sophisticated mark-management system that calculates averages, rankings, and "improvement scores" automatically.</p>
+                    </div>
+                    <div class="pp-feat-card">
+                        <span class="feat-icon clay-icon" style="background:#E3F0FF;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="11" rx="2" fill="#3B82F6"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#3B82F6" stroke-width="2" fill="none"/></svg></span>
+                        <h4>Resource Vault</h4>
+                        <p>A secure repository where teachers can upload lectures, 3D models, and study materials, accessible 24/7.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: REPLY IQ
+         ============================================ -->
+    <section id="replyiq" class="pp-product pp-product-alt section-padding">
+        <div class="container">
+            <div class="pp-product-header reveal reveal-up">
+                <img src="./assets/images/icon_replyiq.webp" alt="Reply IQ" class="pp-product-icon">
+                <div>
+                    <div class="pp-product-badge">AI Mail</div>
+                    <h2>Reply IQ</h2>
+                    <p class="pp-product-headline">Your AI Digital Twin for the Inbox.</p>
+                </div>
+            </div>
+
+            <div class="pp-vision-card reveal reveal-up">
+                <h3>The Problem: The "Inbox Infinity" Trap</h3>
+                <p>Business owners spend an average of <strong>4 hours a day</strong> on email. Reply IQ was built to give those hours back. This isn't just an "auto-responder"; it is a <strong>context-aware AI agent.</strong></p>
+            </div>
+
+            <div class="pp-features-showcase">
+                <h3 class="pp-features-title">Technical Capabilities</h3>
+                <div class="pp-features-grid-4">
+                    <div class="pp-feat-card">
+                        <span class="feat-icon clay-icon" style="background:#FCE7F3;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#EC4899" stroke-width="2"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke="#EC4899" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="9" cy="9" r="1.5" fill="#EC4899"/><circle cx="15" cy="9" r="1.5" fill="#EC4899"/></svg></span>
+                        <h4>Sentiment & Intent Detection</h4>
+                        <p>Reply IQ reads the emotion of the sender. It knows the difference between a frustrated customer and a warm lead asking for a quote.</p>
+                    </div>
+                    <div class="pp-feat-card">
+                        <span class="feat-icon clay-icon" style="background:#E0E7FF;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="#6366F1"/><rect x="10" y="12" width="4" height="6" fill="#6366F1"/><rect x="6" y="18" width="12" height="3" rx="1" fill="#6366F1"/></svg></span>
+                        <h4>The Extension Ecosystem</h4>
+                        <p>Seamlessly integrates as a Chrome/Edge extension. It "shadows" your Gmail or Outlook, suggesting replies you can approve with one click.</p>
+                    </div>
+                    <div class="pp-feat-card">
+                        <span class="feat-icon clay-icon" style="background:#FEE2E2;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="11" rx="2" fill="#EF4444"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#EF4444" stroke-width="2" fill="none"/><circle cx="12" cy="16" r="2" fill="white"/></svg></span>
+                        <h4>Zero-Knowledge Security</h4>
+                        <p>Reply IQ processes data locally or via encrypted pipelines, ensuring sensitive business communications remain yours alone.</p>
+                    </div>
+                    <div class="pp-feat-card">
+                        <span class="feat-icon clay-icon" style="background:#F0FDF4;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 19.5A2.5 2.5 0 016.5 17H20" stroke="#22C55E" stroke-width="2"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" stroke="#22C55E" stroke-width="2" fill="none"/><path d="M8 7h8M8 11h6" stroke="#22C55E" stroke-width="2" stroke-linecap="round"/></svg></span>
+                        <h4>Knowledge Base Training</h4>
+                        <p>Feed Reply IQ your company's PDFs, FAQs, and docs. It answers customer questions with the accuracy of your best employee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: TECH-STACK ADVANTAGE
+         ============================================ -->
+    <section class="pp-comparison section-padding">
+        <div class="container">
+            <img src="./assets/images/icon_techstack.webp" alt="Tech Stack" class="pp-section-icon">
+            <h2 class="section-title" style="color:#fff;">The Sistech "Tech-Stack" Advantage</h2>
+            <p class="section-subtitle" style="color:rgba(255,255,255,0.7);">Why our products outperform the competition.</p>
+
+            <div class="pp-table-wrap">
+                <table class="pp-comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th class="pp-th-highlight">Sistech Work Products</th>
+                            <th>Standard "Legacy" Software</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Architecture</strong></td>
+                            <td class="pp-td-highlight">Cloud-Native / Microservices</td>
+                            <td>Monolithic / Server-bound</td>
+                        </tr>
+                        <tr>
+                            <td><strong>User Interface</strong></td>
+                            <td class="pp-td-highlight">3D / Animated (Framer Motion)</td>
+                            <td>Static / Flat</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AI Integration</strong></td>
+                            <td class="pp-td-highlight">Native RAG & LLM Support</td>
+                            <td>No AI or basic API-only</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scalability</strong></td>
+                            <td class="pp-td-highlight">Horizontal (Auto-scaling)</td>
+                            <td>Manual Upgrades Required</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Security</strong></td>
+                            <td class="pp-td-highlight">End-to-End Encryption</td>
+                            <td>Standard SSL only</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: PRODUCT ROADMAP
+         ============================================ -->
+    <section class="pp-roadmap section-padding">
+        <div class="container">
+            <h2 class="section-title">Product Roadmap: What's Next?</h2>
+            <p class="pp-roadmap-headline">Engineering the 2027 Horizon.</p>
+
+            <div class="pp-roadmap-grid">
+                <div class="pp-roadmap-card">
+                    <div class="pp-roadmap-tag">IN DEVELOPMENT</div>
+                    <h3>Scorpio Analytica Integration</h3>
+                    <p>Currently integrating into all four platforms. This adds a layer of <strong>"Deep Data Visualization"</strong> to Thulirhrm and TrainHub, allowing users to interact with data using <strong>voice commands and 3D holographic charts.</strong></p>
+                    <div class="pp-roadmap-products">
+                        <span>Thulirhrm</span>
+                        <span>TrainHub</span>
+                        <span>TestOrbit</span>
+                        <span>Reply IQ</span>
+                    </div>
+                </div>
+                <div class="pp-roadmap-card">
+                    <div class="pp-roadmap-tag pp-roadmap-tag-future">Q4 2026</div>
+                    <h3>Reply IQ Voice-Clone</h3>
+                    <p>Reply IQ will feature <strong>"Voice-Clone" integration</strong>, allowing it to handle basic phone inquiries with your exact brand tone and voice.</p>
+                    <div class="pp-roadmap-products">
+                        <span>Reply IQ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 7: LICENSING & DEPLOYMENT
+         ============================================ -->
+    <section class="pp-licensing section-padding">
+        <div class="container">
+            <h2 class="section-title">Licensing & Deployment Options</h2>
+            <p class="section-subtitle">We believe in flexibility. All Sistech Work products are available in three modes.</p>
+
+            <div class="pp-license-grid">
+                <div class="pp-license-card">
+                    <span class="feat-icon clay-icon pp-license-icon" style="background:#DBEAFE;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M19.35 10.04A7.49 7.49 0 0012 4C9.11 4 6.6 5.64 5.35 8.04A6.002 6.002 0 000 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#2563EB"/></svg></span>
+                    <h3>SaaS</h3>
+                    <p class="pp-license-label">Software as a Service</p>
+                    <p>Hosted on our secure, high-performance servers. <strong>Zero maintenance for you.</strong></p>
+                </div>
+                <div class="pp-license-card">
+                    <span class="feat-icon clay-icon pp-license-icon" style="background:#D1FAE5;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="12" rx="2" stroke="#10B981" stroke-width="2"/><path d="M7 8V6a5 5 0 0110 0v2" stroke="#10B981" stroke-width="2" fill="none"/><rect x="7" y="12" width="10" height="4" rx="1" fill="#10B981"/></svg></span>
+                    <h3>On-Premise</h3>
+                    <p class="pp-license-label">Total Data Sovereignty</p>
+                    <p>For organizations requiring complete control, we deploy directly onto <strong>your internal servers.</strong></p>
+                </div>
+                <div class="pp-license-card">
+                    <span class="feat-icon clay-icon pp-license-icon" style="background:#F3E8FF;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" fill="#8B5CF6"/><path d="M2 17l10 5 10-5" stroke="#8B5CF6" stroke-width="2" fill="none"/><path d="M2 12l10 5 10-5" stroke="#8B5CF6" stroke-width="2" fill="none"/></svg></span>
+                    <h3>White-Label</h3>
+                    <p class="pp-license-label">Your Brand, Our Tech</p>
+                    <p>Want our tech under your brand? We offer <strong>full white-labeling</strong> services for Thulirhrm and TestOrbit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 8: FAQs
+         ============================================ -->
+    <section class="pp-faq section-padding">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Answers to common questions about our product suite.</p>
+
+            <div class="pp-faq-list">
+                <details class="pp-faq-item" open>
+                    <summary>
+                        <span class="pp-faq-q">Can TrainHub integrate with existing school databases?</span>
+                        <span class="pp-faq-toggle">+</span>
+                    </summary>
+                    <div class="pp-faq-answer">
+                        <p>Yes, our <strong>API-first design</strong> allows for seamless migration from legacy SQL or Excel-based systems. TrainHub can connect to virtually any existing data source.</p>
+                    </div>
+                </details>
+                <details class="pp-faq-item">
+                    <summary>
+                        <span class="pp-faq-q">Does Reply IQ support languages other than English?</span>
+                        <span class="pp-faq-toggle">+</span>
+                    </summary>
+                    <div class="pp-faq-answer">
+                        <p>Currently, it supports <strong>25+ languages</strong> with native-level fluency, including Spanish, French, German, and Hindi.</p>
+                    </div>
+                </details>
+                <details class="pp-faq-item">
+                    <summary>
+                        <span class="pp-faq-q">Is Thulirhrm suitable for a 10-person startup?</span>
+                        <span class="pp-faq-toggle">+</span>
+                    </summary>
+                    <div class="pp-faq-answer">
+                        <p>Absolutely. <strong>Thulirhrm is modular.</strong> You only pay for the features you use, and it scales as your team grows. It's designed to work for teams of 10 or 10,000.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA BANNER
+         ============================================ -->
+    <section class="pp-cta section-padding">
+        <div class="container">
+            <div class="careers-inner">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Experience the power of the Sistech Work ecosystem. Schedule a live demo today.</p>
+                <a href="index.html#contact" class="btn btn-outline-white">Schedule a Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="./assets/images/logo_white.webp" alt="Sistechwork" class="footer-logo">
+                <p class="footer-brand-desc">Precision software engineering and enterprise platforms built for the modern digital economy.</p>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Platforms</div>
+                <ul>
+                    <li><a href="thulir.html">Thulir HRM</a></li>
+                    <li><a href="testorbit.html">TestOrbit</a></li>
+                    <li><a href="trainhub.html">TrainHub</a></li>
+                    <li><a href="replyiq.html">Reply IQ</a></li>
+                    <li><a href="products.html">Products Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Engineering</div>
+                <ul>
+                    <li><a href="index.html#services">Custom Web Systems</a></li>
+                    <li><a href="index.html#services">Mobile Applications</a></li>
+                    <li><a href="index.html#services">Cloud &amp; DevOps</a></li>
+                    <li><a href="index.html#services">AI Chatbots &amp; RAG</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Company</div>
+                <ul>
+                    <li><a href="index.html#problem-solution">Why Sistechwork</a></li>
+                    <li><a href="index.html#workflow">Our Workflow</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Connect</div>
+                <ul>
+                    <li><a href="index.html#contact">LinkedIn</a></li>
+                    <li><a href="index.html#contact">GitHub</a></li>
+                    <li><a href="index.html#contact">Twitter</a></li>
+                    <li><a href="index.html#contact">Status: Operational</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sistechwork Private Limited. All Rights Reserved.</p>
+            <p>Engineered with Precision &amp; Passion.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Scroll Reveal & Loader Script -->
+    <script>
+    (function() {
+        // ---- Loading Screen ----
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('ppLoader');
+            setTimeout(function() {
+                loader.classList.add('pp-loader-hide');
+                setTimeout(() => loader.remove(), 600);
+            }, 800);
+        });
+
+        // ---- Intersection Observer Scroll Reveal ----
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        revealElements.forEach(function(el) { revealObserver.observe(el); });
+
+        // ---- Smooth Scroll for anchor links ----
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ---- Active Nav Pill on Scroll ----
+        const sections = document.querySelectorAll('.pp-product[id]');
+        const navPills = document.querySelectorAll('.pp-nav-pill');
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(function(section) {
+                const top = section.offsetTop - 200;
+                if (pageYOffset >= top) current = section.getAttribute('id');
+            });
+            navPills.forEach(function(pill) {
+                pill.classList.remove('pp-nav-pill-active');
+                if (pill.getAttribute('href') === '#' + current) {
+                    pill.classList.add('pp-nav-pill-active');
+                }
+            });
+        });
+
+        // ---- Parallax on Hero ----
+        const hero = document.querySelector('.pp-hero');
+        window.addEventListener('scroll', function() {
+            if (hero) {
+                const scrolled = window.pageYOffset;
+                hero.style.setProperty('--scroll-y', scrolled * 0.3 + 'px');
+            }
+        });
+
+        // ---- Counter Animation for Stats ----
+        const counters = document.querySelectorAll('.pp-counter');
+        const counterObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'));
+                    const suffix = el.getAttribute('data-suffix') || '';
+                    let current = 0;
+                    const step = Math.ceil(target / 60);
+                    const timer = setInterval(function() {
+                        current += step;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        el.textContent = current.toLocaleString() + suffix;
+                    }, 20);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(function(c) { counterObserver.observe(c); });
+
+        // ---- Table Row Highlight on Hover ----
+        document.querySelectorAll('.pp-comparison-table tbody tr').forEach(function(row) {
+            row.addEventListener('mouseenter', function() {
+                this.style.background = 'rgba(59, 130, 246, 0.08)';
+            });
+            row.addEventListener('mouseleave', function() {
+                this.style.background = '';
+            });
+        });
+
+        // ---- Scroll Progress Bar ----
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+            document.body.style.setProperty('--scroll-progress', progress + '%');
+        });
+    })();
+    </script>
+</body>
+</html>

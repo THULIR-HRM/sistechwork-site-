@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp?v=4">
+    <link rel="shortcut icon" href="./assets/images/favicon.webp?v=4">
+    <link rel="apple-touch-icon" href="./assets/images/favicon.webp?v=4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestOrbit | Next-Gen Examination Platform | Sistechwork</title>
+    <meta name="description" content="Enterprise examination portal with live proctoring, AI cheat detection, and high concurrency assessment.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+
+/* ===== SKY BLUE SHADE DESIGN SYSTEM (NO CLOUD IMAGES) ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, #E8F2FE 0%, #EFF6FF 25%, #F4F8FE 60%, #F8FAFC 100%);
+    color: #334155;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Scroll progress indicator */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--scroll-progress, 0%);
+    height: 2px;
+    background: linear-gradient(90deg, #0066FF 0%, #38BDF8 100%);
+    z-index: 100000;
+}
+
+/* ===== NAVIGATION (FROSTED SKY-BLUE ACCENT CAPSULE) ===== */
+.site-header {
+    position: fixed; top: 18px; left: 0; right: 0; z-index: 1000;
+    display: flex; justify-content: center; padding: 0 20px;
+    pointer-events: none;
+}
+.nav-container {
+    pointer-events: all;
+    width: 100%; max-width: 1100px; height: 68px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(0, 102, 255, 0.14);
+    border-radius: 9999px;
+    padding: 0 14px 0 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    box-shadow: 0 6px 25px rgba(0, 80, 200, 0.08), 0 1px 3px rgba(0, 80, 200, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.logo-link { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; padding-left: 6px; }
+.logo-link img { height: 29px; width: auto; max-width: 155px; object-fit: contain; display: block; }
+.primary-menu { display: flex; align-items: center; }
+.nav-list { display: flex; align-items: center; gap: 0.2rem; list-style: none; margin: 0; padding: 0; }
+.nav-link {
+    font-size: 0.875rem; font-weight: 500; color: #475569;
+    padding: 6px 14px; border-radius: 9999px;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none; white-space: nowrap;
+}
+.nav-link:hover, .nav-link.active { color: #0066FF; background: #EBF3FF; font-weight: 600; }
+.header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.btn-primary {
+    background: #0066FF; color: #fff;
+    font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600;
+    padding: 8px 20px; border-radius: 9999px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
+    border: none; cursor: pointer;
+}
+.btn-primary:hover { background: #0052CC; box-shadow: 0 6px 24px rgba(0, 102, 255, 0.4); transform: translateY(-1px); }
+.btn-close {
+    background: #FFFFFF; border: 1px solid rgba(0, 102, 255, 0.18);
+    color: #334155; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
+    padding: 8px 16px; border-radius: 9999px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.btn-close:hover { color: #0066FF; border-color: rgba(0, 102, 255, 0.35); transform: translateY(-1px); }
+
+@media (max-width: 960px) {
+    .primary-menu { display: none; }
+    .nav-container { height: 60px; padding: 0 8px 0 16px; }
+    .site-header { top: 12px; }
+}
+
+/* ===== HERO: CLEAN SKY BLUE SHADE THEME (NO CLOUDS) ===== */
+.prod-hero {
+    position: relative;
+    padding-top: calc(68px + 5.5rem); padding-bottom: 5.5rem;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 10%, #D4E8FF 0%, #E6F1FE 45%, #F0F6FE 85%, transparent 100%);
+    text-align: center;
+}
+.prod-hero-glow {
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 500px;
+    background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.25) 0%, rgba(0, 102, 255, 0.15) 50%, transparent 75%);
+    filter: blur(50px); pointer-events: none; z-index: 0;
+}
+.prod-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(0, 102, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 102, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none; z-index: 0;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 25%, transparent 95%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 25%, transparent 95%);
+}
+.prod-hero-inner { position: relative; z-index: 3; max-width: 860px; margin: 0 auto; padding: 0 24px; }
+.prod-hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.8rem; font-weight: 600; color: #0052CC;
+    background: #FFFFFF; border: 1px solid rgba(0, 102, 255, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 102, 255, 0.08);
+    padding: 6px 18px 6px 12px; border-radius: 9999px;
+    margin-bottom: 1.75rem; letter-spacing: 0.01em;
+}
+.prod-hero-badge-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #0066FF;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.22);
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(1.2); opacity: 0.7; }
+}
+.prod-hero-title {
+    font-size: clamp(2.4rem, 5.2vw, 3.8rem);
+    font-weight: 900; line-height: 1.1;
+    color: #0A2540;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.04em;
+}
+.prod-title-grad {
+    background: linear-gradient(135deg, #0066FF 0%, #00B4D8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.prod-hero-sub {
+    font-size: 1.125rem; line-height: 1.75;
+    color: #486581; margin-bottom: 2.25rem;
+    max-width: 660px; margin-left: auto; margin-right: auto;
+}
+.prod-hero-cta-group {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    flex-wrap: wrap; margin-bottom: 2.25rem;
+}
+.prod-hero-explore-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #0066FF; color: #fff;
+    border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.925rem; font-weight: 600;
+    padding: 12px 26px; border-radius: 9999px;
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.32);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.prod-hero-explore-btn:hover { background: #0052CC; box-shadow: 0 8px 28px rgba(0, 102, 255, 0.45); transform: translateY(-2px); }
+.prod-hero-contact-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #FFFFFF; color: #0A2540;
+    border: 1px solid rgba(0, 102, 255, 0.2); cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.925rem; font-weight: 600;
+    padding: 12px 26px; border-radius: 9999px;
+    box-shadow: 0 2px 8px rgba(0, 80, 200, 0.06);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+}
+.prod-hero-contact-btn:hover { border-color: #0066FF; color: #0066FF; box-shadow: 0 4px 14px rgba(0, 102, 255, 0.12); transform: translateY(-2px); }
+
+.prod-hero-pills {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 8px;
+}
+.prod-hero-pill-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 102, 255, 0.15); cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.825rem; font-weight: 600; color: #475569;
+    padding: 8px 18px; border-radius: 9999px;
+    box-shadow: 0 2px 6px rgba(0, 80, 200, 0.04);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.prod-hero-pill-btn:hover { background: #FFFFFF; border-color: #0066FF; color: #0066FF; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0, 102, 255, 0.15); }
+.prod-hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #0066FF; }
+
+/* ===== SECTORS SHOWCASE (SKY BLUE AMBIENT THEME) ===== */
+.prod-sectors { max-width: 1200px; margin: 0 auto; padding: 4rem 28px 6rem; }
+.prod-sector-card {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 4.5rem; align-items: center;
+    padding: 4.5rem 0;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+}
+.prod-sector-card:last-child { border-bottom: none; }
+.prod-sector-card.alt { direction: rtl; }
+.prod-sector-card.alt > * { direction: ltr; }
+@media (max-width: 900px) {
+    .prod-sector-card { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 0; }
+    .prod-sector-card.alt { direction: ltr; }
+    .prod-hero-title { font-size: 2.1rem; }
+}
+
+/* Demo Image Window */
+.prod-img-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 102, 255, 0.16);
+    border-radius: 18px; overflow: hidden;
+    cursor: pointer; position: relative;
+    box-shadow: 0 14px 40px rgba(0, 80, 200, 0.08), 0 2px 6px rgba(0, 80, 200, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.prod-img-card:hover {
+    border-color: #0066FF;
+    transform: translateY(-5px);
+    box-shadow: 0 24px 50px rgba(0, 102, 255, 0.18), 0 4px 12px rgba(0, 80, 200, 0.08);
+}
+.prod-img-card.is-flashing { border-color: #0066FF; box-shadow: 0 0 30px rgba(0, 102, 255, 0.35); }
+.prod-img-bar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 16px;
+    background: #F4F8FD;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+}
+.prod-card-dots { display: flex; gap: 6px; }
+.prod-dot { width: 11px; height: 11px; border-radius: 50%; }
+.prod-dot-red    { background: #ff5f57; }
+.prod-dot-yellow { background: #febc2e; }
+.prod-dot-green  { background: #28c840; }
+.prod-card-url {
+    flex: 1; font-size: 0.75rem; color: #486581;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.prod-card-zoom {
+    font-size: 0.72rem; font-weight: 600; color: #0066FF;
+    display: flex; align-items: center; gap: 5px;
+    padding: 4px 10px; background: rgba(0, 102, 255, 0.1); border-radius: 9999px;
+    transition: background 0.2s;
+}
+.prod-img-card:hover .prod-card-zoom { background: #0066FF; color: #FFFFFF; }
+.prod-img-view { background: #FFFFFF; line-height: 0; }
+.prod-img-view img { width: 100%; height: auto; display: block; }
+
+/* Sector Info Typography */
+.prod-sector-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #0066FF;
+    background: #EBF3FF;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    padding: 4px 14px; border-radius: 9999px;
+    margin-bottom: 1rem;
+}
+.prod-sector-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 800; color: #0A2540;
+    line-height: 1.25; margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+}
+.prod-sector-desc {
+    font-size: 1rem; line-height: 1.7; color: #486581;
+    margin-bottom: 1.75rem;
+}
+.prod-feature-points {
+    list-style: none; display: flex; flex-direction: column; gap: 1.1rem;
+    margin-bottom: 1.75rem;
+}
+.prod-feature-points li {
+    display: flex; align-items: flex-start; gap: 12px;
+    font-size: 0.925rem; color: #334155; line-height: 1.6;
+}
+.prod-feature-points .point-icon-svg { flex-shrink: 0; margin-top: 3px; color: #0066FF; }
+.prod-sector-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.prod-sector-badges span {
+    font-size: 0.75rem; font-weight: 600;
+    background: #EBF3FF;
+    color: #0066FF;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    padding: 4px 12px; border-radius: 9999px;
+}
+
+/* ===== BOTTOM CTA BANNER ===== */
+.prod-cta-banner { padding: 2rem 24px 6rem; max-width: 1200px; margin: 0 auto; }
+.prod-cta-card {
+    background: linear-gradient(135deg, #0066FF 0%, #0284C7 100%);
+    border-radius: 24px; padding: 4.5rem 3rem;
+    text-align: center; color: #FFFFFF;
+    box-shadow: 0 20px 50px rgba(0, 102, 255, 0.25);
+    position: relative; overflow: hidden;
+}
+.prod-cta-badge {
+    display: inline-block;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 16px; border-radius: 9999px;
+    margin-bottom: 1.25rem;
+}
+.prod-cta-heading {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 800; color: #FFFFFF;
+    margin-bottom: 1rem; letter-spacing: -0.03em;
+}
+.prod-cta-text {
+    font-size: 1.05rem; color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7; margin-bottom: 2.25rem; max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.prod-cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #FFFFFF; color: #0066FF;
+    border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem; font-weight: 700;
+    padding: 13px 30px; border-radius: 9999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+}
+.prod-cta-btn:hover { background: #F4F8FD; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18); }
+
+/* ===== LIGHTBOX MODAL ===== */
+.prod-lightbox {
+    display: none; position: fixed; inset: 0; z-index: 9000;
+    align-items: center; justify-content: center; padding: 20px;
+}
+.prod-lightbox.is-open { display: flex; }
+.prod-lightbox-bg {
+    position: absolute; inset: 0;
+    background: rgba(10, 37, 64, 0.7);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    cursor: pointer;
+}
+.prod-lightbox-dialog {
+    position: relative; z-index: 1;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-radius: 20px; overflow: hidden;
+    max-width: 92vw; max-height: 90vh;
+    box-shadow: 0 30px 80px rgba(0, 40, 120, 0.3);
+    display: flex; flex-direction: column;
+}
+.prod-lightbox-bar {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 18px;
+    background: #F4F8FD;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.12);
+}
+.prod-lightbox-title { flex: 1; font-size: 0.85rem; font-weight: 600; color: #0A2540; }
+.prod-lightbox-close {
+    background: none; border: none; cursor: pointer;
+    color: #486581; padding: 6px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+}
+.prod-lightbox-close:hover { color: #0A2540; background: rgba(0, 102, 255, 0.08); }
+.prod-lightbox-body { overflow: auto; max-height: calc(90vh - 50px); background: #FFFFFF; }
+.prod-lightbox-body img { display: block; max-width: 100%; height: auto; }
+
+    
+/* ==========================================================================
+   FOOTER (PERFECT HORIZONTAL ALIGNMENT & OPTIMIZED SIZING)
+   ========================================================================== */
+.site-footer {
+    background: #080D17;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 5.5rem 0 2.5rem;
+    color: #CBD5E1;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    position: relative;
+    z-index: 10;
+}
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin-bottom: 4rem;
+}
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.footer-logo {
+    height: 32px;
+    width: auto;
+    max-width: 175px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 1.25rem;
+}
+.footer-brand-desc {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: #CBD5E1;
+    max-width: 300px;
+    margin: 0;
+}
+.footer-col-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: #FFFFFF;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+.footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.footer-col a {
+    font-size: 0.9rem;
+    color: #CBD5E1;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.footer-col a:hover {
+    color: #FFFFFF;
+    transform: translateX(2px);
+    display: inline-block;
+}
+.footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin: 0 0 2rem 0;
+}
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #94A3B8;
+}
+@media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+}
+@media (max-width: 420px) {
+    .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== HAMBURGER & MOBILE MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px; height: 40px;
+    border: none; background: transparent;
+    cursor: pointer; gap: 5px; border-radius: 10px;
+    transition: background 0.2s; z-index: 10001;
+}
+.hamburger:hover { background: rgba(0,102,255,0.08); }
+.hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: #0A2540; border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(16px);
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.mobile-menu.open {
+    display: flex;
+    pointer-events: all;
+}
+.mobile-menu ul {
+    list-style: none;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 0.5rem;
+    width: 100%; padding: 2rem 1.5rem;
+}
+.mobile-menu ul li a {
+    display: block; font-size: 1.3rem; font-weight: 600;
+    color: #0A2540; padding: 0.75rem 2rem;
+    border-radius: 14px; text-align: center; width: 100%;
+    transition: all 0.2s;
+}
+.mobile-menu ul li a:hover { background: #EBF3FF; color: #0066FF; }
+.mobile-menu .mobile-cta {
+    margin-top: 1rem; padding: 0.9rem 2.5rem;
+    background: #0066FF; color: #fff !important;
+    border-radius: 9999px; font-size: 1rem; font-weight: 700;
+}
+@media (max-width: 960px) { .hamburger { display: flex; } }</style>
+</head>
+<body>
+
+
+    <!-- TOP FLOATING NAVIGATION -->
+    <header class="site-header" id="site-header">
+        <nav class="nav-container" id="nav-container" aria-label="Main Navigation">
+            <a href="./index.html" class="logo-link" aria-label="Sistechwork Home">
+                <img src="./assets/images/logo.webp" alt="Sistechwork">
+            </a>
+
+            <div class="primary-menu" role="navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html#platforms" class="nav-link">Platforms</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="index.html#engineering" class="nav-link">Engineering</a></li>
+                    <li><a href="index.html#techstack" class="nav-link">Tech Stack</a></li>
+                    <li><a href="index.html#workflow" class="nav-link">Workflow</a></li>
+                    <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="header-actions">
+                <a href="index.html#contact" class="btn-primary">Get Started</a>
+                <a href="./index.html" class="btn-close" aria-label="Return to Sistechwork Home">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    Close
+                </a>
+            </div>
+        </nav>
+    </header>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" style="display:none;" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <ul>
+        <li><a href="./index.html" onclick="closeMobileMenu()">Home</a></li>
+        <li><a href="./products.html" onclick="closeMobileMenu()">Products</a></li>
+        <li><a href="./thulir.html" onclick="closeMobileMenu()">Thulir HRM</a></li>
+        <li><a href="./testorbit.html" onclick="closeMobileMenu()">TestOrbit</a></li>
+        <li><a href="./replyiq.html" onclick="closeMobileMenu()">ReplyIQ</a></li>
+        <li><a href="./trainhub.html" onclick="closeMobileMenu()">TrainHub</a></li>
+        <li><a href="./index.html#contact" class="mobile-cta" onclick="closeMobileMenu()">Get Started</a></li>
+    </ul>
+</div>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.style.display = 'none';
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.style.display = isOpen ? 'flex' : 'none';
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+
+
+    <!-- HERO SECTION: CLEAN SKY BLUE SHADE THEME -->
+    <section class="prod-hero">
+        <div class="prod-hero-glow" aria-hidden="true"></div>
+        <div class="prod-hero-grid" aria-hidden="true"></div>
+        <div class="prod-hero-inner">
+            <div class="prod-hero-badge">
+                <span class="prod-hero-badge-dot"></span>
+                Autonomous Assessment Suite &bull; TestOrbit
+            </div>
+            <h1 class="prod-hero-title">
+                Secure, Intelligent <span class="prod-title-grad">Examinations &amp; Proctoring</span>
+            </h1>
+            <p class="prod-hero-sub">
+                Power thousands of concurrent assessments with computer-vision AI proctoring, live incident telemetry, automated grading, and granular skill analytics.
+            </p>
+            <div class="prod-hero-cta-group">
+                <button type="button" class="prod-hero-explore-btn" id="testorbit-hero-scroll-hint">
+                    <span>Explore Sectors</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <a href="index.html#contact" class="prod-hero-contact-btn">Get in Touch</a>
+            </div>
+            <div class="prod-hero-pills">
+                <button type="button" class="prod-hero-pill-btn" data-target="testorbit-sector-dashboard"><span class="prod-hero-pill-dot"></span>Dashboard</button>
+                <button type="button" class="prod-hero-pill-btn" data-target="testorbit-sector-assessments"><span class="prod-hero-pill-dot"></span>Assessments</button>
+                <button type="button" class="prod-hero-pill-btn" data-target="testorbit-sector-proctoring"><span class="prod-hero-pill-dot"></span>AI Proctoring</button>
+                <button type="button" class="prod-hero-pill-btn" data-target="testorbit-sector-questions"><span class="prod-hero-pill-dot"></span>Question Bank</button>
+                <button type="button" class="prod-hero-pill-btn" data-target="testorbit-sector-analytics"><span class="prod-hero-pill-dot"></span>Results &amp; BI</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTORS SHOWCASE -->
+    <div class="prod-sectors">
+
+        <!-- SECTOR 1: COMMAND DASHBOARD -->
+        <div class="prod-sector-card" id="testorbit-sector-dashboard">
+            <div class="prod-img-card" tabindex="0" role="button" data-src="./assets/images/testorbit_demo_1.webp" data-title="TestOrbit &bull; Unified Examination Command Center">
+                <div class="prod-img-bar">
+                    <div class="prod-card-dots">
+                        <div class="prod-dot prod-dot-red"></div>
+                        <div class="prod-dot prod-dot-yellow"></div>
+                        <div class="prod-dot prod-dot-green"></div>
+                    </div>
+                    <span class="prod-card-url">testorbit.sistechwork.com/dashboard</span>
+                    <span class="prod-card-zoom">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                        Light Up
+                    </span>
+                </div>
+                <div class="prod-img-view">
+                    <img src="./assets/images/testorbit_demo_1.webp" alt="TestOrbit Dashboard" loading="lazy">
+                </div>
+            </div>
+            <div class="prod-sector-info">
+                <div class="prod-sector-tag">Sector 01 &bull; Command Dashboard</div>
+                <h2 class="prod-sector-title">Unified Examination Operations &amp; Live Telemetry</h2>
+                <p class="prod-sector-desc">
+                    Gain total visibility across ongoing examination batches. Monitor server loads, candidate login queues, and active invigilator alerts on a centralized executive dashboard.
+                </p>
+                <ul class="prod-feature-points">
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span><strong>10K+ High-Concurrency Engine:</strong> Auto-scaling infrastructure withstands massive synchronized exam starts.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        <span><strong>Incident Alert Stream:</strong> Instant push notifications when network drops or anomaly thresholds are exceeded.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span><strong>Multi-Campus Administration:</strong> Segment test batches across physical centers or remote regions effortlessly.</span>
+                    </li>
+                </ul>
+                <div class="prod-sector-badges">
+                    <span>#HighConcurrency</span>
+                    <span>#Telemetry</span>
+                    <span>#ZeroDowntime</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTOR 2: ASSESSMENT MANAGEMENT -->
+        <div class="prod-sector-card alt" id="testorbit-sector-assessments">
+            <div class="prod-img-card" tabindex="0" role="button" data-src="./assets/images/testorbit_demo_2.webp" data-title="TestOrbit &bull; Dynamic Assessment Authoring &amp; Workflow">
+                <div class="prod-img-bar">
+                    <div class="prod-card-dots">
+                        <div class="prod-dot prod-dot-red"></div>
+                        <div class="prod-dot prod-dot-yellow"></div>
+                        <div class="prod-dot prod-dot-green"></div>
+                    </div>
+                    <span class="prod-card-url">testorbit.sistechwork.com/assessments</span>
+                    <span class="prod-card-zoom">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                        Light Up
+                    </span>
+                </div>
+                <div class="prod-img-view">
+                    <img src="./assets/images/testorbit_demo_2.webp" alt="Assessment Management" loading="lazy">
+                </div>
+            </div>
+            <div class="prod-sector-info">
+                <div class="prod-sector-tag">Sector 02 &bull; Test Management</div>
+                <h2 class="prod-sector-title">Bespoke Assessment Orchestration &amp; Scheduling</h2>
+                <p class="prod-sector-desc">
+                    Configure time windows, section-level time bounds, negative marking schemes, and adaptive question sequencing with a few clicks.
+                </p>
+                <ul class="prod-feature-points">
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        <span><strong>Flexible Window Scheduling:</strong> Fixed slots or open windows with timezone-aware timers.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><polygon points="12 25 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <span><strong>Adaptive Difficulty:</strong> Questions automatically tune complexity according to real-time response accuracy.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+                        <span><strong>Automated Hall Tickets:</strong> Encrypted QR-verified admit passes generated automatically for candidates.</span>
+                    </li>
+                </ul>
+                <div class="prod-sector-badges">
+                    <span>#AdaptiveTesting</span>
+                    <span>#Scheduling</span>
+                    <span>#SecurePass</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTOR 3: AI PROCTORING -->
+        <div class="prod-sector-card" id="testorbit-sector-proctoring">
+            <div class="prod-img-card" tabindex="0" role="button" data-src="./assets/images/testorbit_demo_3.webp" data-title="TestOrbit &bull; AI-Powered Live Proctoring &amp; Cheat Detection">
+                <div class="prod-img-bar">
+                    <div class="prod-card-dots">
+                        <div class="prod-dot prod-dot-red"></div>
+                        <div class="prod-dot prod-dot-yellow"></div>
+                        <div class="prod-dot prod-dot-green"></div>
+                    </div>
+                    <span class="prod-card-url">testorbit.sistechwork.com/proctoring/live</span>
+                    <span class="prod-card-zoom">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                        Light Up
+                    </span>
+                </div>
+                <div class="prod-img-view">
+                    <img src="./assets/images/testorbit_demo_3.webp" alt="Live AI Proctoring" loading="lazy">
+                </div>
+            </div>
+            <div class="prod-sector-info">
+                <div class="prod-sector-tag">Sector 03 &bull; AI Proctoring</div>
+                <h2 class="prod-sector-title">Computer-Vision AI Proctoring &amp; Integrity Guard</h2>
+                <p class="prod-sector-desc">
+                    Uphold exam integrity even across unmonitored home environments. On-device AI flags multiple faces, secondary audio, gaze aversion, tab switches, and unauthorized devices.
+                </p>
+                <ul class="prod-feature-points">
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <span><strong>Multi-Face &amp; Gaze Tracking:</strong> Instant detection of secondary persons or persistent screen diversion.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span><strong>Strict Screen &amp; Kiosk Lock:</strong> Prevents copy-pasting, screenshotting, and developer tool inspections.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                        <span><strong>Live Proctor Intervention:</strong> Real-time 2-way audio warning or 1-click test termination.</span>
+                    </li>
+                </ul>
+                <div class="prod-sector-badges">
+                    <span>#AIProctoring</span>
+                    <span>#CheatDetection</span>
+                    <span>#KioskLock</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTOR 4: QUESTION BANK -->
+        <div class="prod-sector-card alt" id="testorbit-sector-questions">
+            <div class="prod-img-card" tabindex="0" role="button" data-src="./assets/images/testorbit_demo_4.webp" data-title="TestOrbit &bull; Intelligent Multi-Type Question Repository">
+                <div class="prod-img-bar">
+                    <div class="prod-card-dots">
+                        <div class="prod-dot prod-dot-red"></div>
+                        <div class="prod-dot prod-dot-yellow"></div>
+                        <div class="prod-dot prod-dot-green"></div>
+                    </div>
+                    <span class="prod-card-url">testorbit.sistechwork.com/questions</span>
+                    <span class="prod-card-zoom">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                        Light Up
+                    </span>
+                </div>
+                <div class="prod-img-view">
+                    <img src="./assets/images/testorbit_demo_4.webp" alt="Question Bank" loading="lazy">
+                </div>
+            </div>
+            <div class="prod-sector-info">
+                <div class="prod-sector-tag">Sector 04 &bull; Item Banking</div>
+                <h2 class="prod-sector-title">Multi-Modal Question Banking &amp; Formula Compilers</h2>
+                <p class="prod-sector-desc">
+                    Support rich MCQ, subjective coding sandboxes, LaTeX mathematical formulas, audio prompts, and file uploads within a secure tagged item bank.
+                </p>
+                <ul class="prod-feature-points">
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        <span><strong>Live Code Sandbox:</strong> Integrated IDE running Python, Java, C++, and JavaScript test-case evaluation.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        <span><strong>Tag-Based Randomization:</strong> Generate unique yet equivalent papers for every candidate to prevent collusion.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                        <span><strong>Bulk Ingest:</strong> Import thousands of items from Word, Excel, or QTI files in seconds.</span>
+                    </li>
+                </ul>
+                <div class="prod-sector-badges">
+                    <span>#CodingSandbox</span>
+                    <span>#LaTeXSupport</span>
+                    <span>#ItemBank</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTOR 5: RESULTS & ANALYTICS -->
+        <div class="prod-sector-card" id="testorbit-sector-analytics">
+            <div class="prod-img-card" tabindex="0" role="button" data-src="./assets/images/testorbit_demo_5.webp" data-title="TestOrbit &bull; Automated Grading &amp; Cohort Skill Analytics">
+                <div class="prod-img-bar">
+                    <div class="prod-card-dots">
+                        <div class="prod-dot prod-dot-red"></div>
+                        <div class="prod-dot prod-dot-yellow"></div>
+                        <div class="prod-dot prod-dot-green"></div>
+                    </div>
+                    <span class="prod-card-url">testorbit.sistechwork.com/analytics</span>
+                    <span class="prod-card-zoom">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                        Light Up
+                    </span>
+                </div>
+                <div class="prod-img-view">
+                    <img src="./assets/images/testorbit_demo_5.webp" alt="Results Analytics" loading="lazy">
+                </div>
+            </div>
+            <div class="prod-sector-info">
+                <div class="prod-sector-tag">Sector 05 &bull; Analytics &amp; BI</div>
+                <h2 class="prod-sector-title">Granular Competency Matrices &amp; Instant Scorecards</h2>
+                <p class="prod-sector-desc">
+                    Deliver instant percentile rankings, topic-by-topic weakness diagnostics, and accreditation-ready audit trails as soon as tests conclude.
+                </p>
+                <ul class="prod-feature-points">
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        <span><strong>Zero-Wait Grading:</strong> Objective sections graded in real time with instant PDF report card delivery.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                        <span><strong>Skill Spider Charts:</strong> Multi-dimensional radar breakdown of each student or applicant's competencies.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span><strong>Tamper-Proof Audit Vault:</strong> Complete timestamped log of every click and proctor flag for legal defense.</span>
+                    </li>
+                </ul>
+                <div class="prod-sector-badges">
+                    <span>#InstantGrading</span>
+                    <span>#SkillMatrix</span>
+                    <span>#AuditProof</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="prod-cta-banner">
+        <div class="prod-cta-card">
+            <div class="prod-cta-badge">Ready to Scale?</div>
+            <h2 class="prod-cta-heading">Elevate Your Examination Standards with TestOrbit</h2>
+            <p class="prod-cta-text">
+                Schedule an enterprise demo to test 10,000+ candidate concurrency and experience seamless AI-proctored evaluations.
+            </p>
+            <a href="index.html#contact" class="prod-cta-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                Get in Touch with Our Assessment Experts
+            </a>
+        </div>
+    </section>
+
+
+    <!-- Global Lightbox Modal -->
+    <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="./assets/images/logo_white.webp" alt="Sistechwork" class="footer-logo">
+                <p class="footer-brand-desc">Precision software engineering and enterprise platforms built for the modern digital economy.</p>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Platforms</div>
+                <ul>
+                    <li><a href="thulir.html">Thulir HRM</a></li>
+                    <li><a href="testorbit.html">TestOrbit</a></li>
+                    <li><a href="trainhub.html">TrainHub</a></li>
+                    <li><a href="replyiq.html">Reply IQ</a></li>
+                    <li><a href="products.html">Products Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Engineering</div>
+                <ul>
+                    <li><a href="index.html#services">Custom Web Systems</a></li>
+                    <li><a href="index.html#services">Mobile Applications</a></li>
+                    <li><a href="index.html#services">Cloud &amp; DevOps</a></li>
+                    <li><a href="index.html#services">AI Chatbots &amp; RAG</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Company</div>
+                <ul>
+                    <li><a href="index.html#problem-solution">Why Sistechwork</a></li>
+                    <li><a href="index.html#workflow">Our Workflow</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Connect</div>
+                <ul>
+                    <li><a href="index.html#contact">LinkedIn</a></li>
+                    <li><a href="index.html#contact">GitHub</a></li>
+                    <li><a href="index.html#contact">Twitter</a></li>
+                    <li><a href="index.html#contact">Status: Operational</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sistechwork Private Limited. All Rights Reserved.</p>
+            <p>Engineered with Precision &amp; Passion.</p>
+        </div>
+    </div>
+</footer>
+
+    <div class="prod-lightbox" id="prod-lightbox" aria-hidden="true">
+        <div class="prod-lightbox-bg" id="prod-lightbox-bg"></div>
+        <div class="prod-lightbox-dialog">
+            <div class="prod-lightbox-bar">
+                <div class="prod-card-dots">
+                    <div class="prod-dot prod-dot-red"></div>
+                    <div class="prod-dot prod-dot-yellow"></div>
+                    <div class="prod-dot prod-dot-green"></div>
+                </div>
+                <div class="prod-lightbox-title" id="prod-lightbox-title">Platform Screenshot Preview</div>
+                <button type="button" class="prod-lightbox-close" id="prod-lightbox-close" aria-label="Close preview">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="prod-lightbox-body">
+                <img id="prod-lightbox-img" src="" alt="Illuminated Preview">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- INTERACTION SCRIPT -->
+    <script>
+    (function () {
+        var lb = document.getElementById('prod-lightbox');
+        var lbImg = document.getElementById('prod-lightbox-img');
+        var lbTitle = document.getElementById('prod-lightbox-title');
+        var lbClose = document.getElementById('prod-lightbox-close');
+        var lbBg = document.getElementById('prod-lightbox-bg');
+
+        function openLb(src, title) {
+            if (!lb) return;
+            if (lbImg) lbImg.src = src;
+            if (lbTitle) lbTitle.textContent = title || 'Platform Screenshot Preview';
+            lb.classList.add('is-open');
+            lb.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLb() {
+            if (!lb) return;
+            lb.classList.remove('is-open');
+            lb.setAttribute('aria-hidden', 'true');
+            if (lbImg) lbImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.prod-img-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+                card.classList.add('is-flashing');
+                setTimeout(function() { card.classList.remove('is-flashing'); }, 400);
+                var src = card.getAttribute('data-src');
+                var title = card.getAttribute('data-title');
+                openLb(src, title);
+            });
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
+            });
+        });
+
+        if (lbClose) lbClose.addEventListener('click', closeLb);
+        if (lbBg) lbBg.addEventListener('click', closeLb);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lb && lb.classList.contains('is-open')) closeLb();
+        });
+
+        // Pill scroll buttons
+        document.querySelectorAll('.prod-hero-pill-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var targetId = this.getAttribute('data-target');
+                var el = document.getElementById(targetId);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+
+        // Scroll hint button
+        var scrollHint = document.getElementById('testorbit-hero-scroll-hint');
+        if (scrollHint) {
+            scrollHint.addEventListener('click', function() {
+                var firstCard = document.querySelector('.prod-sector-card');
+                if (firstCard) firstCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+    })();
+    </script>
+
+
+</body>
+</html>

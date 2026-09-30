@@ -29,20 +29,30 @@ const mimeTypes = {
 
 const server = createServer(async (req, res) => {
   try {
-    const parsedUrl = parse(req.url);
-    let pathname = decodeURIComponent(parsedUrl.pathname);
+    const reqUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+    let pathname = decodeURIComponent(reqUrl.pathname);
 
-    // Redirect root to main site
-    if (pathname === '/' || pathname === '/index.html') {
-      res.writeHead(302, { Location: '/sistechwork/' });
+    // Redirect legacy /sistechwork paths to clean root paths
+    if (pathname === '/sistechwork' || pathname === '/sistechwork/' || pathname === '/sistechwork/index.html') {
+      res.writeHead(301, { Location: '/' });
+      res.end();
+      return;
+    }
+    if (pathname.startsWith('/sistechwork/')) {
+      const cleanPath = pathname.replace(/^\/sistechwork/, '');
+      res.writeHead(301, { Location: cleanPath || '/' });
       res.end();
       return;
     }
 
+    // Serve root index.html
+    if (pathname === '/' || pathname === '') {
+      pathname = '/index.html';
+    }
+
     let filePath = join(DIST_DIR, pathname);
 
-    // If directory without trailing slash → redirect to add trailing slash
-    // so relative CSS/JS paths resolve correctly
+    // Check if file exists or if it's a directory
     if (existsSync(filePath)) {
       const stats = await stat(filePath);
       if (stats.isDirectory()) {
@@ -55,6 +65,8 @@ const server = createServer(async (req, res) => {
       }
     } else if (existsSync(filePath + '.html')) {
       filePath = filePath + '.html';
+    } else if (existsSync(join(DIST_DIR, pathname, 'index.html'))) {
+      filePath = join(DIST_DIR, pathname, 'index.html');
     } else {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
       res.end('404 Not Found: ' + pathname);

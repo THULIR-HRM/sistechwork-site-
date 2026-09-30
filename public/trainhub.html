@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp?v=4">
+    <link rel="shortcut icon" href="./assets/images/favicon.webp?v=4">
+    <link rel="apple-touch-icon" href="./assets/images/favicon.webp?v=4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainHub | Student Academic Intelligence & Performance Platform | Sistechwork</title>
+    <meta name="description" content="A student-centric academic intelligence ecosystem for real-time attendance tracking, marks analysis, performance reporting, and parent communication.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+
+/* ===== SKY BLUE SHADE DESIGN SYSTEM (CLEAN GRADIENTS, NO CLOUDS) ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, #E8F2FE 0%, #EFF6FF 25%, #F4F8FE 60%, #F8FAFC 100%);
+    color: #334155;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Scroll progress indicator */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--scroll-progress, 0%);
+    height: 2px;
+    background: linear-gradient(90deg, #0066FF 0%, #38BDF8 100%);
+    z-index: 100000;
+}
+
+/* ===== NAVIGATION (FROSTED SKY-BLUE ACCENT CAPSULE) ===== */
+.site-header {
+    position: fixed; top: 18px; left: 0; right: 0; z-index: 1000;
+    display: flex; justify-content: center; padding: 0 20px;
+    pointer-events: none;
+}
+.nav-container {
+    pointer-events: all;
+    width: 100%; max-width: 1100px; height: 68px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(0, 102, 255, 0.14);
+    border-radius: 9999px;
+    padding: 0 14px 0 32px;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    box-shadow: 0 6px 25px rgba(0, 80, 200, 0.08), 0 1px 3px rgba(0, 80, 200, 0.04);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.logo-link { display: flex; align-items: center; flex-shrink: 0; text-decoration: none; padding-left: 6px; }
+.logo-link img { height: 29px; width: auto; max-width: 155px; object-fit: contain; display: block; }
+.primary-menu { display: flex; align-items: center; }
+.nav-list { display: flex; align-items: center; gap: 0.2rem; list-style: none; margin: 0; padding: 0; }
+.nav-link {
+    font-size: 0.875rem; font-weight: 500; color: #475569;
+    padding: 6px 14px; border-radius: 9999px;
+    transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none; white-space: nowrap;
+}
+.nav-link:hover, .nav-link.active { color: #0066FF; background: #EBF3FF; font-weight: 600; }
+.header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.btn-primary {
+    background: #0066FF; color: #fff;
+    font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600;
+    padding: 8px 20px; border-radius: 9999px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none; display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
+    border: none; cursor: pointer;
+}
+.btn-primary:hover { background: #0052CC; box-shadow: 0 6px 24px rgba(0, 102, 255, 0.4); transform: translateY(-1px); }
+.btn-close {
+    background: #FFFFFF; border: 1px solid rgba(0, 102, 255, 0.18);
+    color: #334155; cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500;
+    padding: 8px 16px; border-radius: 9999px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex; align-items: center; gap: 6px; text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.btn-close:hover { color: #0066FF; border-color: rgba(0, 102, 255, 0.35); transform: translateY(-1px); }
+
+@media (max-width: 960px) {
+    .primary-menu { display: none; }
+    .nav-container { height: 60px; padding: 0 8px 0 16px; }
+    .site-header { top: 12px; }
+}
+
+/* ===== HERO: CLEAN SKY BLUE SHADE THEME ===== */
+.prod-hero {
+    position: relative;
+    padding-top: calc(68px + 5.5rem); padding-bottom: 5.5rem;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 10%, #D4E8FF 0%, #E6F1FE 45%, #F0F6FE 85%, transparent 100%);
+    text-align: center;
+}
+.prod-hero-glow {
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 800px; height: 500px;
+    background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.25) 0%, rgba(0, 102, 255, 0.15) 50%, transparent 75%);
+    filter: blur(50px); pointer-events: none; z-index: 0;
+}
+.prod-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(0, 102, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 102, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none; z-index: 0;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 25%, transparent 95%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 25%, transparent 95%);
+}
+.prod-hero-inner { position: relative; z-index: 3; max-width: 860px; margin: 0 auto; padding: 0 24px; }
+.prod-hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.8rem; font-weight: 600; color: #0052CC;
+    background: #FFFFFF; border: 1px solid rgba(0, 102, 255, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 102, 255, 0.08);
+    padding: 6px 18px 6px 12px; border-radius: 9999px;
+    margin-bottom: 1.75rem; letter-spacing: 0.01em;
+}
+.prod-hero-badge-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #0066FF;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.22);
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50%       { transform: scale(1.2); opacity: 0.7; }
+}
+.prod-hero-title {
+    font-size: clamp(2.4rem, 5.2vw, 3.8rem);
+    font-weight: 900; line-height: 1.1;
+    color: #0A2540;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.04em;
+}
+.prod-title-grad {
+    background: linear-gradient(135deg, #0066FF 0%, #00B4D8 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.prod-hero-sub {
+    font-size: 1.125rem; line-height: 1.75;
+    color: #486581; margin-bottom: 2.25rem;
+    max-width: 660px; margin-left: auto; margin-right: auto;
+}
+.prod-hero-cta-group {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    flex-wrap: wrap; margin-bottom: 2.25rem;
+}
+.prod-hero-explore-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #0066FF; color: #fff;
+    border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.925rem; font-weight: 600;
+    padding: 12px 26px; border-radius: 9999px;
+    box-shadow: 0 6px 20px rgba(0, 102, 255, 0.32);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.prod-hero-explore-btn:hover { background: #0052CC; box-shadow: 0 8px 28px rgba(0, 102, 255, 0.45); transform: translateY(-2px); }
+.prod-hero-contact-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #FFFFFF; color: #0A2540;
+    border: 1px solid rgba(0, 102, 255, 0.2); cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.925rem; font-weight: 600;
+    padding: 12px 26px; border-radius: 9999px;
+    box-shadow: 0 2px 8px rgba(0, 80, 200, 0.06);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+}
+.prod-hero-contact-btn:hover { border-color: #0066FF; color: #0066FF; box-shadow: 0 4px 14px rgba(0, 102, 255, 0.12); transform: translateY(-2px); }
+
+.prod-hero-pills {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 8px;
+}
+.prod-hero-pill-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 102, 255, 0.15); cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.825rem; font-weight: 600; color: #475569;
+    padding: 8px 18px; border-radius: 9999px;
+    box-shadow: 0 2px 6px rgba(0, 80, 200, 0.04);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.prod-hero-pill-btn:hover { background: #FFFFFF; border-color: #0066FF; color: #0066FF; transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0, 102, 255, 0.15); }
+.prod-hero-pill-dot { width: 6px; height: 6px; border-radius: 50%; background: #0066FF; }
+
+/* ===== SECTORS SHOWCASE (SKY BLUE AMBIENT THEME) ===== */
+.prod-sectors { max-width: 1200px; margin: 0 auto; padding: 4rem 28px 6rem; }
+.prod-sector-card {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 4.5rem; align-items: center;
+    padding: 4.5rem 0;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+}
+.prod-sector-card:last-child { border-bottom: none; }
+.prod-sector-card.alt { direction: rtl; }
+.prod-sector-card.alt > * { direction: ltr; }
+@media (max-width: 900px) {
+    .prod-sector-card { grid-template-columns: 1fr; gap: 2.5rem; padding: 3.5rem 0; }
+    .prod-sector-card.alt { direction: ltr; }
+    .prod-hero-title { font-size: 2.1rem; }
+}
+
+/* Demo Image Window */
+.prod-img-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 102, 255, 0.16);
+    border-radius: 18px; overflow: hidden;
+    cursor: pointer; position: relative;
+    box-shadow: 0 14px 40px rgba(0, 80, 200, 0.08), 0 2px 6px rgba(0, 80, 200, 0.03);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.prod-img-card:hover {
+    border-color: #0066FF;
+    transform: translateY(-5px);
+    box-shadow: 0 24px 50px rgba(0, 102, 255, 0.18), 0 4px 12px rgba(0, 80, 200, 0.08);
+}
+.prod-img-card.is-flashing { border-color: #0066FF; box-shadow: 0 0 30px rgba(0, 102, 255, 0.35); }
+.prod-img-bar {
+    display: flex; align-items: center; gap: 10px;
+    padding: 11px 16px;
+    background: #F4F8FD;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+}
+.prod-card-dots { display: flex; gap: 6px; }
+.prod-dot { width: 11px; height: 11px; border-radius: 50%; }
+.prod-dot-red    { background: #ff5f57; }
+.prod-dot-yellow { background: #febc2e; }
+.prod-dot-green  { background: #28c840; }
+.prod-card-url {
+    flex: 1; font-size: 0.75rem; color: #486581;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.prod-card-zoom {
+    font-size: 0.72rem; font-weight: 600; color: #0066FF;
+    display: flex; align-items: center; gap: 5px;
+    background: #EBF3FF; padding: 3px 9px; border-radius: 9999px;
+    border: 1px solid rgba(0, 102, 255, 0.18);
+}
+.prod-img-view { position: relative; overflow: hidden; background: #FFFFFF; }
+.prod-img-view img {
+    display: block; width: 100%; height: auto;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.prod-img-card:hover .prod-img-view img { transform: scale(1.02); }
+
+/* Sector Content */
+.prod-sector-tag {
+    font-size: 0.75rem; font-weight: 700; color: #0066FF;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+}
+.prod-sector-title {
+    font-size: clamp(1.45rem, 2.5vw, 1.95rem);
+    font-weight: 800; color: #0A2540;
+    line-height: 1.22; margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+}
+.prod-sector-desc {
+    font-size: 0.95rem; line-height: 1.7; color: #486581;
+    margin-bottom: 1.5rem;
+}
+.prod-feature-points {
+    list-style: none; display: flex; flex-direction: column;
+    gap: 0.85rem; margin-bottom: 1.75rem;
+}
+.prod-feature-points li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.9rem; line-height: 1.55; color: #334155;
+}
+.point-icon-svg { flex-shrink: 0; margin-top: 2px; }
+.prod-sector-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+.prod-sector-badges span {
+    font-size: 0.75rem; font-weight: 600; color: #0066FF;
+    background: #EBF3FF; border: 1px solid rgba(0, 102, 255, 0.15);
+    padding: 4px 12px; border-radius: 9999px;
+}
+
+/* ===== BOTTOM CONVERSION CTA ===== */
+.prod-cta-banner {
+    background: linear-gradient(135deg, #0052CC 0%, #0066FF 50%, #00B4D8 100%);
+    padding: 5rem 24px; text-align: center; color: #fff;
+    position: relative; overflow: hidden;
+}
+.prod-cta-banner::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15), transparent 70%);
+}
+.prod-cta-inner { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+.prod-cta-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.03em; }
+.prod-cta-desc {
+    font-size: 1.05rem; color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7; margin-bottom: 2.25rem; max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.prod-cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #FFFFFF; color: #0066FF;
+    border: none; cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem; font-weight: 700;
+    padding: 13px 30px; border-radius: 9999px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+}
+.prod-cta-btn:hover { background: #F4F8FD; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18); }
+
+/* ===== LIGHTBOX MODAL ===== */
+.prod-lightbox {
+    display: none; position: fixed; inset: 0; z-index: 9000;
+    align-items: center; justify-content: center; padding: 20px;
+}
+.prod-lightbox.is-open { display: flex; }
+.prod-lightbox-bg {
+    position: absolute; inset: 0;
+    background: rgba(10, 37, 64, 0.7);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    cursor: pointer;
+}
+.prod-lightbox-dialog {
+    position: relative; z-index: 1;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 102, 255, 0.2);
+    border-radius: 20px; overflow: hidden;
+    max-width: 92vw; max-height: 90vh;
+    box-shadow: 0 30px 80px rgba(0, 40, 120, 0.3);
+    display: flex; flex-direction: column;
+}
+.prod-lightbox-bar {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 18px;
+    background: #F4F8FD;
+    border-bottom: 1px solid rgba(0, 102, 255, 0.12);
+}
+.prod-lightbox-title { flex: 1; font-size: 0.85rem; font-weight: 600; color: #0A2540; }
+.prod-lightbox-close {
+    background: none; border: none; cursor: pointer;
+    color: #486581; padding: 6px; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+}
+.prod-lightbox-close:hover { color: #0A2540; background: rgba(0, 102, 255, 0.08); }
+.prod-lightbox-body { overflow: auto; max-height: calc(90vh - 50px); background: #FFFFFF; }
+.prod-lightbox-body img { display: block; max-width: 100%; height: auto; }
+
+    
+/* ==========================================================================
+   FOOTER (PERFECT HORIZONTAL ALIGNMENT & OPTIMIZED SIZING)
+   ========================================================================== */
+.site-footer {
+    background: #080D17;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 5.5rem 0 2.5rem;
+    color: #CBD5E1;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    position: relative;
+    z-index: 10;
+}
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin-bottom: 4rem;
+}
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.footer-logo {
+    height: 32px;
+    width: auto;
+    max-width: 175px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 1.25rem;
+}
+.footer-brand-desc {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: #CBD5E1;
+    max-width: 300px;
+    margin: 0;
+}
+.footer-col-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: #FFFFFF;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+.footer-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.footer-col a {
+    font-size: 0.9rem;
+    color: #CBD5E1;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.footer-col a:hover {
+    color: #FFFFFF;
+    transform: translateX(2px);
+    display: inline-block;
+}
+.footer-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin: 0 0 2rem 0;
+}
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #94A3B8;
+}
+@media (max-width: 1024px) {
+    .footer-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 0.75rem; text-align: center; }
+}
+@media (max-width: 420px) {
+    .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== HAMBURGER & MOBILE MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px; height: 40px;
+    border: none; background: transparent;
+    cursor: pointer; gap: 5px; border-radius: 10px;
+    transition: background 0.2s; z-index: 10001;
+}
+.hamburger:hover { background: rgba(0,102,255,0.08); }
+.hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: #0A2540; border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(16px);
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.mobile-menu.open {
+    display: flex;
+    pointer-events: all;
+}
+.mobile-menu ul {
+    list-style: none;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 0.5rem;
+    width: 100%; padding: 2rem 1.5rem;
+}
+.mobile-menu ul li a {
+    display: block; font-size: 1.3rem; font-weight: 600;
+    color: #0A2540; padding: 0.75rem 2rem;
+    border-radius: 14px; text-align: center; width: 100%;
+    transition: all 0.2s;
+}
+.mobile-menu ul li a:hover { background: #EBF3FF; color: #0066FF; }
+.mobile-menu .mobile-cta {
+    margin-top: 1rem; padding: 0.9rem 2.5rem;
+    background: #0066FF; color: #fff !important;
+    border-radius: 9999px; font-size: 1rem; font-weight: 700;
+}
+@media (max-width: 960px) { .hamburger { display: flex; } }</style>
+</head>
+<body>
+
+
+    <!-- TOP FLOATING NAVIGATION -->
+    <header class="site-header" id="site-header">
+        <nav class="nav-container" id="nav-container" aria-label="Main Navigation">
+            <a href="./index.html" class="logo-link" aria-label="Sistechwork Home">
+                <img src="./assets/images/logo.webp" alt="Sistechwork">
+            </a>
+
+            <div class="primary-menu" role="navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html#products" class="nav-link">Platforms</a></li>
+                    <li><a href="products.html" class="nav-link">Products</a></li>
+                    <li><a href="index.html#services" class="nav-link">Engineering</a></li>
+                    <li><a href="index.html#techstack" class="nav-link">Tech Stack</a></li>
+                    <li><a href="index.html#workflow" class="nav-link">Workflow</a></li>
+                    <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="header-actions">
+                <a href="index.html#contact" class="btn-primary">Get Started</a>
+                <a href="./index.html" class="btn-close" aria-label="Return to Sistechwork Home">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    Close
+                </a>
+            </div>
+        </nav>
+    </header>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" style="display:none;" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <ul>
+        <li><a href="./index.html" onclick="closeMobileMenu()">Home</a></li>
+        <li><a href="./products.html" onclick="closeMobileMenu()">Products</a></li>
+        <li><a href="./thulir.html" onclick="closeMobileMenu()">Thulir HRM</a></li>
+        <li><a href="./testorbit.html" onclick="closeMobileMenu()">TestOrbit</a></li>
+        <li><a href="./replyiq.html" onclick="closeMobileMenu()">ReplyIQ</a></li>
+        <li><a href="./trainhub.html" onclick="closeMobileMenu()">TrainHub</a></li>
+        <li><a href="./index.html#contact" class="mobile-cta" onclick="closeMobileMenu()">Get Started</a></li>
+    </ul>
+</div>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.style.display = 'none';
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.style.display = isOpen ? 'flex' : 'none';
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+
+
+    <!-- HERO SECTION: CLEAN SKY BLUE SHADE THEME -->
+    <section class="prod-hero">
+        <div class="prod-hero-glow" aria-hidden="true"></div>
+        <div class="prod-hero-grid" aria-hidden="true"></div>
+        <div class="prod-hero-inner">
+            <div class="prod-hero-badge">
+                <span class="prod-hero-badge-dot"></span>
+                Academic Intelligence Platform &bull; TrainHub
+            </div>
+            <h1 class="prod-hero-title">
+                The Pulse of <span class="prod-title-grad">Academic Success</span>
+            </h1>
+            <p class="prod-hero-sub">
+                A student-centric academic intelligence ecosystem unifying real-time attendance monitoring, subject grading, automated guardian broadcasts, and comprehensive transcript analytics.
+            </p>
+            <div class="prod-hero-cta-group">
+                <button type="button" class="prod-hero-explore-btn" id="trainhub-hero-scroll-hint">
+                    <span>Explore Modules</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <a href="index.html#contact" class="prod-hero-contact-btn">Request Institution Demo</a>
+            </div>
+            <div class="prod-hero-pills">
+                <button type="button" class="prod-hero-pill-btn" data-target="trainhub-sector-dashboard"><span class="prod-hero-pill-dot"></span>Dashboard</button>
+                <button type="button" class="prod-hero-pill-btn" data-target="trainhub-sector-attendance"><span class="prod-hero-pill-dot"></span>Attendance</button>
+                <button type="button" class="prod-hero-pill-btn" data-target="trainhub-sector-marks"><span class="prod-hero-pill-dot"></span>Marks &amp; Scores</button>
+                <button type="button" class="prod-hero-pill-btn" data-target="trainhub-sector-reports"><span class="prod-hero-pill-dot"></span>Reports</button>
+                <button type="button" class="prod-hero-pill-btn" data-target="trainhub-sector-profile"><span class="prod-hero-pill-dot"></span>Profile</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTORS SHOWCASE -->
+    <div class="prod-sectors">
+
+        <!-- SECTOR 1: STUDENT DASHBOARD -->
+        <div class="prod-sector-card" id="trainhub-sector-dashboard">
+            <div class="prod-img-card" tabindex="0" role="button" data-src="./assets/images/trainhub_demo_1.webp" data-title="TrainHub &bull; Unified Academic Dashboard">
+                <div class="prod-img-bar">
+                    <div class="prod-card-dots">
+                        <div class="prod-dot prod-dot-red"></div>
+                        <div class="prod-dot prod-dot-yellow"></div>
+                        <div class="prod-dot prod-dot-green"></div>
+                    </div>
+                    <span class="prod-card-url">trainhub.sistechwork.com/dashboard</span>
+                    <span class="prod-card-zoom">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                        Light Up
+                    </span>
+                </div>
+                <div class="prod-img-view">
+                    <img src="./assets/images/trainhub_demo_1.webp" alt="TrainHub Unified Academic Dashboard" loading="lazy">
+                </div>
+            </div>
+            <div class="prod-sector-info">
+                <div class="prod-sector-tag">Module 01 &bull; Command Overview</div>
+                <h2 class="prod-sector-title">Personalized Student Command Center</h2>
+                <p class="prod-sector-desc">
+                    Provides learners and educators with an immediate snapshot of total attendance (92%), aggregate marks (856 / 1000), milestone achievements, and recent institutional notices at a single glance.
+                </p>
+                <ul class="prod-feature-points">
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <span><strong>Performance Pulse Telemetry:</strong> Live metrics calculating aggregate percentage, growth trajectory, and attendance health.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        <span><strong>Real-Time Activity Feed:</strong> Instant log of updated subject marks, daily attendance status, and newly generated report cards.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        <span><strong>Motivation &amp; Goal Tracking:</strong> Dynamic encouragement cues and milestone rewards to boost student engagement.</span>
+                    </li>
+                </ul>
+                <div class="prod-sector-badges">
+                    <span>#AcademicPulse</span>
+                    <span>#StudentFirst</span>
+                    <span>#RealTimeTelemetry</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTOR 2: ATTENDANCE TRACKING -->
+        <div class="prod-sector-card alt" id="trainhub-sector-attendance">
+            <div class="prod-img-card" tabindex="0" role="button" data-src="./assets/images/trainhub_demo_2.webp" data-title="TrainHub &bull; Real-Time Attendance Intelligence">
+                <div class="prod-img-bar">
+                    <div class="prod-card-dots">
+                        <div class="prod-dot prod-dot-red"></div>
+                        <div class="prod-dot prod-dot-yellow"></div>
+                        <div class="prod-dot prod-dot-green"></div>
+                    </div>
+                    <span class="prod-card-url">trainhub.sistechwork.com/attendance</span>
+                    <span class="prod-card-zoom">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                        Light Up
+                    </span>
+                </div>
+                <div class="prod-img-view">
+                    <img src="./assets/images/trainhub_demo_2.webp" alt="TrainHub Real-Time Attendance Intelligence" loading="lazy">
+                </div>
+            </div>
+            <div class="prod-sector-info">
+                <div class="prod-sector-tag">Module 02 &bull; Attendance Engine</div>
+                <h2 class="prod-sector-title">Subject-Wise Attendance &amp; Automated Alerts</h2>
+                <p class="prod-sector-desc">
+                    Track daily physical and virtual lecture attendance with precision. Automatically compute present-to-total day ratios (46/50 days) with visual donut analytics and instant absent flags for proactive intervention.
+                </p>
+                <ul class="prod-feature-points">
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span><strong>High-Precision Ledger:</strong> Daily record categorized by date, course code, and faculty check-in timestamps.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <span><strong>Minimum Threshold Guard:</strong> Visual warnings when attendance nears institutional regulatory thresholds (75% / 85%).</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <span><strong>Automated Guardian SMS/Email:</strong> Real-time broadcasts to parents regarding unexplained absences.</span>
+                    </li>
+                </ul>
+                <div class="prod-sector-badges">
+                    <span>#AttendanceTelemetry</span>
+                    <span>#GuardianAlerts</span>
+                    <span>#ComplianceSafe</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTOR 3: MARKS & SCORES -->
+        <div class="prod-sector-card" id="trainhub-sector-marks">
+            <div class="prod-img-card" tabindex="0" role="button" data-src="./assets/images/trainhub_demo_3.webp" data-title="TrainHub &bull; Examination Marks &amp; GPA Intelligence">
+                <div class="prod-img-bar">
+                    <div class="prod-card-dots">
+                        <div class="prod-dot prod-dot-red"></div>
+                        <div class="prod-dot prod-dot-yellow"></div>
+                        <div class="prod-dot prod-dot-green"></div>
+                    </div>
+                    <span class="prod-card-url">trainhub.sistechwork.com/marks</span>
+                    <span class="prod-card-zoom">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                        Light Up
+                    </span>
+                </div>
+                <div class="prod-img-view">
+                    <img src="./assets/images/trainhub_demo_3.webp" alt="TrainHub Marks and Score Breakdown" loading="lazy">
+                </div>
+            </div>
+            <div class="prod-sector-info">
+                <div class="prod-sector-tag">Module 03 &bull; Academic Grading</div>
+                <h2 class="prod-sector-title">Granular Internal &amp; External Score Analysis</h2>
+                <p class="prod-sector-desc">
+                    Eliminate confusion around grading breakdowns. TrainHub organizes internal assessments, mid-terms, and final external examinations into structured, verifiable scorecards with real-time performance tier badges.
+                </p>
+                <ul class="prod-feature-points">
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <span><strong>Score Telemetry:</strong> Automatic calculation of top score (98/100), overall average (85.6%), and completion rate.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                        <span><strong>Multi-Component Weighting:</strong> Splits Internal (100) and External (100) exams with automatic status tiering.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        <span><strong>Digital Marksheet Export:</strong> Download tamper-evident mark transcripts in high-res PDF or Excel formats with 1 click.</span>
+                    </li>
+                </ul>
+                <div class="prod-sector-badges">
+                    <span>#GranularGrading</span>
+                    <span>#TranscriptReady</span>
+                    <span>#ExamAnalytics</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTOR 4: REPORTS & INSIGHTS -->
+        <div class="prod-sector-card alt" id="trainhub-sector-reports">
+            <div class="prod-img-card" tabindex="0" role="button" data-src="./assets/images/trainhub_demo_4.webp" data-title="TrainHub &bull; Performance &amp; Academic Insights">
+                <div class="prod-img-bar">
+                    <div class="prod-card-dots">
+                        <div class="prod-dot prod-dot-red"></div>
+                        <div class="prod-dot prod-dot-yellow"></div>
+                        <div class="prod-dot prod-dot-green"></div>
+                    </div>
+                    <span class="prod-card-url">trainhub.sistechwork.com/reports</span>
+                    <span class="prod-card-zoom">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                        Light Up
+                    </span>
+                </div>
+                <div class="prod-img-view">
+                    <img src="./assets/images/trainhub_demo_4.webp" alt="TrainHub Performance and Academic Reports" loading="lazy">
+                </div>
+            </div>
+            <div class="prod-sector-info">
+                <div class="prod-sector-tag">Module 04 &bull; Analytics &amp; Reports</div>
+                <h2 class="prod-sector-title">Comprehensive Academic Performance Intelligence</h2>
+                <p class="prod-sector-desc">
+                    Generate deep diagnostic reports evaluating longitudinal academic trajectories, attendance correlation metrics, and subject-wise strengths to guide student development and career counseling.
+                </p>
+                <ul class="prod-feature-points">
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                        <span><strong>Diagnostic Report Cards:</strong> Performance summaries with comparative cohort benchmarking and chart visualization.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span><strong>Multi-Format File Generation:</strong> Instant export of certified PDF transcripts, Excel datasets, and institutional accreditation archives.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <span><strong>Interactive Historical Log:</strong> Filter, inspect, and verify past semester reports by date and academic term.</span>
+                    </li>
+                </ul>
+                <div class="prod-sector-badges">
+                    <span>#PerformanceReports</span>
+                    <span>#PDFExport</span>
+                    <span>#LongitudinalAnalytics</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTOR 5: PROFILE & SETTINGS -->
+        <div class="prod-sector-card" id="trainhub-sector-profile">
+            <div class="prod-img-card" tabindex="0" role="button" data-src="./assets/images/trainhub_demo_5.webp" data-title="TrainHub &bull; Student Identity &amp; Portal Settings">
+                <div class="prod-img-bar">
+                    <div class="prod-card-dots">
+                        <div class="prod-dot prod-dot-red"></div>
+                        <div class="prod-dot prod-dot-yellow"></div>
+                        <div class="prod-dot prod-dot-green"></div>
+                    </div>
+                    <span class="prod-card-url">trainhub.sistechwork.com/profile</span>
+                    <span class="prod-card-zoom">
+                        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+                        Light Up
+                    </span>
+                </div>
+                <div class="prod-img-view">
+                    <img src="./assets/images/trainhub_demo_5.webp" alt="TrainHub Profile and Settings Management" loading="lazy">
+                </div>
+            </div>
+            <div class="prod-sector-info">
+                <div class="prod-sector-tag">Module 05 &bull; Identity &amp; Security</div>
+                <h2 class="prod-sector-title">Student Profile &amp; Secure Account Management</h2>
+                <p class="prod-sector-desc">
+                    Centralized account command center for maintaining verified student credentials, registered degree programs, roll numbers, emergency contact profiles, and security authentication protocols.
+                </p>
+                <ul class="prod-feature-points">
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        <span><strong>Verified Academic Credentials:</strong> Official enrollment details, department affiliations, and unique student roll identification.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        <span><strong>Security &amp; Password Controls:</strong> Multi-factor authentication, secure password rotation, and active session management.</span>
+                    </li>
+                    <li>
+                        <svg class="point-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        <span><strong>Granular Notification Toggles:</strong> Configure real-time SMS, WhatsApp, and in-app alert preferences for updates.</span>
+                    </li>
+                </ul>
+                <div class="prod-sector-badges">
+                    <span>#AccountSecurity</span>
+                    <span>#VerifiedIdentity</span>
+                    <span>#ProfileControl</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM CTA BANNER -->
+    <section class="prod-cta-banner">
+        <div class="prod-cta-inner">
+            <h2 class="prod-cta-title">Ready to Elevate Your Institution?</h2>
+            <p class="prod-cta-desc">
+                Deploy TrainHub across your campus or training center. Empower educators, engage students, and keep guardians informed in real time.
+            </p>
+            <div style="display:flex; justify-content:center; gap:14px; flex-wrap:wrap;">
+                <a href="index.html#contact" class="prod-cta-btn">
+                    <span>Deploy TrainHub on Campus</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <a href="products.html" class="btn-close" style="background:rgba(255,255,255,0.15); color:#fff; border-color:rgba(255,255,255,0.35); font-weight:600; padding:12px 24px;">
+                    View All Platforms
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="./assets/images/logo_white.webp" alt="Sistechwork" class="footer-logo">
+                <p class="footer-brand-desc">Precision software engineering and enterprise platforms built for the modern digital economy.</p>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Platforms</div>
+                <ul>
+                    <li><a href="thulir.html">Thulir HRM</a></li>
+                    <li><a href="testorbit.html">TestOrbit</a></li>
+                    <li><a href="trainhub.html">TrainHub</a></li>
+                    <li><a href="replyiq.html">Reply IQ</a></li>
+                    <li><a href="products.html">Products Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Engineering</div>
+                <ul>
+                    <li><a href="index.html#services">Custom Web Systems</a></li>
+                    <li><a href="index.html#services">Mobile Applications</a></li>
+                    <li><a href="index.html#services">Cloud &amp; DevOps</a></li>
+                    <li><a href="index.html#services">AI Chatbots &amp; RAG</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Company</div>
+                <ul>
+                    <li><a href="index.html#problem-solution">Why Sistechwork</a></li>
+                    <li><a href="index.html#workflow">Our Workflow</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                    <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Connect</div>
+                <ul>
+                    <li><a href="index.html#contact">LinkedIn</a></li>
+                    <li><a href="index.html#contact">GitHub</a></li>
+                    <li><a href="index.html#contact">Twitter</a></li>
+                    <li><a href="index.html#contact">Status: Operational</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sistechwork Private Limited. All Rights Reserved.</p>
+            <p>Engineered with Precision &amp; Passion.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="prod-lightbox" id="prod-lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="prod-lightbox-bg" id="prod-lightbox-bg"></div>
+        <div class="prod-lightbox-dialog">
+            <div class="prod-lightbox-bar">
+                <div class="prod-card-dots">
+                    <div class="prod-dot prod-dot-red"></div>
+                    <div class="prod-dot prod-dot-yellow"></div>
+                    <div class="prod-dot prod-dot-green"></div>
+                </div>
+                <div class="prod-lightbox-title" id="prod-lightbox-title">Platform Screenshot Preview</div>
+                <button type="button" class="prod-lightbox-close" id="prod-lightbox-close" aria-label="Close preview">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="prod-lightbox-body">
+                <img id="prod-lightbox-img" src="" alt="Illuminated Preview">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- INTERACTION SCRIPT -->
+    <script>
+    (function () {
+        var lb = document.getElementById('prod-lightbox');
+        var lbImg = document.getElementById('prod-lightbox-img');
+        var lbTitle = document.getElementById('prod-lightbox-title');
+        var lbClose = document.getElementById('prod-lightbox-close');
+        var lbBg = document.getElementById('prod-lightbox-bg');
+
+        function openLb(src, title) {
+            if (!lb) return;
+            if (lbImg) lbImg.src = src;
+            if (lbTitle) lbTitle.textContent = title || 'Platform Screenshot Preview';
+            lb.classList.add('is-open');
+            lb.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLb() {
+            if (!lb) return;
+            lb.classList.remove('is-open');
+            lb.setAttribute('aria-hidden', 'true');
+            if (lbImg) lbImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.prod-img-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+                card.classList.add('is-flashing');
+                setTimeout(function() { card.classList.remove('is-flashing'); }, 400);
+                var src = card.getAttribute('data-src');
+                var title = card.getAttribute('data-title');
+                openLb(src, title);
+            });
+            card.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
+            });
+        });
+
+        if (lbClose) lbClose.addEventListener('click', closeLb);
+        if (lbBg) lbBg.addEventListener('click', closeLb);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lb && lb.classList.contains('is-open')) closeLb();
+        });
+
+        // Pill scroll buttons
+        document.querySelectorAll('.prod-hero-pill-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var targetId = this.getAttribute('data-target');
+                var el = document.getElementById(targetId);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+
+        // Scroll hint button
+        var scrollHint = document.getElementById('trainhub-hero-scroll-hint');
+        if (scrollHint) {
+            scrollHint.addEventListener('click', function() {
+                var firstCard = document.querySelector('.prod-sector-card');
+                if (firstCard) firstCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        }
+    })();
+    </script>
+
+
+</body>
+</html>
