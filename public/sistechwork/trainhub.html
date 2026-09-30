@@ -457,7 +457,63 @@ body::before {
 @media (max-width: 420px) {
     .footer-grid { grid-template-columns: 1fr; }
 }
-</style>
+
+/* ===== HAMBURGER & MOBILE MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px; height: 40px;
+    border: none; background: transparent;
+    cursor: pointer; gap: 5px; border-radius: 10px;
+    transition: background 0.2s; z-index: 10001;
+}
+.hamburger:hover { background: rgba(0,102,255,0.08); }
+.hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: #0A2540; border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(16px);
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.mobile-menu.open {
+    display: flex;
+    pointer-events: all;
+}
+.mobile-menu ul {
+    list-style: none;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 0.5rem;
+    width: 100%; padding: 2rem 1.5rem;
+}
+.mobile-menu ul li a {
+    display: block; font-size: 1.3rem; font-weight: 600;
+    color: #0A2540; padding: 0.75rem 2rem;
+    border-radius: 14px; text-align: center; width: 100%;
+    transition: all 0.2s;
+}
+.mobile-menu ul li a:hover { background: #EBF3FF; color: #0066FF; }
+.mobile-menu .mobile-cta {
+    margin-top: 1rem; padding: 0.9rem 2.5rem;
+    background: #0066FF; color: #fff !important;
+    border-radius: 9999px; font-size: 1rem; font-weight: 700;
+}
+@media (max-width: 960px) { .hamburger { display: flex; } }</style>
 </head>
 <body>
 
