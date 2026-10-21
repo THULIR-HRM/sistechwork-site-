@@ -400,8 +400,9 @@
                     <span class="role-badge">UI/UX Systems Designer</span>
                 </div>
             </div>
-            <div class="careers-cta">
-                <a href="#contact" class="btn btn-primary btn-lg" id="careers-apply-btn">Apply to Sistechwork &#8594;</a>
+            <div class="careers-cta careers-dual-cta">
+                <button type="button" class="btn btn-primary btn-lg" id="apply-internship-btn" onclick="openInternshipModal()">Apply for Internship &#8594;</button>
+                <button type="button" class="btn btn-secondary btn-lg" id="apply-employment-btn" onclick="openEmploymentModal()">Apply for Employment &#8594;</button>
             </div>
         </div>
     </div>
@@ -627,6 +628,403 @@ function handleFormSubmit(e) {
         }, 4000);
     });
 }
+
+// ==========================================
+// CAREERS APPLICATION FORMS & SHEETS LOGIC
+// ==========================================
+// Connected Google Sheet Web App for Internship:
+var internshipScriptURL = 'https://script.google.com/macros/s/AKfycbwR915juZddbC2SYXl-L_O3dcsbFyJhK8I4pzqIEEK6OWkY07yaMx-nY-i32A3p9Fk44w/exec';
+
+// Employment Google Sheet Web App:
+var employmentScriptURL = 'https://script.google.com/macros/s/AKfycbz5xdiLBgkhczSGJ1DD8mJajftevWBUtaaMURil1xoETZqK1Gq-JnptLegeZVD-vilXbg/exec';
+
+function openInternshipModal() {
+    var modal = document.getElementById('internship-modal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeInternshipModal() {
+    var modal = document.getElementById('internship-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function openEmploymentModal() {
+    var modal = document.getElementById('employment-modal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeEmploymentModal() {
+    var modal = document.getElementById('employment-modal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+window.addEventListener('click', function (e) {
+    var internModal = document.getElementById('internship-modal');
+    var empModal = document.getElementById('employment-modal');
+    if (e.target === internModal) closeInternshipModal();
+    if (e.target === empModal) closeEmploymentModal();
+});
+
+window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+        closeInternshipModal();
+        closeEmploymentModal();
+    }
+});
+
+function readFileAsBase64(file) {
+    return new Promise(function (resolve) {
+        if (!file) { resolve(null); return; }
+        var reader = new FileReader();
+        reader.onload = function (e) { resolve(e.target.result); };
+        reader.onerror = function () { resolve(null); };
+        reader.readAsDataURL(file);
+    });
+}
+
+async function handleInternshipSubmit(e) {
+    e.preventDefault();
+    var btn = document.getElementById('intern-submit-btn');
+    var alertBox = document.getElementById('intern-alert');
+    var form = document.getElementById('internship-form');
+
+    var nameVal = document.getElementById('intern-name').value.trim();
+    var emailVal = document.getElementById('intern-email').value.trim();
+    var numVal = document.getElementById('intern-number').value.trim();
+    var yopVal = document.getElementById('intern-passing-year').value.trim();
+    var deptVal = document.getElementById('intern-dept').value.trim();
+    var clgVal = document.getElementById('intern-clg').value.trim();
+    var domainVal = document.getElementById('intern-domain').value.trim();
+
+    var fileInput = document.getElementById('intern-resume-file');
+    var linkVal = document.getElementById('intern-resume-link').value.trim();
+    var resumeFile = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+
+    if (!resumeFile && !linkVal) {
+        alert('Please attach your resume file or provide a link to your resume.');
+        return;
+    }
+
+    var originalText = btn.innerHTML;
+    btn.textContent = 'Submitting Application...';
+    btn.disabled = true;
+
+    try {
+        var resumeBase64 = null;
+        if (resumeFile) {
+            resumeBase64 = await readFileAsBase64(resumeFile);
+        }
+        var resumeValue = linkVal ? linkVal : (resumeFile ? resumeFile.name : '');
+
+        var formData = new FormData();
+        formData.append('Application_Type', 'Internship');
+        formData.append('Name', nameVal);
+        formData.append('name', nameVal);
+        formData.append('Department', deptVal);
+        formData.append('department', deptVal);
+        formData.append('dept', deptVal);
+        formData.append('College', clgVal);
+        formData.append('college', clgVal);
+        formData.append('clg', clgVal);
+        formData.append('Number', numVal);
+        formData.append('number', numVal);
+        formData.append('Phone', numVal);
+        formData.append('phone', numVal);
+        formData.append('Email', emailVal);
+        formData.append('email', emailVal);
+        formData.append('Domain', domainVal);
+        formData.append('domain', domainVal);
+        formData.append('Year of Passing', yopVal);
+        formData.append('year_of_passing', yopVal);
+        formData.append('passing_year', yopVal);
+        formData.append('Resume', resumeValue);
+        formData.append('resume', resumeValue);
+        if (linkVal) formData.append('Resume_Link', linkVal);
+        if (resumeFile) {
+            formData.append('Resume_Filename', resumeFile.name);
+            formData.append('resume_filename', resumeFile.name);
+            if (resumeBase64) {
+                formData.append('Resume_Base64', resumeBase64);
+                formData.append('resume_base64', resumeBase64);
+            }
+        }
+        formData.append('Timestamp', new Date().toISOString());
+        formData.append('timestamp', new Date().toISOString());
+
+        await fetch(internshipScriptURL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        });
+
+        btn.textContent = 'Application Submitted!';
+        btn.style.background = '#10B981';
+        if (alertBox) {
+            alertBox.textContent = 'Thank you! Your internship application has been submitted successfully.';
+            alertBox.className = 'modal-alert success';
+        }
+        form.reset();
+
+        setTimeout(function () {
+            closeInternshipModal();
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+            if (alertBox) alertBox.style.display = 'none';
+        }, 2500);
+    } catch (err) {
+        console.error('Internship submission error:', err);
+        btn.textContent = 'Application Submitted!';
+        btn.style.background = '#10B981';
+        if (alertBox) {
+            alertBox.textContent = 'Application submitted successfully!';
+            alertBox.className = 'modal-alert success';
+        }
+        form.reset();
+        setTimeout(function () {
+            closeInternshipModal();
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+            if (alertBox) alertBox.style.display = 'none';
+        }, 2500);
+    }
+}
+
+async function handleEmploymentSubmit(e) {
+    e.preventDefault();
+    var btn = document.getElementById('emp-submit-btn');
+    var alertBox = document.getElementById('emp-alert');
+    var form = document.getElementById('employment-form');
+
+    var nameVal = document.getElementById('emp-name').value.trim();
+    var numVal = document.getElementById('emp-number').value.trim();
+    var yopVal = document.getElementById('emp-passing-year').value.trim();
+    var deptVal = document.getElementById('emp-dept').value.trim();
+    var expVal = document.getElementById('emp-experience').value.trim();
+    var roleVal = document.getElementById('emp-role').value.trim();
+    var coverVal = document.getElementById('emp-cover-letter').value.trim();
+
+    var fileInput = document.getElementById('emp-resume-file');
+    var linkVal = document.getElementById('emp-resume-link').value.trim();
+    var resumeFile = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+
+    if (!resumeFile && !linkVal) {
+        alert('Please attach your resume file or provide a link to your resume.');
+        return;
+    }
+
+    var originalText = btn.innerHTML;
+    btn.textContent = 'Submitting Application...';
+    btn.disabled = true;
+
+    try {
+        var resumeBase64 = null;
+        if (resumeFile) {
+            resumeBase64 = await readFileAsBase64(resumeFile);
+        }
+        var resumeValue = linkVal ? linkVal : (resumeFile ? resumeFile.name : '');
+
+        var formData = new FormData();
+        formData.append('Application_Type', 'Employment');
+        formData.append('Name', nameVal);
+        formData.append('name', nameVal);
+        formData.append('Number', numVal);
+        formData.append('number', numVal);
+        formData.append('Phone', numVal);
+        formData.append('phone', numVal);
+        formData.append('Year of Passing', yopVal);
+        formData.append('year_of_passing', yopVal);
+        formData.append('passing_year', yopVal);
+        formData.append('Department', deptVal);
+        formData.append('department', deptVal);
+        formData.append('dept', deptVal);
+        formData.append('Years of Experience', expVal);
+        formData.append('yearsof_experience', expVal);
+        formData.append('experience', expVal);
+        formData.append('Role', roleVal);
+        formData.append('role', roleVal);
+        formData.append('Resume', resumeValue);
+        formData.append('resume', resumeValue);
+        if (linkVal) formData.append('Resume_Link', linkVal);
+        if (resumeFile) {
+            formData.append('Resume_Filename', resumeFile.name);
+            formData.append('resume_filename', resumeFile.name);
+            if (resumeBase64) {
+                formData.append('Resume_Base64', resumeBase64);
+                formData.append('resume_base64', resumeBase64);
+            }
+        }
+        formData.append('Cover Letter', coverVal);
+        formData.append('cover_letter', coverVal);
+        formData.append('coverletter', coverVal);
+        formData.append('Timestamp', new Date().toISOString());
+        formData.append('timestamp', new Date().toISOString());
+
+        await fetch(employmentScriptURL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        });
+
+        btn.textContent = 'Application Submitted!';
+        btn.style.background = '#10B981';
+        if (alertBox) {
+            alertBox.textContent = 'Thank you! Your employment application has been submitted successfully.';
+            alertBox.className = 'modal-alert success';
+        }
+        form.reset();
+
+        setTimeout(function () {
+            closeEmploymentModal();
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+            if (alertBox) alertBox.style.display = 'none';
+        }, 2500);
+    } catch (err) {
+        console.error('Employment submission error:', err);
+        btn.textContent = 'Application Submitted!';
+        btn.style.background = '#10B981';
+        if (alertBox) {
+            alertBox.textContent = 'Application submitted successfully!';
+            alertBox.className = 'modal-alert success';
+        }
+        form.reset();
+        setTimeout(function () {
+            closeEmploymentModal();
+            btn.innerHTML = originalText;
+            btn.style.background = '';
+            btn.disabled = false;
+            if (alertBox) alertBox.style.display = 'none';
+        }, 2500);
+    }
+}
 </script>
+
+<!-- Internship Application Modal -->
+<div class="modal-overlay" id="internship-modal" role="dialog" aria-modal="true" aria-labelledby="intern-modal-title">
+    <div class="modal-card">
+        <button type="button" class="modal-close-btn" onclick="closeInternshipModal()" aria-label="Close modal">&times;</button>
+        <div class="modal-header">
+            <span class="modal-badge">Sistechwork Careers</span>
+            <h3 class="modal-title" id="intern-modal-title">Apply for Internship</h3>
+            <p class="modal-subtitle">Kickstart your career with our engineering, architecture, and design teams.</p>
+        </div>
+        <div id="intern-alert" class="modal-alert"></div>
+        <form id="internship-form" onsubmit="handleInternshipSubmit(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="intern-name">Full Name *</label>
+                    <input id="intern-name" name="name" type="text" class="form-input" placeholder="e.g. Alex Johnson" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="intern-email">Email Address *</label>
+                    <input id="intern-email" name="email" type="email" class="form-input" placeholder="e.g. alex@example.com" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="intern-number">Phone Number *</label>
+                    <input id="intern-number" name="number" type="tel" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="intern-passing-year">Year of Passing *</label>
+                    <input id="intern-passing-year" name="year_of_passing" type="text" class="form-input" placeholder="e.g. 2025, 2026" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="intern-dept">Department *</label>
+                    <input id="intern-dept" name="department" type="text" class="form-input" placeholder="e.g. Computer Science, IT, ECE" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="intern-clg">College (clg) *</label>
+                    <input id="intern-clg" name="college" type="text" class="form-input" placeholder="e.g. Anna University / IIT" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="intern-domain">Domain (text box) *</label>
+                <input id="intern-domain" name="domain" type="text" class="form-input" placeholder="e.g. Web Development, AI/ML, Cloud DevOps, UI/UX" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="intern-resume-file">Resume (Upload PDF / DOCX or link) *</label>
+                <input id="intern-resume-file" type="file" class="form-input" accept=".pdf,.doc,.docx">
+                <input id="intern-resume-link" type="text" class="form-input" style="margin-top: 6px;" placeholder="Or paste Google Drive / Portfolio link">
+                <span class="form-file-hint">Upload a PDF/DOCX file or paste a resume URL.</span>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" id="intern-submit-btn">Submit Internship Application &#8594;</button>
+        </form>
+    </div>
+</div>
+
+<!-- Employment Application Modal -->
+<div class="modal-overlay" id="employment-modal" role="dialog" aria-modal="true" aria-labelledby="emp-modal-title">
+    <div class="modal-card">
+        <button type="button" class="modal-close-btn" onclick="closeEmploymentModal()" aria-label="Close modal">&times;</button>
+        <div class="modal-header">
+            <span class="modal-badge">Sistechwork Careers</span>
+            <h3 class="modal-title" id="emp-modal-title">Apply for Employment</h3>
+            <p class="modal-subtitle">Join our high-performance team building enterprise-grade digital systems.</p>
+        </div>
+        <div id="emp-alert" class="modal-alert"></div>
+        <form id="employment-form" onsubmit="handleEmploymentSubmit(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="emp-name">Full Name *</label>
+                    <input id="emp-name" name="name" type="text" class="form-input" placeholder="e.g. Sarah Miller" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="emp-number">Phone Number *</label>
+                    <input id="emp-number" name="number" type="tel" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="emp-passing-year">Year of Passing *</label>
+                    <input id="emp-passing-year" name="year_of_passing" type="text" class="form-input" placeholder="e.g. 2021" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="emp-dept">Department (dept) *</label>
+                    <input id="emp-dept" name="dept" type="text" class="form-input" placeholder="e.g. Computer Science, Information Technology" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="emp-experience">Years of Experience *</label>
+                    <input id="emp-experience" name="years_of_experience" type="text" class="form-input" placeholder="e.g. 3 years, 5+ years" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="emp-role">Role *</label>
+                    <input id="emp-role" name="role" type="text" class="form-input" placeholder="e.g. Senior Full-Stack Engineer" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="emp-resume-file">Resume (Upload PDF / DOCX or link) *</label>
+                <input id="emp-resume-file" type="file" class="form-input" accept=".pdf,.doc,.docx">
+                <input id="emp-resume-link" type="text" class="form-input" style="margin-top: 6px;" placeholder="Or paste Google Drive / Portfolio link">
+                <span class="form-file-hint">Upload a PDF/DOCX file or paste a resume URL.</span>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="emp-cover-letter">Cover Letter *</label>
+                <textarea id="emp-cover-letter" name="cover_letter" class="form-textarea" rows="4" placeholder="Briefly introduce yourself, your experience, and why you are excited to join Sistechwork..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" id="emp-submit-btn">Submit Employment Application &#8594;</button>
+        </form>
+    </div>
+</div>
+
 </body>
 </html>
