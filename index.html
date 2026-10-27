@@ -633,10 +633,10 @@ function handleFormSubmit(e) {
 // CAREERS APPLICATION FORMS & SHEETS LOGIC
 // ==========================================
 // Connected Google Sheet Web App for Internship:
-var internshipScriptURL = 'https://script.google.com/macros/s/AKfycbwR915juZddbC2SYXl-L_O3dcsbFyJhK8I4pzqIEEK6OWkY07yaMx-nY-i32A3p9Fk44w/exec';
+var internshipScriptURL = 'https://script.google.com/macros/s/AKfycbxI07H4sTJfWsKfyS9eoZxbIsKm3EANyfJUmgqs6RNW07fuD2hasPahDEQ5IgSy63jo9g/exec';
 
 // Employment Google Sheet Web App:
-var employmentScriptURL = 'https://script.google.com/macros/s/AKfycbz5xdiLBgkhczSGJ1DD8mJajftevWBUtaaMURil1xoETZqK1Gq-JnptLegeZVD-vilXbg/exec';
+var employmentScriptURL = 'https://script.google.com/macros/s/AKfycbzFIQfRA9gcJgINHc15lfwzaUAZz2LoO1CpiHLJdfbR8Mddyz3PehyETkKMjn8_SBrmXQ/exec';
 
 function openInternshipModal() {
     var modal = document.getElementById('internship-modal');
@@ -810,6 +810,7 @@ async function handleEmploymentSubmit(e) {
     var form = document.getElementById('employment-form');
 
     var nameVal = document.getElementById('emp-name').value.trim();
+    var emailVal = document.getElementById('emp-email').value.trim();
     var numVal = document.getElementById('emp-number').value.trim();
     var yopVal = document.getElementById('emp-passing-year').value.trim();
     var deptVal = document.getElementById('emp-dept').value.trim();
@@ -841,6 +842,8 @@ async function handleEmploymentSubmit(e) {
         formData.append('Application_Type', 'Employment');
         formData.append('Name', nameVal);
         formData.append('name', nameVal);
+        formData.append('Email', emailVal);
+        formData.append('email', emailVal);
         formData.append('Number', numVal);
         formData.append('number', numVal);
         formData.append('Phone', numVal);
@@ -960,10 +963,10 @@ async function handleEmploymentSubmit(e) {
                 <input id="intern-domain" name="domain" type="text" class="form-input" placeholder="e.g. Web Development, AI/ML, Cloud DevOps, UI/UX" required>
             </div>
             <div class="form-group">
-                <label class="form-label" for="intern-resume-file">Resume (Upload PDF / DOCX or link) *</label>
+                <label class="form-label" for="intern-resume-file">Resume (Google Drive Link or Upload PDF/DOCX) *</label>
                 <input id="intern-resume-file" type="file" class="form-input" accept=".pdf,.doc,.docx">
-                <input id="intern-resume-link" type="text" class="form-input" style="margin-top: 6px;" placeholder="Or paste Google Drive / Portfolio link">
-                <span class="form-file-hint">Upload a PDF/DOCX file or paste a resume URL.</span>
+                <input id="intern-resume-link" type="text" class="form-input" style="margin-top: 6px;" placeholder="Paste Google Drive shareable link (preferred) or Portfolio URL">
+                <span class="form-file-hint">&#128279; Preferred: Share your resume via Google Drive link. Or upload a PDF/DOCX file directly.</span>
             </div>
             <button type="submit" class="btn btn-primary form-submit" id="intern-submit-btn">Submit Internship Application &#8594;</button>
         </form>
@@ -987,35 +990,41 @@ async function handleEmploymentSubmit(e) {
                     <input id="emp-name" name="name" type="text" class="form-input" placeholder="e.g. Sarah Miller" required>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="emp-number">Phone Number *</label>
-                    <input id="emp-number" name="number" type="tel" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                    <label class="form-label" for="emp-email">Email Address *</label>
+                    <input id="emp-email" name="email" type="email" class="form-input" placeholder="e.g. sarah@example.com" required>
                 </div>
             </div>
             <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="emp-number">Phone Number *</label>
+                    <input id="emp-number" name="number" type="tel" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                </div>
                 <div class="form-group">
                     <label class="form-label" for="emp-passing-year">Year of Passing *</label>
                     <input id="emp-passing-year" name="year_of_passing" type="text" class="form-input" placeholder="e.g. 2021" required>
                 </div>
-                <div class="form-group">
-                    <label class="form-label" for="emp-dept">Department (dept) *</label>
-                    <input id="emp-dept" name="dept" type="text" class="form-input" placeholder="e.g. Computer Science, Information Technology" required>
-                </div>
             </div>
             <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label" for="emp-dept">Department *</label>
+                    <input id="emp-dept" name="dept" type="text" class="form-input" placeholder="e.g. Computer Science, Information Technology" required>
+                </div>
                 <div class="form-group">
                     <label class="form-label" for="emp-experience">Years of Experience *</label>
                     <input id="emp-experience" name="years_of_experience" type="text" class="form-input" placeholder="e.g. 3 years, 5+ years" required>
                 </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group">
                     <label class="form-label" for="emp-role">Role *</label>
                     <input id="emp-role" name="role" type="text" class="form-input" placeholder="e.g. Senior Full-Stack Engineer" required>
                 </div>
             </div>
             <div class="form-group">
-                <label class="form-label" for="emp-resume-file">Resume (Upload PDF / DOCX or link) *</label>
+                <label class="form-label" for="emp-resume-file">Resume (Google Drive Link or Upload PDF/DOCX) *</label>
                 <input id="emp-resume-file" type="file" class="form-input" accept=".pdf,.doc,.docx">
-                <input id="emp-resume-link" type="text" class="form-input" style="margin-top: 6px;" placeholder="Or paste Google Drive / Portfolio link">
-                <span class="form-file-hint">Upload a PDF/DOCX file or paste a resume URL.</span>
+                <input id="emp-resume-link" type="text" class="form-input" style="margin-top: 6px;" placeholder="Paste Google Drive shareable link (preferred) or Portfolio URL">
+                <span class="form-file-hint">&#128279; Preferred: Share your resume via Google Drive link. Or upload a PDF/DOCX file directly.</span>
             </div>
             <div class="form-group">
                 <label class="form-label" for="emp-cover-letter">Cover Letter *</label>
