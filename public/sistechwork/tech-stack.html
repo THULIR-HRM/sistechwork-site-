@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp?v=4">
+    <link rel="shortcut icon" href="./assets/images/favicon.webp?v=4">
+    <link rel="apple-touch-icon" href="./assets/images/favicon.webp?v=4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Stack | SISTECHWORK - Technical Manifesto & Modern Infrastructure</title>
+    <meta name="description" content="Explore Sistechwork's technical manifesto, production frameworks, and stack: TypeScript, Python, React, Next.js, PyTorch, Kubernetes, and Cloud Native DevOps.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6.0">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+    <nav class="nav-container" id="nav-container" aria-label="Main Navigation">
+        <a href="./index.html" class="logo-link" aria-label="Sistechwork Home">
+            <img src="./assets/images/logo.webp" alt="Sistechwork">
+        </a>
+        <div class="primary-menu" role="navigation">
+            <ul class="nav-list">
+                <li><a href="products.html"    class="nav-link">Products</a></li>
+                <li><a href="engineering.html" class="nav-link">Engineering</a></li>
+                <li><a href="tech-stack.html"  class="nav-link active">Tech Stack</a></li>
+                <li><a href="workflow.html"    class="nav-link">Workflow</a></li>
+                <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+                <li><a href="contact.html"     class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="header-actions">
+            <a href="contact.html" class="btn btn-primary btn-sm" id="nav-cta">Get Started</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" style="display:none;" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <ul>
+        <li><a href="products.html"    onclick="closeMobileMenu()">Products</a></li>
+        <li><a href="engineering.html" onclick="closeMobileMenu()">Engineering</a></li>
+        <li><a href="tech-stack.html"  onclick="closeMobileMenu()">Tech Stack</a></li>
+        <li><a href="workflow.html"    onclick="closeMobileMenu()">Workflow</a></li>
+        <li><a href="index.html#careers" onclick="closeMobileMenu()">Careers</a></li>
+        <li><a href="contact.html"     onclick="closeMobileMenu()">Contact</a></li>
+        <li><a href="contact.html" class="mobile-cta" onclick="closeMobileMenu()">Get Started</a></li>
+    </ul>
+</div>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.style.display = 'none';
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.style.display = isOpen ? 'flex' : 'none';
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+
+<main id="main-content">
+
+<section id="techstack" class="techstack-section" style="padding-top: calc(var(--nav-h) + 4rem); min-height: calc(100vh - 380px);">
+    <div class="container">
+        <div class="techstack-inner reveal">
+            <div class="techstack-hdr">
+                <h2>Our Technical Manifesto</h2>
+                <p>We build with an unyielding commitment to code quality, type safety, and battle-tested modern infrastructure.</p>
+            </div>
+            <div class="techstack-grid">
+                <div class="ts-col">
+                    <div class="ts-col-title">Languages</div>
+                    <div class="ts-pills">
+                        <div class="ts-pill">TypeScript</div><div class="ts-pill">Python</div><div class="ts-pill">JavaScript ES6+</div><div class="ts-pill">Kotlin</div>
+                    </div>
+                </div>
+                <div class="ts-col">
+                    <div class="ts-col-title">AI &amp; ML</div>
+                    <div class="ts-pills">
+                        <div class="ts-pill">LangChain</div><div class="ts-pill">vLLM</div><div class="ts-pill">PyTorch</div><div class="ts-pill">HuggingFace</div>
+                    </div>
+                </div>
+                <div class="ts-col">
+                    <div class="ts-col-title">Frontend</div>
+                    <div class="ts-pills">
+                        <div class="ts-pill">React 18</div><div class="ts-pill">Next.js</div><div class="ts-pill">Tailwind CSS</div><div class="ts-pill">Three.js</div>
+                    </div>
+                </div>
+                <div class="ts-col">
+                    <div class="ts-col-title">Backend</div>
+                    <div class="ts-pills">
+                        <div class="ts-pill">Node.js</div><div class="ts-pill">FastAPI</div><div class="ts-pill">PostgreSQL</div><div class="ts-pill">Redis</div>
+                    </div>
+                </div>
+                <div class="ts-col">
+                    <div class="ts-col-title">Infrastructure</div>
+                    <div class="ts-pills">
+                        <div class="ts-pill">Docker</div><div class="ts-pill">Kubernetes</div><div class="ts-pill">AWS / GCP</div><div class="ts-pill">GitHub Actions</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="./assets/images/logo_white.webp" alt="Sistechwork" class="footer-logo">
+                <p class="footer-brand-desc">Precision software engineering and enterprise platforms built for the modern digital economy.</p>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Platforms</div>
+                <ul>
+                    <li><a href="thulir.html">Thulir HRM</a></li>
+                    <li><a href="testorbit.html">TestOrbit</a></li>
+                    <li><a href="trainhub.html">TrainHub</a></li>
+                    <li><a href="replyiq.html">Reply IQ</a></li>
+                    <li><a href="products.html">Products Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Engineering</div>
+                <ul>
+                    <li><a href="engineering.html">Custom Web Systems</a></li>
+                    <li><a href="engineering.html">Mobile Applications</a></li>
+                    <li><a href="engineering.html">Cloud &amp; DevOps</a></li>
+                    <li><a href="engineering.html">AI Chatbots &amp; RAG</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Company</div>
+                <ul>
+                    <li><a href="index.html#problem-solution">Why Sistechwork</a></li>
+                    <li><a href="workflow.html">Our Workflow</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Connect</div>
+                <ul>
+                    <li><a href="contact.html">LinkedIn</a></li>
+                    <li><a href="contact.html">GitHub</a></li>
+                    <li><a href="contact.html">Twitter</a></li>
+                    <li><a href="contact.html">Status: Operational</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sistechwork Private Limited. All Rights Reserved.</p>
+            <p>Engineered with Precision &amp; Passion.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    window.scrollTo(0, 0);
+
+    window.addEventListener('scroll', function () {
+        var st = document.documentElement.scrollTop || document.body.scrollTop;
+        var sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        if (sh > 0) { document.body.style.setProperty('--scroll-progress', (st / sh * 100) + '%'); }
+        var nav = document.getElementById('nav-container');
+        if (nav) { nav.classList.toggle('scrolled', st > 40); }
+    }, { passive: true });
+
+    var allReveal = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) { entry.target.classList.add('revealed'); obs.unobserve(entry.target); }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+        allReveal.forEach(function (el) { obs.observe(el); });
+    } else { allReveal.forEach(function (el) { el.classList.add('revealed'); }); }
+}());
+</script>
+
+<!-- ===== LOADING OVERLAY ===== -->
+<div id="stw-page-loader" style="display:none;position:fixed;inset:0;z-index:999999;background:linear-gradient(180deg,#E8F2FE 0%,#EFF6FF 40%,#F4F8FE 100%);flex-direction:column;align-items:center;justify-content:center;gap:2.25rem;">
+    <img src="./assets/images/logo.webp" alt="Sistechwork" style="height:40px;width:auto;display:block;">
+    <div style="width:54px;height:54px;border:3.5px solid rgba(0,102,255,0.12);border-top-color:#0066FF;border-radius:50%;animation:stwSpin 0.85s linear infinite;"></div>
+</div>
+<style>@keyframes stwSpin{to{transform:rotate(360deg);}}</style>
+<script>
+(function(){
+    var nav5=['products.html','engineering.html','tech-stack.html','workflow.html','contact.html'];
+    document.addEventListener('DOMContentLoaded',function(){
+        var ov=document.getElementById('stw-page-loader');
+        document.querySelectorAll('a[href]').forEach(function(a){
+            var h=a.getAttribute('href')||'';
+            if(nav5.some(function(p){return h===p||h.endsWith('/'+p);})){
+                a.addEventListener('click',function(e){
+                    e.preventDefault();
+                    ov.style.display='flex';
+                    var dest=a.getAttribute('href');
+                    setTimeout(function(){window.location.href=dest;},2000);
+                });
+            }
+        });
+    });
+}());
+</script>
+
+</body>
+</html>

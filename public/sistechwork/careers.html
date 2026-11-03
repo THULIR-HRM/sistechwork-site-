@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp?v=4">
+    <link rel="shortcut icon" href="./assets/images/favicon.webp?v=4">
+    <link rel="apple-touch-icon" href="./assets/images/favicon.webp?v=4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | SISTECHWORK - Precision Engineering &amp; Platform Opportunities</title>
+    <meta name="description" content="Explore career and internship opportunities at Sistechwork. Build high-impact enterprise software systems, AI copilot engines, and scalable cloud platforms in Chennai.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6.0">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+    <nav class="nav-container" id="nav-container" aria-label="Main Navigation">
+        <a href="./index.html" class="logo-link" aria-label="Sistechwork Home">
+            <img src="./assets/images/logo.webp" alt="Sistechwork">
+        </a>
+        <div class="primary-menu" role="navigation">
+            <ul class="nav-list">
+                <li><a href="products.html"        class="nav-link">Products</a></li>
+                <li><a href="index.html#services"  class="nav-link">Services</a></li>
+                <li><a href="index.html#techstack" class="nav-link">Tech Stack</a></li>
+                <li><a href="workflow.html"        class="nav-link">Workflow</a></li>
+                <li><a href="careers.html"         class="nav-link active">Careers</a></li>
+                <li><a href="contact.html"         class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="header-actions">
+            <a href="contact.html" class="btn btn-primary btn-sm" id="nav-cta">Get Started</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" style="display:none;" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <ul>
+        <li><a href="products.html"        onclick="closeMobileMenu()">Products</a></li>
+        <li><a href="index.html#services"  onclick="closeMobileMenu()">Services</a></li>
+        <li><a href="index.html#techstack" onclick="closeMobileMenu()">Tech Stack</a></li>
+        <li><a href="workflow.html"        onclick="closeMobileMenu()">Workflow</a></li>
+        <li><a href="careers.html"         onclick="closeMobileMenu()">Careers</a></li>
+        <li><a href="contact.html"         onclick="closeMobileMenu()">Contact</a></li>
+        <li><a href="apply.html" class="mobile-cta" onclick="closeMobileMenu()">Apply Now</a></li>
+    </ul>
+</div>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.style.display = 'none';
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.style.display = isOpen ? 'flex' : 'none';
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+
+<main id="main-content">
+
+<!-- CAREERS HERO SECTION -->
+<section class="careers-hero">
+    <div class="container">
+        <div class="careers-hero-inner">
+            <div class="careers-hero-pill reveal">
+                <span class="hero-pill-dot" aria-hidden="true"></span>
+                Sistechwork Careers &bull; Sholinganallur, Chennai
+            </div>
+            <h1 class="careers-hero-title reveal delay-1">
+                Build High-Impact Systems.<br>
+                <span class="hero-title-grad">Shape the Future With Us.</span>
+            </h1>
+            <p class="careers-hero-sub reveal delay-2">
+                We are a team of software engineers, systems architects, and product designers dedicated to crafting production-grade enterprise platforms and resilient cloud architectures. Join an environment that values deep technical craftsmanship, clean code, and tangible enterprise impact.
+            </p>
+            <div class="hero-actions reveal delay-3" style="justify-content: center;">
+                <a href="#opportunities" class="btn btn-primary btn-lg">
+                    Explore Opportunities
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+                <a href="apply.html" class="btn btn-secondary btn-lg">Apply Now &rarr;</a>
+            </div>
+
+            <div class="careers-stats-grid reveal delay-4">
+                <div class="careers-stat-card">
+                    <div class="careers-stat-num">4+</div>
+                    <div class="careers-stat-label">Enterprise Platforms</div>
+                </div>
+                <div class="careers-stat-card">
+                    <div class="careers-stat-num">99.98%</div>
+                    <div class="careers-stat-label">System Uptime SLA</div>
+                </div>
+                <div class="careers-stat-card">
+                    <div class="careers-stat-num">10K+</div>
+                    <div class="careers-stat-label">Exam Concurrency Scale</div>
+                </div>
+                <div class="careers-stat-card">
+                    <div class="careers-stat-num">100%</div>
+                    <div class="careers-stat-label">Modern Type-Safe Stack</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT SISTECHWORK DOES & THE PROJECTS WE BUILD -->
+<section class="section-pad" style="background: #FFFFFF; border-bottom: 1px solid rgba(0, 102, 255, 0.1);">
+    <div class="container">
+        <div class="sec-header reveal">
+            <span class="sec-kicker">Company &amp; Engineering Scope</span>
+            <h2 class="sec-title">What We Do at Sistechwork</h2>
+            <p class="sec-subtitle">A dual-engine organization engineering enterprise platforms and delivering bespoke software solutions.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-head">
+                    <div class="service-icon"><img src="./assets/images/icon_vhomifi.webp" alt="Platforms"></div>
+                    <span class="service-num">Platform 01</span>
+                </div>
+                <h3 class="service-title">Enterprise Software Platforms</h3>
+                <p class="service-desc">We build and scale our own proprietary SaaS engines: Thulir HRM for multi-currency payroll and lead velocity, TestOrbit for AI-proctored 10,000+ concurrency exams, TrainHub for academic governance, and Reply IQ for automated inbox intelligence.</p>
+                <div class="service-tags">
+                    <span class="service-tag">Thulir HRM</span><span class="service-tag">TestOrbit</span><span class="service-tag">TrainHub</span><span class="service-tag">Reply IQ</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal delay-1">
+                <div class="service-head">
+                    <div class="service-icon"><img src="./assets/images/icon_custom_web.webp" alt="Custom Web"></div>
+                    <span class="service-num">Platform 02</span>
+                </div>
+                <h3 class="service-title">Custom Web Architecture</h3>
+                <p class="service-desc">Developing bespoke, high-performance web systems using React 18, Next.js, and TypeScript. Our engineers build rich micro-interactions, responsive design systems, and SEO-optimized web architectures that convert users at scale.</p>
+                <div class="service-tags">
+                    <span class="service-tag">Next.js</span><span class="service-tag">TypeScript</span><span class="service-tag">Tailwind CSS</span><span class="service-tag">React 18</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-head">
+                    <div class="service-icon"><img src="./assets/images/icon_cloud_deploy.webp" alt="Cloud"></div>
+                    <span class="service-num">Platform 03</span>
+                </div>
+                <h3 class="service-title">Cloud Infrastructure &amp; DevOps</h3>
+                <p class="service-desc">Managing containerized microservices and automated CI/CD pipelines across AWS and Google Cloud. We deploy Kubernetes clusters, implement infrastructure-as-code, enforce SSL/TLS hardening, and run 24/7 telemetry monitoring.</p>
+                <div class="service-tags">
+                    <span class="service-tag">Docker</span><span class="service-tag">Kubernetes</span><span class="service-tag">AWS / GCP</span><span class="service-tag">CI/CD</span>
+                </div>
+            </div>
+
+            <div class="service-card reveal delay-1">
+                <div class="service-head">
+                    <div class="service-icon"><img src="./assets/images/icon_chatbot.webp" alt="AI Agents"></div>
+                    <span class="service-num">Platform 04</span>
+                </div>
+                <h3 class="service-title">AI Copilots &amp; RAG Systems</h3>
+                <p class="service-desc">Building contextual AI copilot pipelines and Retrieval-Augmented Generation (RAG) agents using LangChain, vector databases, and modern LLM APIs to automate complex workflows and provide secure enterprise intelligence.</p>
+                <div class="service-tags">
+                    <span class="service-tag">LangChain</span><span class="service-tag">Vector DBs</span><span class="service-tag">Gemini API</span><span class="service-tag">PyTorch</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WORK ENVIRONMENT & ENGINEERING CULTURE -->
+<section class="section-pad" style="background: linear-gradient(180deg, #F8FBFE 0%, #EDF5FD 100%); border-bottom: 1px solid rgba(0, 102, 255, 0.1);">
+    <div class="container">
+        <div class="sec-header reveal">
+            <span class="sec-kicker">Culture &amp; Work Environment</span>
+            <h2 class="sec-title">How We Work Together</h2>
+            <p class="sec-subtitle">An engineering-first environment focused on technical growth, transparent teamwork, and real-world results.</p>
+        </div>
+
+        <div class="culture-grid">
+            <div class="culture-card reveal">
+                <div class="culture-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="16 18 22 12 16 6"></polyline>
+                        <polyline points="8 6 2 12 8 18"></polyline>
+                    </svg>
+                </div>
+                <h3 class="culture-card-title">Clean Code &amp; Peer Reviews</h3>
+                <p class="culture-card-desc">Every piece of code goes through structured peer reviews, linting rules, and automated test pipelines. We take pride in building readable, maintainable, and type-safe codebases.</p>
+            </div>
+
+            <div class="culture-card reveal delay-1">
+                <div class="culture-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                </div>
+                <h3 class="culture-card-title">Rapid Sprints &amp; Live Staging</h3>
+                <p class="culture-card-desc">We work in two-week agile sprint cycles. Every feature is deployed to live staging environments where you can see your work operating in real time before production release.</p>
+            </div>
+
+            <div class="culture-card reveal delay-2">
+                <div class="culture-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <h3 class="culture-card-title">Mentorship &amp; Continuous Growth</h3>
+                <p class="culture-card-desc">Work closely with experienced architects and developers. Whether an intern or full-time engineer, you will receive constructive feedback, architecture insights, and learning support.</p>
+            </div>
+
+            <div class="culture-card reveal">
+                <div class="culture-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </div>
+                <h3 class="culture-card-title">Modern Tooling &amp; Stack</h3>
+                <p class="culture-card-desc">We avoid legacy baggage. You will work with modern standards: TypeScript, Next.js, FastAPI, Node.js, Docker, Kubernetes, LangChain, and leading cloud providers.</p>
+            </div>
+
+            <div class="culture-card reveal delay-1">
+                <div class="culture-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h3 class="culture-card-title">Production Impact</h3>
+                <p class="culture-card-desc">No dummy projects. The software you contribute to runs in production, serving enterprise clients, universities, and business workflows across critical operations.</p>
+            </div>
+
+            <div class="culture-card reveal delay-2">
+                <div class="culture-card-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <h3 class="culture-card-title">Chennai Tech Hub Location</h3>
+                <p class="culture-card-desc">Located at Level 3, Tower B, Ratha Tek Meadows Rd, Elcot SEZ, Sholinganallur, Chennai — within one of Tamil Nadu's premier IT and software technology corridors.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- OPPORTUNITIES SECTION -->
+<section id="opportunities" class="section-pad" style="background: #FFFFFF; border-bottom: 1px solid rgba(0, 102, 255, 0.1);">
+    <div class="container">
+        <div class="sec-header reveal">
+            <span class="sec-kicker">Career Tracks &amp; Pathways</span>
+            <h2 class="sec-title">Explore Career Opportunities</h2>
+            <p class="sec-subtitle">Choose the pathway that matches your career stage and experience level.</p>
+        </div>
+
+        <div class="opp-grid">
+            <!-- Full-Time Employment Track -->
+            <div class="opp-card reveal">
+                <span class="opp-card-badge">Full-Time Career Pathway</span>
+                <h3 class="opp-card-title">Professional Employment</h3>
+                <p class="opp-card-desc">Designed for experienced software engineers, cloud architects, and tech specialists ready to take ownership of complex systems and lead technical initiatives across our platforms and client solutions.</p>
+
+                <div class="opp-card-roles">
+                    <span class="opp-role-tag">Senior Full-Stack Engineer</span>
+                    <span class="opp-role-tag">AI / ML Specialist</span>
+                    <span class="opp-role-tag">DevOps &amp; Cloud Architect</span>
+                    <span class="opp-role-tag">UI/UX Systems Designer</span>
+                </div>
+
+                <div class="opp-checklist">
+                    <div class="opp-check-item">
+                        <span class="opp-check-icon">&check;</span>
+                        <span>Experience with modern languages: TypeScript, Python, Node.js, or Kotlin</span>
+                    </div>
+                    <div class="opp-check-item">
+                        <span class="opp-check-icon">&check;</span>
+                        <span>Track record of deploying production applications or scalable APIs</span>
+                    </div>
+                    <div class="opp-check-item">
+                        <span class="opp-check-icon">&check;</span>
+                        <span>Deep understanding of relational databases, caching, and CI/CD pipelines</span>
+                    </div>
+                    <div class="opp-check-item">
+                        <span class="opp-check-icon">&check;</span>
+                        <span>Collaborative approach to code reviews and architecture design</span>
+                    </div>
+                </div>
+
+                <a href="apply.html?type=employment" class="btn btn-primary btn-lg" style="width: 100%; text-align: center; justify-content: center;">Apply for Employment &rarr;</a>
+            </div>
+
+            <!-- Internship Track -->
+            <div class="opp-card reveal delay-1">
+                <span class="opp-card-badge">Student &amp; Graduate Pathway</span>
+                <h3 class="opp-card-title">Technical Internship</h3>
+                <p class="opp-card-desc">A structured hands-on program for students, recent graduates, and aspiring developers looking for real-world production engineering experience, guidance, and technical portfolio development.</p>
+
+                <div class="opp-card-roles">
+                    <span class="opp-role-tag">Web Development</span>
+                    <span class="opp-role-tag">Cloud &amp; DevOps</span>
+                    <span class="opp-role-tag">AI / ML Engineering</span>
+                    <span class="opp-role-tag">UI/UX Systems</span>
+                </div>
+
+                <div class="opp-checklist">
+                    <div class="opp-check-item">
+                        <span class="opp-check-icon">&check;</span>
+                        <span>Degrees in Computer Science, IT, ECE, or related technical disciplines</span>
+                    </div>
+                    <div class="opp-check-item">
+                        <span class="opp-check-icon">&check;</span>
+                        <span>Foundational understanding of programming, web fundamentals, or data structures</span>
+                    </div>
+                    <div class="opp-check-item">
+                        <span class="opp-check-icon">&check;</span>
+                        <span>Eagerness to learn modern frameworks (React, Node, Python, Docker)</span>
+                    </div>
+                    <div class="opp-check-item">
+                        <span class="opp-check-icon">&check;</span>
+                        <span>Hands-on contributions to real enterprise platform modules</span>
+                    </div>
+                </div>
+
+                <a href="apply.html?type=internship" class="btn btn-secondary btn-lg" style="width: 100%; text-align: center; justify-content: center; background: #0066FF; color: #FFFFFF; border-color: #0066FF;">Apply for Internship &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- APPLICATION & HIRING PROCESS -->
+<section class="section-pad" style="background: linear-gradient(180deg, #F8FBFE 0%, #EDF5FD 100%);">
+    <div class="container">
+        <div class="sec-header reveal">
+            <span class="sec-kicker">Transparent Journey</span>
+            <h2 class="sec-title">Our Recruitment Process</h2>
+            <p class="sec-subtitle">A straightforward, respectful evaluation designed to understand your technical mindset.</p>
+        </div>
+
+        <div class="process-grid">
+            <div class="process-card reveal">
+                <div class="process-step-num">01</div>
+                <h4 class="process-step-title">Online Application</h4>
+                <p class="process-step-desc">Submit your details, domain preference, and resume link or file through our dedicated application portal.</p>
+            </div>
+            <div class="process-card reveal delay-1">
+                <div class="process-step-num">02</div>
+                <h4 class="process-step-title">Profile Review</h4>
+                <p class="process-step-desc">Our technical recruiting team reviews your academic or professional background and project portfolio.</p>
+            </div>
+            <div class="process-card reveal delay-2">
+                <div class="process-step-num">03</div>
+                <h4 class="process-step-title">Technical Discussion</h4>
+                <p class="process-step-desc">A structured discussion focusing on your problem-solving approaches, architecture concepts, and coding practices.</p>
+            </div>
+            <div class="process-card reveal delay-3">
+                <div class="process-step-num">04</div>
+                <h4 class="process-step-title">Onboarding</h4>
+                <p class="process-step-desc">Selected applicants receive an offer and join the Sistechwork engineering ecosystem at our Sholinganallur campus.</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;" class="reveal">
+            <a href="apply.html" class="btn btn-primary btn-lg">Ready to Apply? Submit Your Application &rarr;</a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="./assets/images/logo_white.webp" alt="Sistechwork" class="footer-logo">
+                <p class="footer-brand-desc">Precision software engineering and enterprise platforms built for the modern digital economy.</p>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Platforms</div>
+                <ul>
+                    <li><a href="thulir.html">Thulir HRM</a></li>
+                    <li><a href="testorbit.html">TestOrbit</a></li>
+                    <li><a href="trainhub.html">TrainHub</a></li>
+                    <li><a href="replyiq.html">Reply IQ</a></li>
+                    <li><a href="products.html">Products Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Engineering</div>
+                <ul>
+                    <li><a href="index.html#services">Custom Web Systems</a></li>
+                    <li><a href="index.html#services">Mobile Applications</a></li>
+                    <li><a href="index.html#services">Cloud &amp; DevOps</a></li>
+                    <li><a href="index.html#services">AI Chatbots &amp; RAG</a></li>
+                    <li><a href="index.html#techstack">Technical Manifesto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Company</div>
+                <ul>
+                    <li><a href="index.html#problem-solution">Why Sistechwork</a></li>
+                    <li><a href="workflow.html">Our Workflow</a></li>
+                    <li><a href="careers.html">Careers &amp; Culture</a></li>
+                    <li><a href="apply.html">Job Application</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <span>&copy; 2026 SISTECHWORK Software Technologies Pvt. Ltd. All rights reserved.</span>
+            <span>Enterprise SLA &bull; SOC2 Ready &bull; Zero Lock-in</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('revealed');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        allReveal.forEach(function (el) { obs.observe(el); });
+    } else { allReveal.forEach(function (el) { el.classList.add('revealed'); }); }
+}());
+</script>
+
+<!-- ===== LOADING OVERLAY ===== -->
+<div id="stw-page-loader" style="display:none;position:fixed;inset:0;z-index:999999;background:linear-gradient(180deg,#E8F2FE 0%,#EFF6FF 40%,#F4F8FE 100%);flex-direction:column;align-items:center;justify-content:center;gap:2.25rem;">
+    <img src="./assets/images/logo.webp" alt="Sistechwork" style="height:40px;width:auto;display:block;">
+    <div style="width:54px;height:54px;border:3.5px solid rgba(0,102,255,0.12);border-top-color:#0066FF;border-radius:50%;animation:stwSpin 0.85s linear infinite;"></div>
+</div>
+<style>@keyframes stwSpin{to{transform:rotate(360deg);}}</style>
+<script>
+(function(){
+    var nav5=['products.html','workflow.html','contact.html','apply.html'];
+    document.addEventListener('DOMContentLoaded',function(){
+        var ov=document.getElementById('stw-page-loader');
+        document.querySelectorAll('a[href]').forEach(function(a){
+            var h=a.getAttribute('href')||'';
+            if(nav5.some(function(p){return h===p||h.endsWith('/'+p);})){
+                a.addEventListener('click',function(e){
+                    e.preventDefault();
+                    ov.style.display='flex';
+                    var dest=a.getAttribute('href');
+                    setTimeout(function(){window.location.href=dest;},2000);
+                });
+            }
+        });
+    });
+}());
+</script>
+
+</body>
+</html>

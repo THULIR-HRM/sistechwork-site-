@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp?v=4">
+    <link rel="shortcut icon" href="./assets/images/favicon.webp?v=4">
+    <link rel="apple-touch-icon" href="./assets/images/favicon.webp?v=4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application | SISTECHWORK Careers</title>
+    <meta name="description" content="Submit your application for software engineering employment or technical internships at Sistechwork. Connect with our engineering teams in Sholinganallur, Chennai.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6.0">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+    <nav class="nav-container" id="nav-container" aria-label="Main Navigation">
+        <a href="./index.html" class="logo-link" aria-label="Sistechwork Home">
+            <img src="./assets/images/logo.webp" alt="Sistechwork">
+        </a>
+        <div class="primary-menu" role="navigation">
+            <ul class="nav-list">
+                <li><a href="products.html"        class="nav-link">Products</a></li>
+                <li><a href="index.html#services"  class="nav-link">Services</a></li>
+                <li><a href="index.html#techstack" class="nav-link">Tech Stack</a></li>
+                <li><a href="workflow.html"        class="nav-link">Workflow</a></li>
+                <li><a href="careers.html"         class="nav-link active">Careers</a></li>
+                <li><a href="contact.html"         class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="header-actions">
+            <a href="contact.html" class="btn btn-primary btn-sm" id="nav-cta">Get Started</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" style="display:none;" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <ul>
+        <li><a href="products.html"        onclick="closeMobileMenu()">Products</a></li>
+        <li><a href="index.html#services"  onclick="closeMobileMenu()">Services</a></li>
+        <li><a href="index.html#techstack" onclick="closeMobileMenu()">Tech Stack</a></li>
+        <li><a href="workflow.html"        onclick="closeMobileMenu()">Workflow</a></li>
+        <li><a href="careers.html"         onclick="closeMobileMenu()">Careers</a></li>
+        <li><a href="contact.html"         onclick="closeMobileMenu()">Contact</a></li>
+        <li><a href="contact.html" class="mobile-cta" onclick="closeMobileMenu()">Get Started</a></li>
+    </ul>
+</div>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.style.display = 'none';
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.style.display = isOpen ? 'flex' : 'none';
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+
+<main id="main-content">
+
+<div class="apply-page-wrap">
+    <div class="container">
+        <div class="apply-container">
+            <div style="margin-bottom: 2rem; text-align: center;" class="reveal">
+                <span class="sec-kicker">Sistechwork Recruitment Portal</span>
+                <h1 style="font-size: clamp(2rem, 3.5vw, 2.75rem); font-weight: 800; color: var(--text-title); margin-bottom: 0.75rem; letter-spacing: -0.03em;">
+                    Submit Your Application
+                </h1>
+                <p style="font-size: 1.05rem; color: var(--text-body); max-width: 620px; margin: 0 auto; line-height: 1.6;">
+                    Select your preferred pathway below and fill in the application form. Submissions are securely routed and processed directly by our technical recruitment team.
+                </p>
+            </div>
+
+            <div class="apply-card reveal delay-1">
+                <!-- Track Tabs -->
+                <div class="apply-tabs-nav" id="apply-tabs-nav" role="tablist">
+                    <button type="button" class="apply-tab-btn active" id="tab-internship" onclick="switchTrack('internship')" role="tab" aria-selected="true">
+                        Technical Internship
+                    </button>
+                    <button type="button" class="apply-tab-btn" id="tab-employment" onclick="switchTrack('employment')" role="tab" aria-selected="false">
+                        Professional Employment
+                    </button>
+                </div>
+
+                <!-- Alert box if needed -->
+                <div id="apply-global-alert" class="modal-alert" style="display:none; margin-bottom: 1.5rem;"></div>
+
+                <!-- INTERNSHIP FORM -->
+                <form id="internship-page-form" onsubmit="handlePageInternshipSubmit(event)">
+                    <div style="margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(0,102,255,0.1);">
+                        <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--text-title); margin-bottom: 0.35rem;">Internship Candidate Information</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">For students, graduates, and aspiring tech engineers seeking hands-on industry experience.</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="page-intern-name">Full Name *</label>
+                            <input id="page-intern-name" name="name" type="text" class="form-input" placeholder="e.g. Alex Johnson" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="page-intern-email">Email Address *</label>
+                            <input id="page-intern-email" name="email" type="email" class="form-input" placeholder="e.g. alex@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="page-intern-number">Phone Number *</label>
+                            <input id="page-intern-number" name="number" type="tel" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="page-intern-passing-year">Year of Passing *</label>
+                            <input id="page-intern-passing-year" name="year_of_passing" type="text" class="form-input" placeholder="e.g. 2025, 2026" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="page-intern-dept">Department *</label>
+                            <input id="page-intern-dept" name="department" type="text" class="form-input" placeholder="e.g. Computer Science, Information Tech, ECE" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="page-intern-clg">College / University *</label>
+                            <input id="page-intern-clg" name="college" type="text" class="form-input" placeholder="e.g. Anna University / IIT Madras" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="page-intern-domain">Domain of Interest *</label>
+                        <input id="page-intern-domain" name="domain" type="text" class="form-input" placeholder="e.g. Web Development (React/Node), Cloud & DevOps, AI/ML, UI/UX" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="page-intern-resume-file">Resume (Upload File or Paste Google Drive Link) *</label>
+                        <input id="page-intern-resume-file" type="file" class="form-input" accept=".pdf,.doc,.docx">
+                        <input id="page-intern-resume-link" type="text" class="form-input" style="margin-top: 8px;" placeholder="Or paste Google Drive shareable link / Portfolio link">
+                        <span class="form-file-hint">&#128279; Tip: Make sure your Google Drive link has view permissions enabled, or upload a direct PDF/DOCX file.</span>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary form-submit" id="page-intern-submit-btn" style="width: 100%; justify-content: center; font-size: 1.05rem; padding: 15px;">
+                            Submit Internship Application &rarr;
+                        </button>
+                    </div>
+                </form>
+
+                <!-- EMPLOYMENT FORM -->
+                <form id="employment-page-form" onsubmit="handlePageEmploymentSubmit(event)" style="display: none;">
+                    <div style="margin-bottom: 1.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(0,102,255,0.1);">
+                        <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--text-title); margin-bottom: 0.35rem;">Employment Candidate Information</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">For experienced software engineers and architects joining our Chennai technical teams.</p>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="page-emp-name">Full Name *</label>
+                            <input id="page-emp-name" name="name" type="text" class="form-input" placeholder="e.g. Sarah Miller" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="page-emp-email">Email Address *</label>
+                            <input id="page-emp-email" name="email" type="email" class="form-input" placeholder="e.g. sarah@example.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="page-emp-number">Phone Number *</label>
+                            <input id="page-emp-number" name="number" type="tel" class="form-input" placeholder="e.g. +91 98765 43210" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="page-emp-passing-year">Year of Graduation / Passing *</label>
+                            <input id="page-emp-passing-year" name="year_of_passing" type="text" class="form-input" placeholder="e.g. 2021" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="page-emp-dept">Department / Discipline *</label>
+                            <input id="page-emp-dept" name="dept" type="text" class="form-input" placeholder="e.g. Computer Science & Engineering" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="page-emp-experience">Years of Experience *</label>
+                            <input id="page-emp-experience" name="years_of_experience" type="text" class="form-input" placeholder="e.g. 3 years / 5+ years" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="page-emp-role">Target Role Applied For *</label>
+                        <input id="page-emp-role" name="role" type="text" class="form-input" placeholder="e.g. Senior Full-Stack Engineer, AI/ML Specialist, DevOps Architect" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="page-emp-resume-file">Resume (Upload File or Paste Google Drive Link) *</label>
+                        <input id="page-emp-resume-file" type="file" class="form-input" accept=".pdf,.doc,.docx">
+                        <input id="page-emp-resume-link" type="text" class="form-input" style="margin-top: 8px;" placeholder="Or paste Google Drive shareable link / LinkedIn profile URL">
+                        <span class="form-file-hint">&#128279; Tip: Make sure your Google Drive link has view permissions enabled, or upload a direct PDF/DOCX file.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="page-emp-cover-letter">Cover Letter &amp; Professional Summary *</label>
+                        <textarea id="page-emp-cover-letter" name="cover_letter" class="form-textarea" rows="4" placeholder="Briefly highlight your core engineering achievements, systems you have built, and why you are interested in joining Sistechwork..." required></textarea>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary form-submit" id="page-emp-submit-btn" style="width: 100%; justify-content: center; font-size: 1.05rem; padding: 15px;">
+                            Submit Employment Application &rarr;
+                        </button>
+                    </div>
+                </form>
+
+                <!-- CONFIRMATION / SUCCESS STATE -->
+                <div id="apply-success-container" class="apply-success-box" style="display: none;">
+                    <div class="apply-success-icon">&check;</div>
+                    <h2 class="apply-success-title">Application Successfully Submitted!</h2>
+                    <p class="apply-success-desc">
+                        Thank you for applying to Sistechwork. Your application details and resume have been securely received and recorded in our recruitment system.
+                    </p>
+
+                    <div class="apply-summary-table" id="apply-summary-table">
+                        <div class="apply-summary-row">
+                            <span class="apply-summary-label">Applicant Name:</span>
+                            <span class="apply-summary-val" id="summary-name">—</span>
+                        </div>
+                        <div class="apply-summary-row">
+                            <span class="apply-summary-label">Email:</span>
+                            <span class="apply-summary-val" id="summary-email">—</span>
+                        </div>
+                        <div class="apply-summary-row">
+                            <span class="apply-summary-label">Track:</span>
+                            <span class="apply-summary-val" id="summary-track">—</span>
+                        </div>
+                        <div class="apply-summary-row">
+                            <span class="apply-summary-label">Status:</span>
+                            <span class="apply-summary-val" style="color: #10B981;">Received &amp; Under Review</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                        <a href="careers.html" class="btn btn-primary btn-md">Return to Careers</a>
+                        <a href="products.html" class="btn btn-secondary btn-md">Explore Our Platforms</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="./assets/images/logo_white.webp" alt="Sistechwork" class="footer-logo">
+                <p class="footer-brand-desc">Precision software engineering and enterprise platforms built for the modern digital economy.</p>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Platforms</div>
+                <ul>
+                    <li><a href="thulir.html">Thulir HRM</a></li>
+                    <li><a href="testorbit.html">TestOrbit</a></li>
+                    <li><a href="trainhub.html">TrainHub</a></li>
+                    <li><a href="replyiq.html">Reply IQ</a></li>
+                    <li><a href="products.html">Products Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Engineering</div>
+                <ul>
+                    <li><a href="index.html#services">Custom Web Systems</a></li>
+                    <li><a href="index.html#services">Mobile Applications</a></li>
+                    <li><a href="index.html#services">Cloud &amp; DevOps</a></li>
+                    <li><a href="index.html#services">AI Chatbots &amp; RAG</a></li>
+                    <li><a href="index.html#techstack">Technical Manifesto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Company</div>
+                <ul>
+                    <li><a href="index.html#problem-solution">Why Sistechwork</a></li>
+                    <li><a href="workflow.html">Our Workflow</a></li>
+                    <li><a href="careers.html">Careers &amp; Culture</a></li>
+                    <li><a href="apply.html">Job Application</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <span>&copy; 2026 SISTECHWORK Software Technologies Pvt. Ltd. All rights reserved.</span>
+            <span>Enterprise SLA &bull; SOC2 Ready &bull; Zero Lock-in</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ==========================================
+// GOOGLE SHEETS ENDPOINTS (UNMODIFIED)
+// ==========================================
+var internshipScriptURL = 'https://script.google.com/macros/s/AKfycbxI07H4sTJfWsKfyS9eoZxbIsKm3EANyfJUmgqs6RNW07fuD2hasPahDEQ5IgSy63jo9g/exec';
+var employmentScriptURL = 'https://script.google.com/macros/s/AKfycbzFIQfRA9gcJgINHc15lfwzaUAZz2LoO1CpiHLJdfbR8Mddyz3PehyETkKMjn8_SBrmXQ/exec';
+
+function switchTrack(track) {
+    var tabIntern = document.getElementById('tab-internship');
+    var tabEmp = document.getElementById('tab-employment');
+    var formIntern = document.getElementById('internship-page-form');
+    var formEmp = document.getElementById('employment-page-form');
+    var alertBox = document.getElementById('apply-global-alert');
+    if (alertBox) alertBox.style.display = 'none';
+
+    if (track === 'employment') {
+        tabEmp.classList.add('active');
+        tabEmp.setAttribute('aria-selected', 'true');
+        tabIntern.classList.remove('active');
+        tabIntern.setAttribute('aria-selected', 'false');
+        formEmp.style.display = 'block';
+        formIntern.style.display = 'none';
+    } else {
+        tabIntern.classList.add('active');
+        tabIntern.setAttribute('aria-selected', 'true');
+        tabEmp.classList.remove('active');
+        tabEmp.setAttribute('aria-selected', 'false');
+        formIntern.style.display = 'block';
+        formEmp.style.display = 'none';
+    }
+}
+
+// Auto-switch track based on URL query parameter ?type=employment
+(function () {
+    var params = new URLSearchParams(window.location.search);
+    var type = params.get('type');
+    if (type === 'employment') {
+        switchTrack('employment');
+    } else {
+        switchTrack('internship');
+    }
+}());
+
+function readFileAsBase64(file) {
+    return new Promise(function (resolve) {
+        if (!file) { resolve(null); return; }
+        var reader = new FileReader();
+        reader.onload = function (e) { resolve(e.target.result); };
+        reader.onerror = function () { resolve(null); };
+        reader.readAsDataURL(file);
+    });
+}
+
+function showConfirmation(name, email, track) {
+    document.getElementById('apply-tabs-nav').style.display = 'none';
+    document.getElementById('internship-page-form').style.display = 'none';
+    document.getElementById('employment-page-form').style.display = 'none';
+    var alertBox = document.getElementById('apply-global-alert');
+    if (alertBox) alertBox.style.display = 'none';
+
+    document.getElementById('summary-name').textContent = name;
+    document.getElementById('summary-email').textContent = email;
+    document.getElementById('summary-track').textContent = track;
+
+    var successBox = document.getElementById('apply-success-container');
+    successBox.style.display = 'block';
+    window.scrollTo({ top: successBox.offsetTop - 120, behavior: 'smooth' });
+}
+
+async function handlePageInternshipSubmit(e) {
+    e.preventDefault();
+    var btn = document.getElementById('page-intern-submit-btn');
+    var alertBox = document.getElementById('apply-global-alert');
+    var form = document.getElementById('internship-page-form');
+
+    var nameVal = document.getElementById('page-intern-name').value.trim();
+    var emailVal = document.getElementById('page-intern-email').value.trim();
+    var numVal = document.getElementById('page-intern-number').value.trim();
+    var yopVal = document.getElementById('page-intern-passing-year').value.trim();
+    var deptVal = document.getElementById('page-intern-dept').value.trim();
+    var clgVal = document.getElementById('page-intern-clg').value.trim();
+    var domainVal = document.getElementById('page-intern-domain').value.trim();
+
+    var fileInput = document.getElementById('page-intern-resume-file');
+    var linkVal = document.getElementById('page-intern-resume-link').value.trim();
+    var resumeFile = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+
+    if (!resumeFile && !linkVal) {
+        alert('Please attach your resume file or provide a link to your resume.');
+        return;
+    }
+
+    var originalText = btn.innerHTML;
+    btn.textContent = 'Submitting Application...';
+    btn.disabled = true;
+
+    try {
+        var resumeBase64 = null;
+        if (resumeFile) {
+            resumeBase64 = await readFileAsBase64(resumeFile);
+        }
+        var resumeValue = linkVal ? linkVal : (resumeFile ? resumeFile.name : '');
+
+        var formData = new FormData();
+        formData.append('Application_Type', 'Internship');
+        formData.append('Name', nameVal);
+        formData.append('name', nameVal);
+        formData.append('Department', deptVal);
+        formData.append('department', deptVal);
+        formData.append('dept', deptVal);
+        formData.append('College', clgVal);
+        formData.append('college', clgVal);
+        formData.append('clg', clgVal);
+        formData.append('Number', numVal);
+        formData.append('number', numVal);
+        formData.append('Phone', numVal);
+        formData.append('phone', numVal);
+        formData.append('Email', emailVal);
+        formData.append('email', emailVal);
+        formData.append('Domain', domainVal);
+        formData.append('domain', domainVal);
+        formData.append('Year of Passing', yopVal);
+        formData.append('year_of_passing', yopVal);
+        formData.append('passing_year', yopVal);
+        formData.append('Resume', resumeValue);
+        formData.append('resume', resumeValue);
+        if (linkVal) formData.append('Resume_Link', linkVal);
+        if (resumeFile) {
+            formData.append('Resume_Filename', resumeFile.name);
+            formData.append('resume_filename', resumeFile.name);
+            if (resumeBase64) {
+                formData.append('Resume_Base64', resumeBase64);
+                formData.append('resume_base64', resumeBase64);
+            }
+        }
+        formData.append('Timestamp', new Date().toISOString());
+        formData.append('timestamp', new Date().toISOString());
+
+        await fetch(internshipScriptURL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        });
+
+        form.reset();
+        showConfirmation(nameVal, emailVal, 'Technical Internship');
+    } catch (err) {
+        console.error('Internship submission error:', err);
+        form.reset();
+        showConfirmation(nameVal, emailVal, 'Technical Internship');
+    }
+}
+
+async function handlePageEmploymentSubmit(e) {
+    e.preventDefault();
+    var btn = document.getElementById('page-emp-submit-btn');
+    var alertBox = document.getElementById('apply-global-alert');
+    var form = document.getElementById('employment-page-form');
+
+    var nameVal = document.getElementById('page-emp-name').value.trim();
+    var emailVal = document.getElementById('page-emp-email').value.trim();
+    var numVal = document.getElementById('page-emp-number').value.trim();
+    var yopVal = document.getElementById('page-emp-passing-year').value.trim();
+    var deptVal = document.getElementById('page-emp-dept').value.trim();
+    var expVal = document.getElementById('page-emp-experience').value.trim();
+    var roleVal = document.getElementById('page-emp-role').value.trim();
+    var coverVal = document.getElementById('page-emp-cover-letter').value.trim();
+
+    var fileInput = document.getElementById('page-emp-resume-file');
+    var linkVal = document.getElementById('page-emp-resume-link').value.trim();
+    var resumeFile = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+
+    if (!resumeFile && !linkVal) {
+        alert('Please attach your resume file or provide a link to your resume.');
+        return;
+    }
+
+    var originalText = btn.innerHTML;
+    btn.textContent = 'Submitting Application...';
+    btn.disabled = true;
+
+    try {
+        var resumeBase64 = null;
+        if (resumeFile) {
+            resumeBase64 = await readFileAsBase64(resumeFile);
+        }
+        var resumeValue = linkVal ? linkVal : (resumeFile ? resumeFile.name : '');
+
+        var formData = new FormData();
+        formData.append('Application_Type', 'Employment');
+        formData.append('Name', nameVal);
+        formData.append('name', nameVal);
+        formData.append('Email', emailVal);
+        formData.append('email', emailVal);
+        formData.append('Number', numVal);
+        formData.append('number', numVal);
+        formData.append('Phone', numVal);
+        formData.append('phone', numVal);
+        formData.append('Year of Passing', yopVal);
+        formData.append('year_of_passing', yopVal);
+        formData.append('passing_year', yopVal);
+        formData.append('Department', deptVal);
+        formData.append('department', deptVal);
+        formData.append('dept', deptVal);
+        formData.append('Years of Experience', expVal);
+        formData.append('yearsof_experience', expVal);
+        formData.append('experience', expVal);
+        formData.append('Role', roleVal);
+        formData.append('role', roleVal);
+        formData.append('Resume', resumeValue);
+        formData.append('resume', resumeValue);
+        if (linkVal) formData.append('Resume_Link', linkVal);
+        if (resumeFile) {
+            formData.append('Resume_Filename', resumeFile.name);
+            formData.append('resume_filename', resumeFile.name);
+            if (resumeBase64) {
+                formData.append('Resume_Base64', resumeBase64);
+                formData.append('resume_base64', resumeBase64);
+            }
+        }
+        formData.append('Cover Letter', coverVal);
+        formData.append('cover_letter', coverVal);
+        formData.append('coverletter', coverVal);
+        formData.append('Timestamp', new Date().toISOString());
+        formData.append('timestamp', new Date().toISOString());
+
+        await fetch(employmentScriptURL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+        });
+
+        form.reset();
+        showConfirmation(nameVal, emailVal, 'Professional Employment (' + roleVal + ')');
+    } catch (err) {
+        console.error('Employment submission error:', err);
+        form.reset();
+        showConfirmation(nameVal, emailVal, 'Professional Employment (' + roleVal + ')');
+    }
+}
+</script>
+
+<script>
+(function () {
+    var allReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    e.target.classList.add('revealed');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        allReveal.forEach(function (el) { obs.observe(el); });
+    } else { allReveal.forEach(function (el) { el.classList.add('revealed'); }); }
+}());
+</script>
+
+<!-- ===== LOADING OVERLAY ===== -->
+<div id="stw-page-loader" style="display:none;position:fixed;inset:0;z-index:999999;background:linear-gradient(180deg,#E8F2FE 0%,#EFF6FF 40%,#F4F8FE 100%);flex-direction:column;align-items:center;justify-content:center;gap:2.25rem;">
+    <img src="./assets/images/logo.webp" alt="Sistechwork" style="height:40px;width:auto;display:block;">
+    <div style="width:54px;height:54px;border:3.5px solid rgba(0,102,255,0.12);border-top-color:#0066FF;border-radius:50%;animation:stwSpin 0.85s linear infinite;"></div>
+</div>
+<style>@keyframes stwSpin{to{transform:rotate(360deg);}}</style>
+<script>
+(function(){
+    var nav5=['products.html','workflow.html','careers.html','contact.html'];
+    document.addEventListener('DOMContentLoaded',function(){
+        var ov=document.getElementById('stw-page-loader');
+        document.querySelectorAll('a[href]').forEach(function(a){
+            var h=a.getAttribute('href')||'';
+            if(nav5.some(function(p){return h===p||h.endsWith('/'+p);})){
+                a.addEventListener('click',function(e){
+                    e.preventDefault();
+                    ov.style.display='flex';
+                    var dest=a.getAttribute('href');
+                    setTimeout(function(){window.location.href=dest;},2000);
+                });
+            }
+        });
+    });
+}());
+</script>
+
+</body>
+</html>

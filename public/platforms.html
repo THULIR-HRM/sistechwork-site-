@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="./assets/images/favicon.webp?v=4">
+    <link rel="shortcut icon" href="./assets/images/favicon.webp?v=4">
+    <link rel="apple-touch-icon" href="./assets/images/favicon.webp?v=4">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platforms | SISTECHWORK - Flagship Enterprise Platforms</title>
+    <meta name="description" content="Discover Sistechwork's intelligent flagship platform ecosystem: Thulir HRM, TestOrbit, TrainHub, and Reply IQ. Built for enterprise security and automation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6.0">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+    <nav class="nav-container" id="nav-container" aria-label="Main Navigation">
+        <a href="./index.html" class="logo-link" aria-label="Sistechwork Home">
+            <img src="./assets/images/logo.webp" alt="Sistechwork">
+        </a>
+        <div class="primary-menu" role="navigation">
+            <ul class="nav-list">
+                <li><a href="products.html"    class="nav-link">Products</a></li>
+                <li><a href="engineering.html" class="nav-link">Engineering</a></li>
+                <li><a href="tech-stack.html"  class="nav-link">Tech Stack</a></li>
+                <li><a href="workflow.html"    class="nav-link">Workflow</a></li>
+                <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+                <li><a href="contact.html"     class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+        <div class="header-actions">
+            <a href="contact.html" class="btn btn-primary btn-sm" id="nav-cta">Get Started</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobile-menu" style="display:none;" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <ul>
+        <li><a href="products.html"    onclick="closeMobileMenu()">Products</a></li>
+        <li><a href="engineering.html" onclick="closeMobileMenu()">Engineering</a></li>
+        <li><a href="tech-stack.html"  onclick="closeMobileMenu()">Tech Stack</a></li>
+        <li><a href="workflow.html"    onclick="closeMobileMenu()">Workflow</a></li>
+        <li><a href="index.html#careers" onclick="closeMobileMenu()">Careers</a></li>
+        <li><a href="contact.html"     onclick="closeMobileMenu()">Contact</a></li>
+        <li><a href="contact.html" class="mobile-cta" onclick="closeMobileMenu()">Get Started</a></li>
+    </ul>
+</div>
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.style.display = 'none';
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    hamburger.addEventListener('click', () => {
+        const isOpen = hamburger.classList.toggle('open');
+        mobileMenu.style.display = isOpen ? 'flex' : 'none';
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) closeMobileMenu(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMobileMenu(); });
+</script>
+
+<main id="main-content">
+
+<section id="products" class="products-section section-pad" style="padding-top: calc(var(--nav-h) + 4rem); min-height: calc(100vh - 380px);">
+    <div class="container">
+        <div class="sec-header reveal">
+            <span class="sec-kicker">Platform Ecosystem</span>
+            <h2 class="sec-title">Our Flagship Platforms</h2>
+            <p class="sec-subtitle">Four intelligent platforms built for growth, enterprise security, and automated workflows.</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card reveal" id="product-thulir">
+                <div class="product-card-head">
+                    <div class="product-icon"><img src="./assets/images/icon_vhomifi.webp" alt="Thulir HRM"></div>
+                    <span class="product-badge">CRM + Workforce</span>
+                </div>
+                <div class="product-name">Thulir HRM</div>
+                <div class="product-tagline">Intelligent Workforce &amp; Lead Engine</div>
+                <p class="product-desc">Brings CRM lead prioritization, automated payroll, leave tracking, and team performance analytics into one high-performance command center.</p>
+                <div class="product-features">
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><span>Automated multi-currency payroll &amp; predictive retention analytics</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span>AI-powered lead scoring and deal velocity pipeline</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span><span>Enterprise role-based access control (RBAC) and audit logging</span></div>
+                </div>
+                <div class="product-card-footer">
+                    <a href="thulir.html" class="btn btn-primary btn-sm" id="thulir-demo">Explore Live Demo &#8594;</a>
+                    <a href="products.html#thulirhrm" class="btn btn-secondary btn-sm">Full Specs</a>
+                </div>
+            </div>
+            <div class="product-card reveal delay-1" id="product-testorbit">
+                <div class="product-card-head">
+                    <div class="product-icon"><img src="./assets/images/icon_testorbit.webp" alt="TestOrbit"></div>
+                    <span class="product-badge">Assessment Engine</span>
+                </div>
+                <div class="product-name">TestOrbit</div>
+                <div class="product-tagline">Secure, Scalable Examination Portal</div>
+                <p class="product-desc">High-concurrency digital assessment fortress built for universities, certification bodies, and enterprise recruiting with AI anti-cheat proctoring.</p>
+                <div class="product-features">
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span><span>AI eye-tracking, screen lock, and real-time proctor flags</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span>Instant automated grading with detailed score breakdowns</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></span><span>10,000+ simultaneous test-takers with zero latency</span></div>
+                </div>
+                <div class="product-card-footer">
+                    <a href="testorbit.html" class="btn btn-primary btn-sm" id="testorbit-demo">Explore Live Demo &#8594;</a>
+                    <a href="products.html#testorbit" class="btn btn-secondary btn-sm">Full Specs</a>
+                </div>
+            </div>
+            <div class="product-card reveal" id="product-trainhub">
+                <div class="product-card-head">
+                    <div class="product-icon"><img src="./assets/images/icon_trainhub.webp" alt="TrainHub"></div>
+                    <span class="product-badge">Academic Management</span>
+                </div>
+                <div class="product-name">TrainHub</div>
+                <div class="product-tagline">The Pulse of Academic Success</div>
+                <p class="product-desc">A student-centric academic system managing attendance, grades, faculty workflows, and parent notification broadcasts in real time.</p>
+                <div class="product-features">
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></span><span>Automated real-time attendance alerts to guardians</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></span><span>Visual teacher dashboards &amp; curriculum milestone tracking</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></span><span>End-to-end student transcript and achievement tracking</span></div>
+                </div>
+                <div class="product-card-footer">
+                    <a href="trainhub.html" class="btn btn-primary btn-sm" id="trainhub-demo">Explore Live Demo &#8594;</a>
+                    <a href="products.html#trainhub" class="btn btn-secondary btn-sm">Full Specs</a>
+                </div>
+            </div>
+            <div class="product-card reveal delay-1" id="product-replyiq">
+                <div class="product-card-head">
+                    <div class="product-icon"><img src="./assets/images/icon_replyiq.webp" alt="Reply IQ"></div>
+                    <span class="product-badge">AI Mail Assistant</span>
+                </div>
+                <div class="product-name">Reply IQ</div>
+                <div class="product-tagline">AI-Powered Inbox Intelligence</div>
+                <p class="product-desc">Transforms inboxes into automated action hubs. Generates contextually accurate summaries, drafts replies, and auto-routes incoming customer requests.</p>
+                <div class="product-features">
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></span><span>Context-aware smart replies powered by HuggingFace &amp; Gemini</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span><span>Smart triage categories: Draft Ready, Action Required, FYI</span></div>
+                    <div class="product-feat"><span class="product-feat-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0066FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><span>AES-256 encrypted credential vault with multi-model fallback</span></div>
+                </div>
+                <div class="product-card-footer">
+                    <a href="replyiq.html" class="btn btn-primary btn-sm" id="replyiq-demo">Explore Live Demo &#8594;</a>
+                    <a href="products.html#replyiq" class="btn btn-secondary btn-sm">Full Specs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="./assets/images/logo_white.webp" alt="Sistechwork" class="footer-logo">
+                <p class="footer-brand-desc">Precision software engineering and enterprise platforms built for the modern digital economy.</p>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Platforms</div>
+                <ul>
+                    <li><a href="thulir.html">Thulir HRM</a></li>
+                    <li><a href="testorbit.html">TestOrbit</a></li>
+                    <li><a href="trainhub.html">TrainHub</a></li>
+                    <li><a href="replyiq.html">Reply IQ</a></li>
+                    <li><a href="products.html">Products Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Engineering</div>
+                <ul>
+                    <li><a href="engineering.html">Custom Web Systems</a></li>
+                    <li><a href="engineering.html">Mobile Applications</a></li>
+                    <li><a href="engineering.html">Cloud &amp; DevOps</a></li>
+                    <li><a href="engineering.html">AI Chatbots &amp; RAG</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Company</div>
+                <ul>
+                    <li><a href="index.html#problem-solution">Why Sistechwork</a></li>
+                    <li><a href="workflow.html">Our Workflow</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <div class="footer-col-title">Connect</div>
+                <ul>
+                    <li><a href="contact.html">LinkedIn</a></li>
+                    <li><a href="contact.html">GitHub</a></li>
+                    <li><a href="contact.html">Twitter</a></li>
+                    <li><a href="contact.html">Status: Operational</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sistechwork Private Limited. All Rights Reserved.</p>
+            <p>Engineered with Precision &amp; Passion.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+(function () {
+    window.scrollTo(0, 0);
+
+    window.addEventListener('scroll', function () {
+        var st = document.documentElement.scrollTop || document.body.scrollTop;
+        var sh = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        if (sh > 0) { document.body.style.setProperty('--scroll-progress', (st / sh * 100) + '%'); }
+        var nav = document.getElementById('nav-container');
+        if (nav) { nav.classList.toggle('scrolled', st > 40); }
+    }, { passive: true });
+
+    var allReveal = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) { entry.target.classList.add('revealed'); obs.unobserve(entry.target); }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+        allReveal.forEach(function (el) { obs.observe(el); });
+    } else { allReveal.forEach(function (el) { el.classList.add('revealed'); }); }
+}());
+</script>
+
+<!-- ===== LOADING OVERLAY ===== -->
+<div id="stw-page-loader" style="display:none;position:fixed;inset:0;z-index:999999;background:linear-gradient(180deg,#E8F2FE 0%,#EFF6FF 40%,#F4F8FE 100%);flex-direction:column;align-items:center;justify-content:center;gap:2.25rem;">
+    <img src="./assets/images/logo.webp" alt="Sistechwork" style="height:40px;width:auto;display:block;">
+    <div style="width:54px;height:54px;border:3.5px solid rgba(0,102,255,0.12);border-top-color:#0066FF;border-radius:50%;animation:stwSpin 0.85s linear infinite;"></div>
+</div>
+<style>@keyframes stwSpin{to{transform:rotate(360deg);}}</style>
+<script>
+(function(){
+    var nav5=['products.html','engineering.html','tech-stack.html','workflow.html','contact.html'];
+    document.addEventListener('DOMContentLoaded',function(){
+        var ov=document.getElementById('stw-page-loader');
+        document.querySelectorAll('a[href]').forEach(function(a){
+            var h=a.getAttribute('href')||'';
+            if(nav5.some(function(p){return h===p||h.endsWith('/'+p);})){
+                a.addEventListener('click',function(e){
+                    e.preventDefault();
+                    ov.style.display='flex';
+                    var dest=a.getAttribute('href');
+                    setTimeout(function(){window.location.href=dest;},2000);
+                });
+            }
+        });
+    });
+}());
+</script>
+
+</body>
+</html>
